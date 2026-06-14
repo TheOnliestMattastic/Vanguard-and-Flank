@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://bcw8ntha304sk"]
+
+[ext_resource type="Texture2D" uid="uid://devjttpfpy4ef" path="res://assets/Character/CamouflageGreen/Faceset.png" id="1_5fw77"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="1_pqt8f"]
+[ext_resource type="Texture2D" uid="uid://c3ikqfirxcwbl" path="res://assets/Character/CamouflageGreen/SpriteSheet.png" id="3_gefra"]
+
+[resource]
+script = ExtResource("1_pqt8f")
+name = "Camouflage Green"
+spritesheet = ExtResource("3_gefra")
+faceset = ExtResource("1_5fw77")
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

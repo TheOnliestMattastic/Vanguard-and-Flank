@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c7sigd3hg27xu"]
+
+[ext_resource type="Texture2D" uid="uid://br0cd8yw8txyf" path="res://assets/ui/Purple/button_9slice_up.png" id="1_mi6dp"]
+[ext_resource type="Texture2D" uid="uid://xirwwhdrfsso" path="res://assets/ui/Purple/button_9slice_down.png" id="2_rhj8v"]
+[ext_resource type="Script" uid="uid://cix1afqv3gjid" path="res://scripts/ent_button.gd" id="3_3q610"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhj8v"]
+texture = ExtResource("1_mi6dp")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.85430586, 0.85430586, 0.85430586, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q610"]
+texture = ExtResource("2_rhj8v")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7y4x"]
+texture = ExtResource("1_mi6dp")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[node name="Button" type="Button" unique_id=821943797]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_rhj8v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3q610")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i7y4x")
+script = ExtResource("3_3q610")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

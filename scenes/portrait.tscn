@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dj5n66q8cooig"]
+
+[ext_resource type="Texture2D" uid="uid://ccjk7ekitegto" path="res://assets/Character/Boy/Faceset.png" id="1_k07cr"]
+
+[node name="Portrait" type="TextureRect" unique_id=1139858912]
+custom_minimum_size = Vector2(114, 114)
+texture = ExtResource("1_k07cr")
+expand_mode = 5
+stretch_mode = 5

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dlhk7wdfq2iam"]
+
+[ext_resource type="Texture2D" uid="uid://doytgqg0c5yd0" path="res://assets/Character/FighterWhite/Faceset.png" id="1_enaem"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="1_yanak"]
+[ext_resource type="Texture2D" uid="uid://c6773832oxcly" path="res://assets/Character/FighterWhite/SpriteSheet.png" id="3_8ltln"]
+
+[resource]
+script = ExtResource("1_yanak")
+name = "Fighter White"
+spritesheet = ExtResource("3_8ltln")
+faceset = ExtResource("1_enaem")
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

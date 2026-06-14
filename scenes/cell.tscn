@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d03qfaa3kgoxx"]
+
+[ext_resource type="Script" uid="uid://ciydc5jpt3bej" path="res://scripts/ent_Cell.gd" id="1_0s7o3"]
+[ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="2_0s7o3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7o3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s7o3"]
+bg_color = Color(0.85430586, 0.85430586, 0.85430586, 0.2)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ds1sf"]
+bg_color = Color(1, 1, 1, 0.2)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm02e"]
+atlas = ExtResource("2_0s7o3")
+region = Rect2(0, 224, 32, 32)
+
+[node name="Cell" type="Button" unique_id=1838274227]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0s7o3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0s7o3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ds1sf")
+script = ExtResource("1_0s7o3")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=734488393]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("AtlasTexture_nm02e")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
