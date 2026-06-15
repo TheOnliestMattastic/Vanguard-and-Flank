@@ -46,7 +46,6 @@ func _on_cell_pressed(target_coords: Vector2i):
 			ui.log_to_banner("No action selected.")
 		
 		State.MOVE: 
-			Grid.toggle_obstacle(pos, false)
 			var path = Grid.find_path(pos, target_coords)
 			var rate = int(active_actor.data.spd * SPD_MOD)
 			var limit = rate * Manifest.combatants[active_actor]["AP"]
@@ -54,7 +53,11 @@ func _on_cell_pressed(target_coords: Vector2i):
 			
 			# exit if not within range
 			if dist > limit: 
-				ui.log_to_banner("Not within range...")
+				ui.log_to_banner("Not fast enough for that...")
+				return
+			
+			if Manifest.gridmap[target_coords].occupant: 
+				ui.log_to_banner("Will not invade another's space...")
 				return
 			
 			# exit if not enough ap
@@ -65,17 +68,17 @@ func _on_cell_pressed(target_coords: Vector2i):
 			
 			# spend ap and move actor
 			CombatManager.spend_ap(active_actor, cost)
-			grid.move_actor(active_actor, target_coords) 
+			grid.move_actor(active_actor, target_coords, path) 
 			toggle_state(State.IDLE)
 		
 		State.ATTACK:
 			var target = Manifest.gridmap.get(target_coords).occupant
 			if not target: 
-				ui.log_to_banner("No valid target.")
+				ui.log_to_banner("Not a valid target...")
 				return 
 			
 			if not CombatManager.has_ap(active_actor):
-				ui.log_to_banner("Not enough AP.")
+				ui.log_to_banner("Not enough AP...")
 				return
 			
 			var results = CombatManager.roll_for_attack(active_actor, target)
@@ -84,7 +87,7 @@ func _on_cell_pressed(target_coords: Vector2i):
 			ui.log_hit_results(results)
 			toggle_state(State.IDLE)
 		
-		_: ui.log_to_banner("[I AM ERROR]: Input configuration not set!")
+		_: ui.log_to_banner("[I AM ERROR] Input configuration not yet configured!")
 
 func  _on_button_pressed(btn_name: String):
 	match btn_name:
@@ -140,6 +143,7 @@ func _on_actor_defeated(actor: Actor) -> void:
 	if team - 1 == 0: Event.game_over.emit(alignment)
 
 func end_turn() -> void:
+	Manifest.queue[0].active = false
 	Manifest.queue.pop_front()
 	if Manifest.queue.size() == 0:
 		var combatants = get_combatants()
@@ -154,6 +158,7 @@ func delay_turn() -> void:
 		ui.log_to_banner("Turn already delayed this round.")
 	else:
 		Manifest.queue[0].delayed = true
+		Manifest.queue[0].active = false
 		Manifest.queue.push_back(Manifest.queue.pop_front())
 		ui.display_queue(Manifest.queue)
 		toggle_state(State.IDLE)

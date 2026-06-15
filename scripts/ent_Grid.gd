@@ -87,17 +87,21 @@ static func get_cells_in_range(actor: Actor, astar: AStarGrid2D) -> Array:
 	return cells
 
 static func find_path(start: Vector2, end: Vector2) -> Array:
-	return Manifest.astar.get_id_path(start, end)
+	toggle_obstacle(start, false)
+	var path = Manifest.astar.get_id_path(start, end)
+	toggle_obstacle(start, true)
+	return path
 
-func move_actor(mover: Actor, target_pos: Vector2i) -> void:
+func move_actor(mover: Actor, target_pos: Vector2i, path: Array) -> void:
 	var start_pos = Vector2i(mover.position / Manifest.CELL_SIZE)
-	var path = find_path(start_pos, target_pos)
 	
+	toggle_obstacle(start_pos, false)
 	for cell in path:
 		var target = Vector2(cell) * Manifest.CELL_SIZE
 		var tween = create_tween()
 		tween.tween_property(mover, "position", target, 0.2)
 		await tween.finished
 	
+	toggle_obstacle(target_pos, true)
 	Manifest.gridmap.get(target_pos).occupant = mover
 	Manifest.gridmap.get(start_pos).occupant = null
