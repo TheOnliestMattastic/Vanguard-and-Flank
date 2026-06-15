@@ -3,6 +3,7 @@ class_name Grid
 
 @export var tilesheet: Texture2D
 @export var cell_scene: PackedScene
+@onready var ui: UI = %UI
 
 func _ready() -> void:
 	var cells = self.get_children()
@@ -26,18 +27,14 @@ func randomize_tile(tile):
 	if tile.has_method("set_tile"):
 		tile.set_tile(tilesheet, tile_size, random_tile_coords)
 
-static func toggle_obstacle(coords: Vector2, is_solid: bool) -> void:
+static func toggle_obstacle(coords: Vector2i, is_solid: bool) -> void:
 	Manifest.astar.set_point_solid(coords, is_solid)
 
-static func find_path(start: Vector2, end: Vector2) -> Array:
-	return Manifest.astar.get_id_path(start, end)
-
-# Clear highlights
+# === Highlighting ===
 static func clear_highlights() -> void:
 	for cell in Manifest.gridmap:
 		Manifest.gridmap[cell].modulate = Color(1, 1, 1, 1)
 
-# Movement range
 static func highlight_cells(cells: Array, color: String = "green") -> void:
 	var shade: Color
 	match color:
@@ -47,6 +44,16 @@ static func highlight_cells(cells: Array, color: String = "green") -> void:
 	for cell in cells:
 		Manifest.gridmap[cell].modulate = shade
 
+static func highlight_range(actor: Actor, color: String = "green") -> void:
+	match color:
+		"green":
+			var in_range: Array = get_cells_in_range(actor, Manifest.astar)
+			highlight_cells(in_range, color)
+		"red":
+			var targets: Array = get_targets_in_range(actor, 7, Manifest.astar)
+			highlight_cells(targets, color)
+
+# === Grabbing cells ===
 static func get_targets_in_range(actor: Actor, limit: int, astar: AStarGrid2D, is_friendly: bool = false) -> Array:
 	var origin = actor.position / Manifest.CELL_SIZE
 	var targets: Array[Vector2i] = []
@@ -56,7 +63,7 @@ static func get_targets_in_range(actor: Actor, limit: int, astar: AStarGrid2D, i
 		for y in range(-limit, limit + 1):
 			var distance = abs(x) + abs(y)
 			if distance == 0 or distance > limit: continue
-			var target_pos = origin + Vector2i(x, y)
+			var target_pos: Vector2i = origin + Vector2(x, y)
 			if not astar.is_in_bounds(target_pos.x, target_pos.y): continue
 			if not astar.is_point_solid(target_pos): continue
 			var target = Manifest.gridmap.get(target_pos).occupant
@@ -78,3 +85,19 @@ static func get_cells_in_range(actor: Actor, astar: AStarGrid2D) -> Array:
 			if path.size() > 0 and path.size() - 1 <= in_range and not astar.is_point_solid(cell): cells.append(cell)
 	astar.set_point_solid(start_pos, true) # reset starting cell as unwalkable
 	return cells
+
+static func find_path(start: Vector2, end: Vector2) -> Array:
+	return Manifest.astar.get_id_path(start, end)
+
+func move_actor(mover: Actor, target_pos: Vector2i) -> void:
+	var start_pos = Vector2i(mover.position / Manifest.CELL_SIZE)
+	var path = find_path(start_pos, target_pos)
+	
+	for cell in path:
+		var target = Vector2(cell) * Manifest.CELL_SIZE
+		var tween = create_tween()
+		tween.tween_property(mover, "position", target, 0.2)
+		await tween.finished
+	
+	Manifest.gridmap.get(target_pos).occupant = mover
+	Manifest.gridmap.get(start_pos).occupant = null

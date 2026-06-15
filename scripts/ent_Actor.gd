@@ -14,7 +14,7 @@ func _ready() -> void:
 	if data.name: self.name = data.name
 
 func _process(delta: float) -> void:
-	if target: anim.play("walk_down")
+	if target or active: anim.play("walk_down")
 	else: anim.play("idle_down")
 
 func _on_mouse_entered() -> void:

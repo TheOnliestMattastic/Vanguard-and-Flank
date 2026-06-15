@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://e7maq3afvwju" path="res://assets/Character/Boy/SpriteSheet.png" id="1_x4c43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qi0m"]
-size = Vector2(15, 15)
+size = Vector2(56, 56)
 
 [sub_resource type="Animation" id="Animation_w6j74"]
 length = 0.001
@@ -159,14 +159,15 @@ z_index = 5
 script = ExtResource("1_0qi0m")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1078889188]
-position = Vector2(8, 8)
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
 texture = ExtResource("1_x4c43")
 hframes = 4
 vframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595606275]
 show_behind_parent = true
-position = Vector2(8.5, 8.5)
+position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_0qi0m")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=82065832]

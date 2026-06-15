@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgvptc5mh3dma" path="res://resources/res_textbox.tres" id="1_5dhe3"]
 [ext_resource type="Script" uid="uid://qtrhvxmqt230" path="res://scripts/sys_GameMaster.gd" id="1_mr75u"]
 [ext_resource type="PackedScene" uid="uid://d03qfaa3kgoxx" path="res://scenes/cell.tscn" id="2_g0w00"]
+[ext_resource type="Script" uid="uid://bmq4ge2wigg22" path="res://scripts/sys_UI.gd" id="2_j0lup"]
 [ext_resource type="Script" uid="uid://8j4oyr7evetl" path="res://scripts/ent_Grid.gd" id="3_hital"]
 [ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/res_font.tres" id="3_iwa7m"]
 [ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/utl_scrollbox.gd" id="4_iwa7m"]
@@ -17,6 +18,7 @@
 [ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="11_8vwns"]
 [ext_resource type="Texture2D" uid="uid://bwhcvbpbxpddj" path="res://assets/ui/Dice (546)/D20/d20_purple_20.png" id="12_5457u"]
 [ext_resource type="Resource" uid="uid://beqcmshwpp71w" path="res://resources/actor_Hunter.tres" id="12_u6ovk"]
+[ext_resource type="Script" uid="uid://dgck5cdoe7mp2" path="res://scripts/sys_CombatManager.gd" id="14_nfpb1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0lup"]
 texture = ExtResource("12_5457u")
@@ -45,6 +47,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
+script = ExtResource("2_j0lup")
 metadata/_edit_lock_ = true
 
 [node name="HUD" type="MarginContainer" parent="UI" unique_id=1480442842]
@@ -104,22 +107,22 @@ size_flags_vertical = 3
 vertical_scroll_mode = 3
 script = ExtResource("4_iwa7m")
 
-[node name="Queue" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2078126097]
+[node name="QueueDisplay" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2078126097]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="Portrait" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/Queue" unique_id=1139858912 instance=ExtResource("5_vv1xo")]
+[node name="Portrait" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1139858912 instance=ExtResource("5_vv1xo")]
 layout_mode = 2
 
-[node name="Portrait2" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/Queue" unique_id=1393019887 instance=ExtResource("5_vv1xo")]
+[node name="Portrait2" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1393019887 instance=ExtResource("5_vv1xo")]
 layout_mode = 2
 
-[node name="Portrait3" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/Queue" unique_id=1052583979 instance=ExtResource("5_vv1xo")]
+[node name="Portrait3" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1052583979 instance=ExtResource("5_vv1xo")]
 layout_mode = 2
 
-[node name="Portrait4" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/Queue" unique_id=1642538684 instance=ExtResource("5_vv1xo")]
+[node name="Portrait4" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1642538684 instance=ExtResource("5_vv1xo")]
 layout_mode = 2
 
 [node name="middlePanel" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection" unique_id=49312008]
@@ -148,7 +151,6 @@ offset_bottom = 56.0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-text = "Contextual information; used for, well, contextual things."
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -424,7 +426,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Portrait" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1354569600 instance=ExtResource("5_vv1xo")]
+[node name="activePortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1947193516]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Portrait" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activePortrait" unique_id=1354569600 instance=ExtResource("5_vv1xo")]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -508,7 +514,6 @@ size_flags_vertical = 0
 [node name="chanceLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=478189682]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "<chance>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -516,7 +521,6 @@ vertical_alignment = 1
 [node name="modifierLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=918148387]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "<modifier>"
 label_settings = ExtResource("3_iwa7m")
 vertical_alignment = 1
 
@@ -531,7 +535,6 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_nfpb1")
 
 [node name="Label" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1238045785]
 layout_mode = 2
-text = "<successfull result range>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -544,7 +547,6 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "<name>"
 label_settings = ExtResource("9_u6ovk")
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -561,66 +563,62 @@ alignment = 1
 
 [node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=605729976]
 layout_mode = 2
-text = "<hp>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=653033952]
 layout_mode = 2
-text = "<ap>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=2016660454]
 layout_mode = 2
-text = "<pwr>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=171487284]
 layout_mode = 2
-text = "<dex>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=1489998966]
 layout_mode = 2
-text = "<spd>"
 label_settings = ExtResource("3_iwa7m")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Portrait" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=14254112 instance=ExtResource("5_vv1xo")]
+[node name="targetPortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=581459546]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Actors" type="Node2D" parent="." unique_id=1351903536]
 unique_name_in_owner = true
+position = Vector2(192, 84)
+script = ExtResource("14_nfpb1")
+metadata/_edit_lock_ = true
 
 [node name="Vanguard" type="Node2D" parent="Actors" unique_id=1733799906]
+unique_name_in_owner = true
 
 [node name="Gladiator Blue" parent="Actors/Vanguard" unique_id=2085553724 instance=ExtResource("8_jomnw")]
-position = Vector2(384, 148)
-scale = Vector2(4, 4)
+position = Vector2(128, 64)
 data = ExtResource("9_g3nbp")
 
-[node name="Fighter White" parent="Actors/Vanguard" unique_id=590121856 instance=ExtResource("8_jomnw")]
-position = Vector2(384, 276)
-scale = Vector2(4, 4)
+[node name="Fighter White" parent="Actors/Vanguard" unique_id=1845179385 instance=ExtResource("8_jomnw")]
+position = Vector2(128, 192)
 data = ExtResource("10_vv1xo")
 
 [node name="Flank" type="Node2D" parent="Actors" unique_id=2046774907]
+unique_name_in_owner = true
 
-[node name="Camouflage Green" parent="Actors/Flank" unique_id=643603933 instance=ExtResource("8_jomnw")]
-position = Vector2(640, 212)
-scale = Vector2(4, 4)
+[node name="Camouflage Green" parent="Actors/Flank" unique_id=1761407237 instance=ExtResource("8_jomnw")]
+position = Vector2(512, 64)
 data = ExtResource("9_r5q3x")
 
-[node name="Hunter" parent="Actors/Flank" unique_id=1427229404 instance=ExtResource("8_jomnw")]
-position = Vector2(704, 276)
-scale = Vector2(4, 4)
+[node name="Hunter" parent="Actors/Flank" unique_id=1539378818 instance=ExtResource("8_jomnw")]
+position = Vector2(576, 128)
 data = ExtResource("12_u6ovk")

@@ -9,4 +9,5 @@ script = ExtResource("1_n1gii")
 name = "Hunter"
 spritesheet = ExtResource("3_6bixw")
 faceset = ExtResource("1_lapk7")
+alignment = "Flank"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

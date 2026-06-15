@@ -9,4 +9,5 @@ script = ExtResource("1_o34rg")
 name = "Gladiator Blue"
 spritesheet = ExtResource("3_xwcqb")
 faceset = ExtResource("1_3ratu")
+alignment = "Vanguard"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

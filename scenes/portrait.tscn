@@ -5,5 +5,3 @@
 [node name="Portrait" type="TextureRect" unique_id=1139858912]
 custom_minimum_size = Vector2(114, 114)
 texture = ExtResource("1_k07cr")
-expand_mode = 5
-stretch_mode = 5
