@@ -39,12 +39,13 @@ func _process(delta: float) -> void:
 
 func  _on_button_pressed(btn_name: String):
 	match btn_name:
-		"moveButton": toggle_state(State.MOVE)
-		"attackButton": toggle_state(State.ATTACK)
-		"abilitiesButton": toggle_state(State.ABILITY)
-		"delayButton": delay_turn()
-		"endButton": end_turn()
-		_: toggle_state(GameMaster.State.IDLE)
+		"Move": toggle_state(State.MOVE)
+		"Attack": toggle_state(State.ATTACK)
+		"Abilities": toggle_state(State.ABILITY)
+		"Delay": delay_turn()
+		"End": end_turn()
+		"Main Menu": print("[I AM ERROR] Button not yet configured.")
+		"Reset": print("[I AM ERROR] Button not yet configured.")
 
 func _on_cell_pressed(coords: Vector2i):
 	var active_actor = Manifest.queue[0]

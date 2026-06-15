@@ -479,31 +479,31 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="moveButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=821943797 instance=ExtResource("12_v2yb1")]
+[node name="Move" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=821943797 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Move"
 
-[node name="attackButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1011096639 instance=ExtResource("12_v2yb1")]
+[node name="Attack" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1011096639 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Attack"
 
-[node name="abilitiesButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=879182414 instance=ExtResource("12_v2yb1")]
+[node name="Abilities" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=879182414 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Abilities"
 
-[node name="delayButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1954658905 instance=ExtResource("12_v2yb1")]
+[node name="Delay" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1954658905 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Delay"
 
-[node name="endButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1658786374 instance=ExtResource("12_v2yb1")]
+[node name="End" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1658786374 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("13_js0lu")

@@ -9,6 +9,26 @@
 [node name="Popup" type="Control" unique_id=398292309]
 z_index = 10
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=824690681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=922216548]
+custom_minimum_size = Vector2(576, 324)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -18,16 +38,6 @@ offset_left = -288.0
 offset_top = -162.0
 offset_right = 288.0
 offset_bottom = 162.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=922216548]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_4ebxx")
@@ -49,7 +59,7 @@ alignment = 1
 
 [node name="Title" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1375376702]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 10
 text = "Game Over"
 label_settings = ExtResource("2_ofmyw")
 horizontal_alignment = 1
@@ -65,9 +75,9 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1382167356]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 2
 
-[node name="leftButton" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("4_hjcnf")]
+[node name="Main Menu" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("4_hjcnf")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -75,7 +85,7 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_ap2cg")
 text = "Main Menu"
 
-[node name="rightButton" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
+[node name="Reset" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 6
