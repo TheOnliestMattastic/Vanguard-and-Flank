@@ -2,6 +2,7 @@ extends Control
 class_name UI
 
 @onready var portrait_scene = preload("uid://dj5n66q8cooig")
+@onready var popup_scene = preload("uid://cec33augca57c")
 
 # === HUD nodes ===
 @onready var queue_display: VBoxContainer = %QueueDisplay
@@ -83,4 +84,11 @@ func _on_game_over(loser: String) -> void:
 	var winner
 	if loser == "Vanguard": winner = "Flank"
 	else: winner = "Vanguard"
-	print(winner + " won!")
+	
+	var popup = popup_scene.instantiate()
+	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/Title").text = "Game Over"
+	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/Body").text = winner + " won!"
+	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/leftButton").text = "Main Menu"
+	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/rightButton").text = "Reset"
+	
+	add_child(popup)
