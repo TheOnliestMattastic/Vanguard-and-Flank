@@ -14,7 +14,7 @@ func _ready() -> void:
 		# calculate cell coords and add them to the dictionary
 		var x = i % int(Manifest.GRID_SIZE.x)
 		var y = i / Manifest.GRID_SIZE.x
-		var coords = Vector2i(x,y)
+		var coords = Vector2i(x, y)
 		Manifest.gridmap[coords] = cell
 
 func randomize_tile(tile):
@@ -74,7 +74,7 @@ static func get_targets_in_range(actor: Actor, limit: int, astar: AStarGrid2D, i
 
 static func get_cells_in_range(actor: Actor, astar: AStarGrid2D) -> Array:
 	var start_pos = actor.position / Manifest.CELL_SIZE
-	var in_range = actor.data.spd
+	var in_range = int(actor.data.spd / 2) * Manifest.combatants[actor]["AP"]
 	var cells = []
 	
 	astar.set_point_solid(start_pos, false)

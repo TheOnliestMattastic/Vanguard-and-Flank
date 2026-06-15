@@ -5,7 +5,8 @@ class_name GameMaster
 @onready var flank: Node2D = %Flank
 @onready var ui: UI = %UI
 @onready var grid: Grid = %Grid
-@onready var combat_manager: CombatManager = %Actors
+
+const SPD_MOD = 0.5
 
 enum State {
 	IDLE,
@@ -18,6 +19,7 @@ var current_state: State
 func _ready() -> void:
 	Event.cell_pressed.connect(_on_cell_pressed)
 	Event.button_pressed.connect(_on_button_pressed)
+	Event.actor_defeated.connect(_on_actor_defeated)
 	
 	var combatants = get_combatants()
 	Manifest.queue.append_array(combatants)
@@ -46,10 +48,23 @@ func _on_cell_pressed(target_coords: Vector2i):
 		State.MOVE: 
 			Grid.toggle_obstacle(pos, false)
 			var path = Grid.find_path(pos, target_coords)
-			var limit = active_actor.data.spd
-			if (path.size() - 1) > limit: 
+			var rate = int(active_actor.data.spd * SPD_MOD)
+			var limit = rate * Manifest.combatants[active_actor]["AP"]
+			var dist = (path.size() - 1)
+			
+			# exit if not within range
+			if dist > limit: 
 				ui.log_to_banner("Not within range...")
 				return
+			
+			# exit if not enough ap
+			var cost = dist / rate 
+			if not CombatManager.has_ap(active_actor, cost):
+				ui.log_to_banner("Not enough AP...")
+				return
+			
+			# spend ap and move actor
+			CombatManager.spend_ap(active_actor, cost)
 			grid.move_actor(active_actor, target_coords) 
 			toggle_state(State.IDLE)
 		
@@ -65,7 +80,7 @@ func _on_cell_pressed(target_coords: Vector2i):
 			
 			var results = CombatManager.roll_for_attack(active_actor, target)
 			CombatManager.spend_ap(active_actor)
-			combat_manager.apply_damage(target)
+			CombatManager.apply_damage(target)
 			ui.log_hit_results(results)
 			toggle_state(State.IDLE)
 		
@@ -75,6 +90,8 @@ func  _on_button_pressed(btn_name: String):
 	match btn_name:
 		"moveButton": toggle_state(GameMaster.State.MOVE)
 		"attackButton": toggle_state(GameMaster.State.ATTACK)
+		"delayButton": delay_turn()
+		"endButton": end_turn()
 		_: toggle_state(GameMaster.State.IDLE)
 
 func toggle_state(target_state: State) -> void:
@@ -86,7 +103,7 @@ func toggle_state(target_state: State) -> void:
 	match current_state:
 		State.IDLE:
 			Grid.clear_highlights()
-			ui.log_to_banner(active_actor.name + "'s turn.")
+			ui.log_to_banner(active_actor.name + "'s turn...")
 		
 		State.MOVE:
 			Grid.clear_highlights()
@@ -106,7 +123,7 @@ func get_combatants() -> Array:
 	combatants.append_array(f)
 	return combatants
 
-func actor_defeated(actor: Actor) -> void:
+func _on_actor_defeated(actor: Actor) -> void:
 	var coords := Vector2i(actor.position / Manifest.CELL_SIZE)
 	var alignment := actor.data.alignment
 	Manifest.remove_from_queue(actor)
@@ -116,11 +133,27 @@ func actor_defeated(actor: Actor) -> void:
 	
 	# check for win condition
 	# checking w/-1 because actor is queued for deletion but not yet deleted
-	var team = combat_manager.get_node(alignment).get_child_count()
-	if team - 1 == 0: game_over(alignment) 
+	var team
+	match alignment:
+		vanguard.name: team = vanguard.get_child_count()
+		flank.name: team = flank.get_child_count()
+	if team - 1 == 0: Event.game_over.emit(alignment)
 
-func game_over(loser: String) -> void:
-	var winner
-	if loser == "Vanguard": winner = "Flank"
-	else: winner = "Vanguard"
-	ui.display_game_over(winner)
+func end_turn() -> void:
+	Manifest.queue.pop_front()
+	if Manifest.queue.size() == 0:
+		var combatants = get_combatants()
+		Manifest.queue.append_array(combatants)
+		CombatManager.roll_for_init(Manifest.queue)
+		ui.log_init()
+	ui.display_queue(Manifest.queue)
+	toggle_state(State.IDLE)
+
+func delay_turn() -> void:
+	if Manifest.queue[0].delayed: 
+		ui.log_to_banner("Turn already delayed this round.")
+	else:
+		Manifest.queue[0].delayed = true
+		Manifest.queue.push_back(Manifest.queue.pop_front())
+		ui.display_queue(Manifest.queue)
+		toggle_state(State.IDLE)

@@ -1,13 +1,13 @@
 extends Node2D
 class_name CombatManager
 
-@onready var game_master: GameMaster = $".."
 const EVASION: int = 10
 
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
 		Manifest.combatants[actor]["init"] = Dice.roll_d20() + actor.data.spd
 		Manifest.combatants[actor]["AP"] = min((Manifest.combatants[actor]["AP"] + 3), 5)
+		actor.delayed = false
 	queue.sort_custom(func(a, b): return Manifest.combatants[a]["init"] > Manifest.combatants[b]["init"])
 
 static func has_ap(actor: Actor, ammount: int = 1) -> bool:
@@ -32,8 +32,8 @@ static func roll_for_attack(attacker: Actor, defender: Actor) -> Dictionary:
 	
 	return results
 
-func apply_damage(actor: Actor, ammount: int = 1) -> void:
+static func apply_damage(actor: Actor, ammount: int = 1) -> void:
 	var hp = Manifest.combatants[actor]["HP"]
 	var result = hp - ammount
 	if result > 0: Manifest.combatants[actor]["HP"] = result
-	else: game_master.actor_defeated(actor)
+	else: Event.actor_defeated.emit(actor)

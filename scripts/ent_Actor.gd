@@ -7,6 +7,7 @@ class_name Actor
 @onready var anim: AnimationPlayer = $AnimationPlayer
 var active: bool = false
 var target: bool = false
+var delayed: bool = false
 
 func _ready() -> void:
 	if not data: return

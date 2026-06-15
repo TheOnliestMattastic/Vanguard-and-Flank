@@ -1,7 +1,6 @@
 extends Control
 class_name UI
 
-@onready var game_master: GameMaster = $".."
 @onready var portrait_scene = preload("uid://dj5n66q8cooig")
 
 # === HUD nodes ===
@@ -13,6 +12,8 @@ class_name UI
 @onready var target_name: Label = %targetName
 @onready var target_display: HBoxContainer = %targetDisplay
 
+func _ready() -> void:
+	Event.game_over.connect(_on_game_over)
 
 # === HUD Functions ===
 func display_queue(queue: Array[Actor]) -> void:
@@ -68,5 +69,8 @@ func log_hit_results(results: Dictionary) -> void:
 	if successful: combat_log.append_text("The [color=green]attack succeeded[/color].[br]")
 	else: combat_log.append_text("The [color=red]attack failed[/color].[br]")
 
-func display_game_over(winner: String) -> void:
-	print(winner + " is the victor.")
+func _on_game_over(loser: String) -> void:
+	var winner
+	if loser == "Vanguard": winner = "Flank"
+	else: winner = "Vanguard"
+	print(winner + " won!")

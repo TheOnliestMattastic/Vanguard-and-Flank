@@ -21,6 +21,10 @@ Event="*uid://bk80esr4ahddp"
 Dice="*uid://pgokaanwuny2"
 Manifest="*uid://fc1r2odp71bn"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

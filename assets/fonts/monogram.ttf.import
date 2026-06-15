@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c04145belhbe4"
-path="res://.godot/imported/ci-gamedev-font.ttf-4f6925dbc9d3b088a2662723450a8674.fontdata"
+uid="uid://dc7twm3b5vkht"
+path="res://.godot/imported/monogram.ttf-c95719ff5218ca8efa10f8f40fd456da.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/ci-gamedev-font.ttf"
-dest_files=["res://.godot/imported/ci-gamedev-font.ttf-4f6925dbc9d3b088a2662723450a8674.fontdata"]
+source_file="res://assets/fonts/monogram.ttf"
+dest_files=["res://.godot/imported/monogram.ttf-c95719ff5218ca8efa10f8f40fd456da.fontdata"]
 
 [params]
 

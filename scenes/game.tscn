@@ -1,0 +1,638 @@
+[gd_scene format=3 uid="uid://d4mwir6knxacb"]
+
+[ext_resource type="Script" uid="uid://qtrhvxmqt230" path="res://scripts/sys_GameMaster.gd" id="1_37s47"]
+[ext_resource type="Script" uid="uid://bmq4ge2wigg22" path="res://scripts/sys_UI.gd" id="2_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://dgvptc5mh3dma" path="res://resources/res_textbox.tres" id="3_e1j6l"]
+[ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/res_font.tres" id="4_pl11u"]
+[ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/utl_scrollbox.gd" id="5_bhx41"]
+[ext_resource type="PackedScene" uid="uid://dj5n66q8cooig" path="res://scenes/portrait.tscn" id="6_qnb83"]
+[ext_resource type="Script" uid="uid://8j4oyr7evetl" path="res://scripts/ent_Grid.gd" id="7_sww3w"]
+[ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="8_suyxu"]
+[ext_resource type="PackedScene" uid="uid://d03qfaa3kgoxx" path="res://scenes/cell.tscn" id="9_sgl2t"]
+[ext_resource type="FontFile" uid="uid://dc7twm3b5vkht" path="res://assets/fonts/monogram.ttf" id="10_qouja"]
+[ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/res_font-large.tres" id="11_wljb1"]
+[ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="12_v2yb1"]
+[ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="13_js0lu"]
+[ext_resource type="Texture2D" uid="uid://bwhcvbpbxpddj" path="res://assets/ui/Dice (546)/D20/d20_purple_20.png" id="14_gxtfn"]
+[ext_resource type="Script" uid="uid://dgck5cdoe7mp2" path="res://scripts/sys_CombatManager.gd" id="15_twgab"]
+[ext_resource type="PackedScene" uid="uid://dvrkaa82bgy2o" path="res://scenes/actor.tscn" id="16_02fa5"]
+[ext_resource type="Resource" uid="uid://dqa1p0t3ht2iy" path="res://resources/actor_GladiatorBlue.tres" id="17_nepv3"]
+[ext_resource type="Resource" uid="uid://3o8rigo5kynr" path="res://resources/actor_SamuraiBlue.tres" id="18_7025r"]
+[ext_resource type="Resource" uid="uid://dlhk7wdfq2iam" path="res://resources/actor_FighterWhite.tres" id="19_m4url"]
+[ext_resource type="Resource" uid="uid://bcw8ntha304sk" path="res://resources/actor_CamouflageGreen.tres" id="20_8ool0"]
+[ext_resource type="Resource" uid="uid://duu6c33elcm72" path="res://resources/actor_SorcererBlack.tres" id="21_pr1ej"]
+[ext_resource type="Resource" uid="uid://beqcmshwpp71w" path="res://resources/actor_Hunter.tres" id="22_05nbr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0lup"]
+texture = ExtResource("14_gxtfn")
+modulate_color = Color(0.85430586, 0.85430586, 0.85430586, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5457u"]
+texture = ExtResource("14_gxtfn")
+modulate_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfpb1"]
+texture = ExtResource("14_gxtfn")
+
+[node name="Game" type="Node2D" unique_id=1755678686]
+script = ExtResource("1_37s47")
+
+[node name="UI" type="Control" parent="." unique_id=1773338855]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("2_bt5mj")
+metadata/_edit_lock_ = true
+
+[node name="HUD" type="MarginContainer" parent="UI" unique_id=1480442842]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD" unique_id=1224746437]
+layout_mode = 2
+
+[node name="topSection" type="HBoxContainer" parent="UI/HUD/VBoxContainer" unique_id=409265181]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="leftPanel" type="NinePatchRect" parent="UI/HUD/VBoxContainer/topSection" unique_id=1654359673]
+custom_minimum_size = Vector2(176, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_e1j6l")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel" unique_id=1999294388]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 404.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer" unique_id=624402518]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer" unique_id=684435944]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Queue"
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer" unique_id=1495090525]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer" unique_id=2016326561]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 3
+script = ExtResource("5_bhx41")
+
+[node name="QueueDisplay" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2078126097]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="Portrait" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1139858912 instance=ExtResource("6_qnb83")]
+layout_mode = 2
+
+[node name="Portrait2" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1393019887 instance=ExtResource("6_qnb83")]
+layout_mode = 2
+
+[node name="Portrait3" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1052583979 instance=ExtResource("6_qnb83")]
+layout_mode = 2
+
+[node name="Portrait4" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1642538684 instance=ExtResource("6_qnb83")]
+layout_mode = 2
+
+[node name="middlePanel" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection" unique_id=49312008]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Banner" type="NinePatchRect" parent="UI/HUD/VBoxContainer/topSection/middlePanel" unique_id=1471754774]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("3_e1j6l")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Banner" unique_id=2118976512]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 776.0
+offset_bottom = 56.0
+
+[node name="BannerLabel" type="Label" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Banner/MarginContainer" unique_id=992388286]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="UI/HUD/VBoxContainer/topSection/middlePanel" unique_id=1893987427]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 12
+script = ExtResource("7_sww3w")
+tilesheet = ExtResource("8_suyxu")
+cell_scene = ExtResource("9_sgl2t")
+
+[node name="Cell" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1360833652 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell2" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=476331339 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell3" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=806541814 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell4" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1870637506 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell5" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=2136240887 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell6" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=2052421458 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell7" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1351099775 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell8" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1530066430 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell9" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=506287800 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell10" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=287530633 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell11" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=42877835 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell12" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1233166103 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell13" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=662089853 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell14" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=488203093 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell15" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=174228030 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell16" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=839753918 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell17" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=2012097397 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell18" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1751567176 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell19" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=500335515 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell20" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=376562428 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell21" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1035605556 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell22" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=440640060 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell23" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=374681585 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell24" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1395991755 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell25" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=999265520 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell26" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1465784105 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell27" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1700655649 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell28" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=855347037 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell29" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1841838320 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell30" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=516864331 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell31" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=81859644 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell32" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1073964420 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell33" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1852129823 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell34" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1125381546 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell35" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1727429323 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell36" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1854637031 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell37" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1165555967 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell38" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1516271883 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell39" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=338623935 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell40" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=276100819 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell41" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1271090811 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell42" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1302179732 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell43" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=703195699 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell44" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1172082430 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell45" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=433142165 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell46" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1222725492 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell47" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1107460161 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell48" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=851965929 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell49" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=911366903 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell50" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1538763351 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell51" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1384537827 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell52" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=738197364 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell53" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=562378004 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell54" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1033443057 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell55" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1239837196 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell56" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1850915746 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell57" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=192200079 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell58" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1828313275 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell59" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1960045853 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell60" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1914323797 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="rightPanel" type="NinePatchRect" parent="UI/HUD/VBoxContainer/topSection" unique_id=648445351]
+custom_minimum_size = Vector2(176, 0)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_e1j6l")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/rightPanel" unique_id=157664574]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 404.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer" unique_id=1722980761]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer" unique_id=956783296]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Log"
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer" unique_id=541423603]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer" unique_id=146697564]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_bhx41")
+
+[node name="CombatLog" type="RichTextLabel" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1345048524]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("10_qouja")
+scroll_following = true
+
+[node name="bottomSection" type="NinePatchRect" parent="UI/HUD/VBoxContainer" unique_id=1553987889]
+custom_minimum_size = Vector2(0, 224)
+layout_mode = 2
+texture = ExtResource("3_e1j6l")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/bottomSection" unique_id=1059305581]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 1136.0
+offset_bottom = 216.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer" unique_id=1898771845]
+layout_mode = 2
+
+[node name="leftSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=1000972598]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="activeName" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection" unique_id=670328998]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+text = "<name>"
+label_settings = ExtResource("11_wljb1")
+vertical_alignment = 1
+
+[node name="activeDisplay" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection" unique_id=2096952043]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="activePortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1947193516]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Portrait" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activePortrait" unique_id=1354569600 instance=ExtResource("6_qnb83")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="activeStats" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1073991633]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=818843854]
+layout_mode = 2
+text = "<hp>"
+label_settings = ExtResource("4_pl11u")
+vertical_alignment = 1
+
+[node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=1734573955]
+layout_mode = 2
+text = "<ap>"
+label_settings = ExtResource("4_pl11u")
+vertical_alignment = 1
+
+[node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=486208411]
+layout_mode = 2
+text = "<pwr>"
+label_settings = ExtResource("4_pl11u")
+vertical_alignment = 1
+
+[node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=1453796575]
+layout_mode = 2
+text = "<dex>"
+label_settings = ExtResource("4_pl11u")
+vertical_alignment = 1
+
+[node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=590285868]
+layout_mode = 2
+text = "<spd>"
+label_settings = ExtResource("4_pl11u")
+vertical_alignment = 1
+
+[node name="middleLeftSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=294698689]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="moveButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=821943797 instance=ExtResource("12_v2yb1")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("13_js0lu")
+text = "Move"
+
+[node name="attackButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1011096639 instance=ExtResource("12_v2yb1")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("13_js0lu")
+text = "Attack"
+
+[node name="abilitiesButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=879182414 instance=ExtResource("12_v2yb1")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("13_js0lu")
+text = "Abilities"
+
+[node name="delayButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1954658905 instance=ExtResource("12_v2yb1")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("13_js0lu")
+text = "Delay"
+
+[node name="endButton" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1658786374 instance=ExtResource("12_v2yb1")]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("13_js0lu")
+text = "End"
+
+[node name="middleRightSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=1305442756]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1551327842]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="chanceLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=478189682]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="modifierLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=918148387]
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = ExtResource("4_pl11u")
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1547769270]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/normal = SubResource("StyleBoxTexture_j0lup")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5457u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nfpb1")
+
+[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1238045785]
+layout_mode = 2
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="rightSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=1867544890]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="targetName" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection" unique_id=1359772786]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = ExtResource("11_wljb1")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="targetDisplay" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection" unique_id=2104701170]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="targetStats" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=754730375]
+custom_minimum_size = Vector2(112, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=605729976]
+layout_mode = 2
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=653033952]
+layout_mode = 2
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=2016660454]
+layout_mode = 2
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=171487284]
+layout_mode = 2
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=1489998966]
+layout_mode = 2
+label_settings = ExtResource("4_pl11u")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="targetPortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=581459546]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Actors" type="Node2D" parent="." unique_id=1351903536]
+unique_name_in_owner = true
+position = Vector2(192, 84)
+script = ExtResource("15_twgab")
+metadata/_edit_lock_ = true
+
+[node name="Vanguard" type="Node2D" parent="Actors" unique_id=1733799906]
+unique_name_in_owner = true
+
+[node name="Gladiator Blue" parent="Actors/Vanguard" unique_id=2085553724 instance=ExtResource("16_02fa5")]
+position = Vector2(128, 64)
+data = ExtResource("17_nepv3")
+
+[node name="Samurai Blue" parent="Actors/Vanguard" unique_id=1111712009 instance=ExtResource("16_02fa5")]
+position = Vector2(192, 128)
+data = ExtResource("18_7025r")
+
+[node name="Fighter White" parent="Actors/Vanguard" unique_id=1845179385 instance=ExtResource("16_02fa5")]
+position = Vector2(128, 192)
+data = ExtResource("19_m4url")
+
+[node name="Flank" type="Node2D" parent="Actors" unique_id=2046774907]
+unique_name_in_owner = true
+
+[node name="Camouflage Green" parent="Actors/Flank" unique_id=1761407237 instance=ExtResource("16_02fa5")]
+position = Vector2(576, 64)
+data = ExtResource("20_8ool0")
+
+[node name="Sorcerer Black" parent="Actors/Flank" unique_id=1264035836 instance=ExtResource("16_02fa5")]
+position = Vector2(576, 192)
+data = ExtResource("21_pr1ej")
+
+[node name="Hunter" parent="Actors/Flank" unique_id=1539378818 instance=ExtResource("16_02fa5")]
+position = Vector2(512, 128)
+data = ExtResource("22_05nbr")
