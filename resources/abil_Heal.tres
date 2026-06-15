@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Heal" format=3 uid="uid://cldmcy45f23m5"]
+
+[ext_resource type="Script" uid="uid://c1leywxf23e5p" path="res://scripts/abil_Heal.gd" id="1_j0hpq"]
+
+[resource]
+script = ExtResource("1_j0hpq")
+name = "Heal"
+ap_cost = 2
+cast_range = 4
+pwr_mod = 3.0
+type = "Heal"
+metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

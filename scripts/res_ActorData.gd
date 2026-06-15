@@ -16,3 +16,4 @@ class_name ActorData
 
 @export_group("Traits")
 @export_enum("Melee", "Ranged") var attack_range: String
+@export var abilities: Array[AbilityData]

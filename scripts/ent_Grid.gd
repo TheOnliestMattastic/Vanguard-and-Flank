@@ -44,17 +44,15 @@ static func highlight_cells(cells: Array, color: String = "green") -> void:
 	for cell in cells:
 		Manifest.gridmap[cell].modulate = shade
 
-static func highlight_range(actor: Actor, color: String = "green") -> void:
-	match color:
-		"green":
-			var in_range: Array = get_cells_in_range(actor, Manifest.astar)
-			highlight_cells(in_range, color)
-		"red":
-			var targets: Array = get_targets_in_range(actor, 7, Manifest.astar)
-			highlight_cells(targets, color)
+static func highlight_range(actor: Actor, limit: int, color: String = "green", include_actors: bool = false, is_friendly: bool = false) -> void:
+	var in_range: Array = get_cells_in_range(actor, limit)
+	highlight_cells(in_range, color)
+	if include_actors:
+		var targets: Array = get_targets_in_range(actor, limit, is_friendly)
+		highlight_cells(targets, color)
 
 # === Grabbing cells ===
-static func get_targets_in_range(actor: Actor, limit: int, astar: AStarGrid2D, is_friendly: bool = false) -> Array:
+static func get_targets_in_range(actor: Actor, limit: int, is_friendly: bool = false) -> Array:
 	var origin = actor.position / Manifest.CELL_SIZE
 	var targets: Array[Vector2i] = []
 	var alignment = actor.data.alignment
@@ -64,26 +62,25 @@ static func get_targets_in_range(actor: Actor, limit: int, astar: AStarGrid2D, i
 			var distance = abs(x) + abs(y)
 			if distance == 0 or distance > limit: continue
 			var target_pos: Vector2i = origin + Vector2(x, y)
-			if not astar.is_in_bounds(target_pos.x, target_pos.y): continue
-			if not astar.is_point_solid(target_pos): continue
+			if not Manifest.astar.is_in_bounds(target_pos.x, target_pos.y): continue
+			if not Manifest.astar.is_point_solid(target_pos): continue
 			var target = Manifest.gridmap.get(target_pos).occupant
 			if target:
 				var same_alignment = (alignment == target.data.alignment)
 				if is_friendly == same_alignment: targets.append(target_pos)
 	return targets
 
-static func get_cells_in_range(actor: Actor, astar: AStarGrid2D) -> Array:
+static func get_cells_in_range(actor: Actor, limit: int, astar: AStarGrid2D = Manifest.astar) -> Array:
 	var start_pos = actor.position / Manifest.CELL_SIZE
-	var in_range = int(actor.data.spd / 2) * Manifest.combatants[actor]["AP"]
 	var cells = []
 	
-	astar.set_point_solid(start_pos, false)
+	toggle_obstacle(start_pos, false)
 	for x in astar.region.size.x:
 		for y in astar.region.size.y:
 			var cell := Vector2i(x,y)
 			var path = astar.get_id_path(start_pos, cell)
-			if path.size() > 0 and path.size() - 1 <= in_range and not astar.is_point_solid(cell): cells.append(cell)
-	astar.set_point_solid(start_pos, true) # reset starting cell as unwalkable
+			if path.size() > 0 and path.size() - 1 <= limit and not astar.is_point_solid(cell): cells.append(cell)
+	toggle_obstacle(start_pos, true) # reset starting cell as unwalkable
 	return cells
 
 static func find_path(start: Vector2, end: Vector2) -> Array:

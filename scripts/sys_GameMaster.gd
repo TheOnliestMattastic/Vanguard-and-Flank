@@ -37,7 +37,16 @@ func _process(delta: float) -> void:
 	for combatant in Manifest.combatants:
 		if combatant.target: ui.display_target(combatant)
 
-func _on_cell_pressed(target_coords: Vector2i):
+func  _on_button_pressed(btn_name: String):
+	match btn_name:
+		"moveButton": toggle_state(State.MOVE)
+		"attackButton": toggle_state(State.ATTACK)
+		"abilitiesButton": toggle_state(State.ABILITY)
+		"delayButton": delay_turn()
+		"endButton": end_turn()
+		_: toggle_state(GameMaster.State.IDLE)
+
+func _on_cell_pressed(coords: Vector2i):
 	var active_actor = Manifest.queue[0]
 	var pos = Vector2i(active_actor.position / Manifest.CELL_SIZE)
 	
@@ -46,7 +55,7 @@ func _on_cell_pressed(target_coords: Vector2i):
 			ui.log_to_banner("No action selected.")
 		
 		State.MOVE: 
-			var path = Grid.find_path(pos, target_coords)
+			var path = Grid.find_path(pos, coords)
 			var rate = int(active_actor.data.spd * SPD_MOD)
 			var limit = rate * Manifest.combatants[active_actor]["AP"]
 			var dist = (path.size() - 1)
@@ -56,7 +65,8 @@ func _on_cell_pressed(target_coords: Vector2i):
 				ui.log_to_banner("Not fast enough for that...")
 				return
 			
-			if Manifest.gridmap[target_coords].occupant: 
+			# exit if already occupied
+			if Manifest.gridmap[coords].occupant: 
 				ui.log_to_banner("Will not invade another's space...")
 				return
 			
@@ -68,34 +78,79 @@ func _on_cell_pressed(target_coords: Vector2i):
 			
 			# spend ap and move actor
 			CombatManager.spend_ap(active_actor, cost)
-			grid.move_actor(active_actor, target_coords, path) 
+			grid.move_actor(active_actor, coords, path)
+			active_actor.acted = true 
 			toggle_state(State.IDLE)
 		
 		State.ATTACK:
-			var target = Manifest.gridmap.get(target_coords).occupant
+			var target: Actor = Manifest.gridmap.get(coords).occupant
+			var atk_range: int = 2
+			var distance: int = int(pos.distance_to(coords))
+			
+			# exit if not within range
+			if distance > atk_range:
+				ui.log_to_banner("Too far...")
+				return
+			
+			# exit if cell empty
 			if not target: 
 				ui.log_to_banner("Not a valid target...")
 				return 
+
+			# exit if friendly target
+			if active_actor.data.alignment == target.data.alignment:
+				ui.log_to_banner("Will not attack a friendly...")
+				return
 			
+			# exit if not enough ap
 			if not CombatManager.has_ap(active_actor):
 				ui.log_to_banner("Not enough AP...")
 				return
 			
 			var results = CombatManager.roll_for_attack(active_actor, target)
 			CombatManager.spend_ap(active_actor)
-			CombatManager.apply_damage(target)
+			active_actor.acted = true
 			ui.log_hit_results(results)
+			
+			# apply damage only if successfull
+			if results["success"]: CombatManager.apply_damage(target)
 			toggle_state(State.IDLE)
 		
+		State.ABILITY:
+			var ability: AbilityData = active_actor.data.abilities[0]
+			if not CombatManager.has_ap(active_actor, ability.ap_cost):
+				ui.log_to_banner("Not enough ap...")
+				return 
+			
+			var results: Dictionary
+			match ability.type:
+				"Heal":
+					# exit if not in range
+					var distance = pos.distance_to(coords)
+					if distance > ability.cast_range:
+						ui.log_to_banner("Too far...")
+						return
+					
+					# exit if invalid target
+					var target: Actor = Manifest.gridmap.get(coords).occupant
+					if not target:
+						ui.log_to_banner("Not a valid target...")
+						return
+					
+					if target.data.alignment != active_actor.data.alignment:
+						ui.log_to_banner("Will only target friendlies...")
+						return
+					
+					# execute ability
+					results = ability.execute(active_actor, coords)
+					CombatManager.spend_ap(active_actor, ability.ap_cost)
+					active_actor.acted = true
+					ui.log_heal_results(results)
+					
+					if results["success"]: CombatManager.apply_heal(target, results.get("ammount"))
+					toggle_state(State.IDLE)
+		
 		_: ui.log_to_banner("[I AM ERROR] Input configuration not yet configured!")
-
-func  _on_button_pressed(btn_name: String):
-	match btn_name:
-		"moveButton": toggle_state(GameMaster.State.MOVE)
-		"attackButton": toggle_state(GameMaster.State.ATTACK)
-		"delayButton": delay_turn()
-		"endButton": end_turn()
-		_: toggle_state(GameMaster.State.IDLE)
 
 func toggle_state(target_state: State) -> void:
 	if current_state == target_state: current_state = State.IDLE
@@ -109,14 +164,23 @@ func toggle_state(target_state: State) -> void:
 			ui.log_to_banner(active_actor.name + "'s turn...")
 		
 		State.MOVE:
+			var move_range = active_actor.data.spd * SPD_MOD * Manifest.combatants[active_actor]["AP"]
 			Grid.clear_highlights()
-			Grid.highlight_range(Manifest.queue[0])
+			Grid.highlight_range(Manifest.queue[0], move_range)
 			ui.log_to_banner("Moving...")
 		
 		State.ATTACK:
+			var atk_range = 2 # FOR TESTING: Need to refactor
 			Grid.clear_highlights()
-			Grid.highlight_range(Manifest.queue[0], "red")
+			Grid.highlight_range(Manifest.queue[0], atk_range, "red", true)
 			ui.log_to_banner("Attacking...")
+		
+		State.ABILITY:
+			# FOR TESTING: need to refactor
+			if not active_actor.data.abilities: return
+			Grid.clear_highlights()
+			active_actor.data.abilities[0].stage(active_actor)
+			ui.log_to_banner("Choosing ability...")
 
 func get_combatants() -> Array:
 	var combatants: Array
@@ -154,10 +218,10 @@ func end_turn() -> void:
 	toggle_state(State.IDLE)
 
 func delay_turn() -> void:
-	if Manifest.queue[0].delayed: 
-		ui.log_to_banner("Turn already delayed this round.")
+	if Manifest.queue[0].acted: 
+		ui.log_to_banner("Already acted this round.")
 	else:
-		Manifest.queue[0].delayed = true
+		Manifest.queue[0].acted = true
 		Manifest.queue[0].active = false
 		Manifest.queue.push_back(Manifest.queue.pop_front())
 		ui.display_queue(Manifest.queue)
