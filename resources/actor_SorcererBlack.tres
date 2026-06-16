@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://duu6c33elcm72"]
 
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_4tqia"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="1_ti2ar"]
 [ext_resource type="Texture2D" uid="uid://dle5e3cjtgtr5" path="res://assets/Character/SorcererBlack/Faceset.png" id="1_us7ec"]
 [ext_resource type="Texture2D" uid="uid://ddkcwqagnr04k" path="res://assets/Character/SorcererBlack/SpriteSheet.png" id="3_4tqia"]
@@ -10,4 +11,5 @@ name = "Sorcerer Black"
 spritesheet = ExtResource("3_4tqia")
 faceset = ExtResource("1_us7ec")
 alignment = "Flank"
+damage_type = "Space"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

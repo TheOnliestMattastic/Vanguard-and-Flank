@@ -83,6 +83,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_ap2cg")
+theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
 [node name="Reset" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
@@ -91,4 +92,5 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_ap2cg")
+theme_override_font_sizes/font_size = 24
 text = "Reset"

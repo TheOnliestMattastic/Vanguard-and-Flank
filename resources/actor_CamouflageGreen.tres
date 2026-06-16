@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://devjttpfpy4ef" path="res://assets/Character/CamouflageGreen/Faceset.png" id="1_5fw77"]
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_38gxh"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="1_pqt8f"]
-[ext_resource type="Resource" uid="uid://cldmcy45f23m5" path="res://resources/abil_Heal.tres" id="2_4ve6y"]
 [ext_resource type="Texture2D" uid="uid://c3ikqfirxcwbl" path="res://assets/Character/CamouflageGreen/SpriteSheet.png" id="3_gefra"]
 
 [resource]
@@ -12,5 +11,5 @@ name = "Camouflage Green"
 spritesheet = ExtResource("3_gefra")
 faceset = ExtResource("1_5fw77")
 alignment = "Flank"
-abilities = Array[ExtResource("1_38gxh")]([ExtResource("2_4ve6y")])
+damage_type = "Pierce"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

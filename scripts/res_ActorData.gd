@@ -12,8 +12,9 @@ class_name ActorData
 @export var max_hp: int = 3
 @export var pwr: int = 5
 @export var dex: int = 5
-@export var spd: int = 2
+@export var spd: int = 3
+@export var rng: int = 1
 
 @export_group("Traits")
-@export_enum("Melee", "Ranged") var attack_range: String
+@export_enum("Slash", "Pierce", "Bash", "Fire", "Water", "Earth", "Life", "Space") var damage_type: String
 @export var abilities: Array[AbilityData]

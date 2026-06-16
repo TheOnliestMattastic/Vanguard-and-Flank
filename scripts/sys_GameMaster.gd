@@ -57,9 +57,9 @@ func _on_cell_pressed(coords: Vector2i):
 		
 		State.MOVE: 
 			var path = Grid.find_path(pos, coords)
-			var rate = int(active_actor.data.spd * SPD_MOD)
+			var rate = round(active_actor.data.spd * SPD_MOD)
 			var limit = rate * Manifest.combatants[active_actor]["AP"]
-			var dist = (path.size() - 1)
+			var dist = path.size() - 1
 			
 			# exit if not within range
 			if dist > limit: 
@@ -72,7 +72,7 @@ func _on_cell_pressed(coords: Vector2i):
 				return
 			
 			# exit if not enough ap
-			var cost = dist / rate 
+			var cost = round(dist / rate) 
 			if not CombatManager.has_ap(active_actor, cost):
 				ui.log_to_banner("Not enough AP...")
 				return
@@ -165,7 +165,7 @@ func toggle_state(target_state: State) -> void:
 			ui.log_to_banner(active_actor.name + "'s turn...")
 		
 		State.MOVE:
-			var move_range = active_actor.data.spd * SPD_MOD * Manifest.combatants[active_actor]["AP"]
+			var move_range = round(active_actor.data.spd * SPD_MOD) * Manifest.combatants[active_actor]["AP"]
 			Grid.clear_highlights()
 			Grid.highlight_range(Manifest.queue[0], move_range)
 			ui.log_to_banner("Moving...")
