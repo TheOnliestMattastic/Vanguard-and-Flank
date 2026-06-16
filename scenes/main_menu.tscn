@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://daneur28btdes" path="res://assets/ui/toppatternbg116x67.png" id="3_oa1go"]
 [ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://bg3o2dgat41qj" path="res://assets/ui/bottompatternbg128x112.png" id="4_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://bjvessp1rygtu" path="res://assets/ui/patternmiddlebottombg199x48.png" id="6_tbmy8"]
 
 [node name="MainMenu" type="Control" unique_id=601452906]
 layout_mode = 3
@@ -39,17 +40,34 @@ offset_top = 7.0
 offset_right = 1145.0
 offset_bottom = 641.0
 
-[node name="bgTop" type="TextureRect" parent="NinePatchRect/MarginContainer" unique_id=426896939]
+[node name="Background" type="Control" parent="NinePatchRect/MarginContainer" unique_id=1324303804]
+modulate = Color(0, 0, 0, 0.25)
 layout_mode = 2
+
+[node name="bgTop" type="TextureRect" parent="NinePatchRect/MarginContainer/Background" unique_id=426896939]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 340.3839
+grow_horizontal = 2
 size_flags_vertical = 0
 texture = ExtResource("3_oa1go")
 expand_mode = 5
+stretch_mode = 6
 
-[node name="bgBottom" type="TextureRect" parent="NinePatchRect/MarginContainer" unique_id=2096626987]
-layout_mode = 2
+[node name="bgBottom" type="TextureRect" parent="NinePatchRect/MarginContainer/Background" unique_id=2096626987]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -331.91666
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 8
 texture = ExtResource("4_tbmy8")
 expand_mode = 5
+stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=462853170]
 layout_mode = 2
@@ -65,10 +83,13 @@ label_settings = ExtResource("2_wu84c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=872168600]
+[node name="topSeparator" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1608426152]
+modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 32
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_tbmy8")
+stretch_mode = 5
 
 [node name="Play" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=821943797 instance=ExtResource("2_bqqt6")]
 custom_minimum_size = Vector2(256, 64)
@@ -87,3 +108,12 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_wu84c")
 theme_override_font_sizes/font_size = 24
 text = "Quit"
+
+[node name="bottomSeparator" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=296049703]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_tbmy8")
+stretch_mode = 5
+flip_v = true

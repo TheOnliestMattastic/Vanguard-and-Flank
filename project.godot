@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Vanguard and Flank"
-run/main_scene="uid://d4mwir6knxacb"
+run/main_scene="uid://hl6juu8gxg2u"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
