@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cec33augca57c"]
 
 [ext_resource type="Texture2D" uid="uid://dehf8da5wj32j" path="res://assets/ui/Indigo/textbox_9slice.png" id="1_4ebxx"]
+[ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/toppattermpanel0233x15.png" id="2_hjcnf"]
 [ext_resource type="LabelSettings" uid="uid://b2punxkqhrtht" path="res://resources/res_font-xlarge.tres" id="2_ofmyw"]
 [ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/res_font-large.tres" id="3_ap2cg"]
 [ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="4_hjcnf"]
@@ -53,6 +54,34 @@ offset_top = 7.0
 offset_right = 569.0
 offset_bottom = 317.0
 
+[node name="bg" type="Control" parent="NinePatchRect/MarginContainer" unique_id=1044372609]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="NinePatchRect/MarginContainer/bg" unique_id=804104884]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("2_hjcnf")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="NinePatchRect/MarginContainer/bg" unique_id=2142938732]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("2_hjcnf")
+stretch_mode = 1
+flip_v = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=29133803]
 layout_mode = 2
 alignment = 1
@@ -83,7 +112,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_ap2cg")
-theme_override_font_sizes/font_size = 24
+toggle_mode = false
 text = "Main Menu"
 
 [node name="Reset" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
@@ -92,5 +121,5 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("5_ap2cg")
-theme_override_font_sizes/font_size = 24
+toggle_mode = false
 text = "Reset"

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cdas0g1nbpdqu"]
+
+[ext_resource type="Texture2D" uid="uid://dehf8da5wj32j" path="res://assets/ui/Indigo/textbox_9slice.png" id="1_8e8e8"]
+
+[node name="Panel" type="NinePatchRect" unique_id=1506169935]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_8e8e8")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6

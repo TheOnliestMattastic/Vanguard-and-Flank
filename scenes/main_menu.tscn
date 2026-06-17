@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://hl6juu8gxg2u"]
 
 [ext_resource type="Script" uid="uid://chsam42yh4spk" path="res://scripts/state_MainMenu.gd" id="1_8ln24"]
-[ext_resource type="Texture2D" uid="uid://dgvptc5mh3dma" path="res://resources/res_textbox.tres" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="2_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="2_oa1go"]
 [ext_resource type="LabelSettings" uid="uid://drnuyrw28nu54" path="res://resources/res_font-xxlarge.tres" id="2_wu84c"]
 [ext_resource type="Texture2D" uid="uid://daneur28btdes" path="res://assets/ui/toppatternbg116x67.png" id="3_oa1go"]
-[ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="3_wu84c"]
 [ext_resource type="Texture2D" uid="uid://bg3o2dgat41qj" path="res://assets/ui/bottompatternbg128x112.png" id="4_tbmy8"]
 [ext_resource type="Texture2D" uid="uid://bjvessp1rygtu" path="res://assets/ui/patternmiddlebottombg199x48.png" id="6_tbmy8"]
 
@@ -20,62 +19,66 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_8ln24")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=709686975]
+[node name="Panel" parent="." unique_id=1506169935 instance=ExtResource("2_oa1go")]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1134783772]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_l6cm7")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1134783772]
-layout_mode = 0
 offset_left = 7.0
 offset_top = 7.0
-offset_right = 1145.0
-offset_bottom = 641.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Background" type="Control" parent="NinePatchRect/MarginContainer" unique_id=1324303804]
-modulate = Color(0, 0, 0, 0.25)
+[node name="bg" type="Control" parent="Panel/MarginContainer" unique_id=1324303804]
+modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 
-[node name="bgTop" type="TextureRect" parent="NinePatchRect/MarginContainer/Background" unique_id=426896939]
+[node name="top" type="TextureRect" parent="Panel/MarginContainer/bg" unique_id=426896939]
+custom_minimum_size = Vector2(0, 312)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 340.3839
+offset_bottom = 67.0
 grow_horizontal = 2
 size_flags_vertical = 0
 texture = ExtResource("3_oa1go")
-expand_mode = 5
 stretch_mode = 6
 
-[node name="bgBottom" type="TextureRect" parent="NinePatchRect/MarginContainer/Background" unique_id=2096626987]
+[node name="bottom" type="TextureRect" parent="Panel/MarginContainer/bg" unique_id=2096626987]
+custom_minimum_size = Vector2(0, 312)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -331.91666
+offset_top = -112.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 texture = ExtResource("4_tbmy8")
-expand_mode = 5
 stretch_mode = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=462853170]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=462853170]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Title" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1262473781]
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1262473781]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Vanguard & Flank"
@@ -83,37 +86,39 @@ label_settings = ExtResource("2_wu84c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="topSeparator" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1608426152]
+[node name="topSeparator" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer" unique_id=1608426152]
 modulate = Color(0, 0, 0, 0.2509804)
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_tbmy8")
+expand_mode = 5
 stretch_mode = 5
 
-[node name="Play" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=821943797 instance=ExtResource("2_bqqt6")]
+[node name="Play" parent="Panel/MarginContainer/VBoxContainer" unique_id=821943797 instance=ExtResource("2_bqqt6")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("3_wu84c")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Play"
 
-[node name="Quit" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1159912801 instance=ExtResource("2_bqqt6")]
+[node name="Quit" parent="Panel/MarginContainer/VBoxContainer" unique_id=1159912801 instance=ExtResource("2_bqqt6")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("3_wu84c")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
-[node name="bottomSeparator" type="TextureRect" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=296049703]
+[node name="bottomSeparator" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer" unique_id=71636049]
 modulate = Color(0, 0, 0, 0.2509804)
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_tbmy8")
+expand_mode = 5
 stretch_mode = 5
 flip_v = true

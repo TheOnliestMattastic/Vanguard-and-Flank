@@ -2,17 +2,16 @@
 
 [ext_resource type="Script" uid="uid://qtrhvxmqt230" path="res://scripts/sys_GameMaster.gd" id="1_37s47"]
 [ext_resource type="Script" uid="uid://bmq4ge2wigg22" path="res://scripts/sys_UI.gd" id="2_bt5mj"]
-[ext_resource type="Texture2D" uid="uid://dgvptc5mh3dma" path="res://resources/res_textbox.tres" id="3_e1j6l"]
+[ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="3_pl11u"]
+[ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/toppattermpanel0233x15.png" id="4_bt5mj"]
 [ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/res_font.tres" id="4_pl11u"]
 [ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/utl_scrollbox.gd" id="5_bhx41"]
-[ext_resource type="PackedScene" uid="uid://dj5n66q8cooig" path="res://scenes/portrait.tscn" id="6_qnb83"]
 [ext_resource type="Script" uid="uid://8j4oyr7evetl" path="res://scripts/ent_Grid.gd" id="7_sww3w"]
 [ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="8_suyxu"]
 [ext_resource type="PackedScene" uid="uid://d03qfaa3kgoxx" path="res://scenes/cell.tscn" id="9_sgl2t"]
 [ext_resource type="FontFile" uid="uid://dc7twm3b5vkht" path="res://assets/fonts/monogram.ttf" id="10_qouja"]
 [ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/res_font-large.tres" id="11_wljb1"]
 [ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="12_v2yb1"]
-[ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="13_js0lu"]
 [ext_resource type="Texture2D" uid="uid://bwhcvbpbxpddj" path="res://assets/ui/Dice (546)/D20/d20_purple_20.png" id="14_gxtfn"]
 [ext_resource type="Script" uid="uid://dgck5cdoe7mp2" path="res://scripts/sys_CombatManager.gd" id="15_twgab"]
 [ext_resource type="PackedScene" uid="uid://dvrkaa82bgy2o" path="res://scenes/actor.tscn" id="16_02fa5"]
@@ -72,22 +71,45 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="leftPanel" type="NinePatchRect" parent="UI/HUD/VBoxContainer/topSection" unique_id=1654359673]
+[node name="leftPanel" parent="UI/HUD/VBoxContainer/topSection" unique_id=1506169935 instance=ExtResource("3_pl11u")]
 custom_minimum_size = Vector2(176, 0)
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_e1j6l")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+size_flags_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel" unique_id=1999294388]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel" unique_id=1974653328]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 404.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 169.0
+offset_bottom = 405.0
+
+[node name="bg" type="Control" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer" unique_id=496481110]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/bg" unique_id=141206777]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/bg" unique_id=2091670927]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+flip_v = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer" unique_id=624402518]
 layout_mode = 2
@@ -116,41 +138,51 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 
-[node name="Portrait" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1139858912 instance=ExtResource("6_qnb83")]
-layout_mode = 2
-
-[node name="Portrait2" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1393019887 instance=ExtResource("6_qnb83")]
-layout_mode = 2
-
-[node name="Portrait3" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1052583979 instance=ExtResource("6_qnb83")]
-layout_mode = 2
-
-[node name="Portrait4" parent="UI/HUD/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer/QueueDisplay" unique_id=1642538684 instance=ExtResource("6_qnb83")]
-layout_mode = 2
-
-[node name="middlePanel" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection" unique_id=49312008]
+[node name="middleSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection" unique_id=49312008]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Banner" type="NinePatchRect" parent="UI/HUD/VBoxContainer/topSection/middlePanel" unique_id=1471754774]
+[node name="Banner" parent="UI/HUD/VBoxContainer/topSection/middleSection" unique_id=539003356 instance=ExtResource("3_pl11u")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("3_e1j6l")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+size_flags_horizontal = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Banner" unique_id=2118976512]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/middleSection/Banner" unique_id=1135459240]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 776.0
-offset_bottom = 56.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 777.0
+offset_bottom = 57.0
 
-[node name="BannerLabel" type="Label" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Banner/MarginContainer" unique_id=992388286]
+[node name="bg" type="Control" parent="UI/HUD/VBoxContainer/topSection/middleSection/Banner/MarginContainer" unique_id=1140488832]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="UI/HUD/VBoxContainer/topSection/middleSection/Banner/MarginContainer/bg" unique_id=1912025875]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="UI/HUD/VBoxContainer/topSection/middleSection/Banner/MarginContainer/bg" unique_id=31418600]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+flip_v = true
+
+[node name="BannerLabel" type="Label" parent="UI/HUD/VBoxContainer/topSection/middleSection/Banner/MarginContainer" unique_id=992388286]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
@@ -158,7 +190,7 @@ label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Grid" type="GridContainer" parent="UI/HUD/VBoxContainer/topSection/middlePanel" unique_id=1893987427]
+[node name="Grid" type="GridContainer" parent="UI/HUD/VBoxContainer/topSection/middleSection" unique_id=1893987427]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
@@ -171,202 +203,225 @@ script = ExtResource("7_sww3w")
 tilesheet = ExtResource("8_suyxu")
 cell_scene = ExtResource("9_sgl2t")
 
-[node name="Cell" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1360833652 instance=ExtResource("9_sgl2t")]
+[node name="Cell" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1360833652 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell2" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=476331339 instance=ExtResource("9_sgl2t")]
+[node name="Cell2" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=476331339 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell3" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=806541814 instance=ExtResource("9_sgl2t")]
+[node name="Cell3" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=806541814 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell4" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1870637506 instance=ExtResource("9_sgl2t")]
+[node name="Cell4" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1870637506 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell5" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=2136240887 instance=ExtResource("9_sgl2t")]
+[node name="Cell5" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=2136240887 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell6" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=2052421458 instance=ExtResource("9_sgl2t")]
+[node name="Cell6" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=2052421458 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell7" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1351099775 instance=ExtResource("9_sgl2t")]
+[node name="Cell7" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1351099775 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell8" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1530066430 instance=ExtResource("9_sgl2t")]
+[node name="Cell8" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1530066430 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell9" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=506287800 instance=ExtResource("9_sgl2t")]
+[node name="Cell9" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=506287800 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell10" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=287530633 instance=ExtResource("9_sgl2t")]
+[node name="Cell10" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=287530633 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell11" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=42877835 instance=ExtResource("9_sgl2t")]
+[node name="Cell11" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=42877835 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell12" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1233166103 instance=ExtResource("9_sgl2t")]
+[node name="Cell12" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1233166103 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell13" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=662089853 instance=ExtResource("9_sgl2t")]
+[node name="Cell13" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=662089853 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell14" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=488203093 instance=ExtResource("9_sgl2t")]
+[node name="Cell14" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=488203093 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell15" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=174228030 instance=ExtResource("9_sgl2t")]
+[node name="Cell15" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=174228030 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell16" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=839753918 instance=ExtResource("9_sgl2t")]
+[node name="Cell16" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=839753918 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell17" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=2012097397 instance=ExtResource("9_sgl2t")]
+[node name="Cell17" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=2012097397 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell18" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1751567176 instance=ExtResource("9_sgl2t")]
+[node name="Cell18" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1751567176 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell19" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=500335515 instance=ExtResource("9_sgl2t")]
+[node name="Cell19" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=500335515 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell20" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=376562428 instance=ExtResource("9_sgl2t")]
+[node name="Cell20" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=376562428 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell21" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1035605556 instance=ExtResource("9_sgl2t")]
+[node name="Cell21" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1035605556 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell22" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=440640060 instance=ExtResource("9_sgl2t")]
+[node name="Cell22" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=440640060 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell23" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=374681585 instance=ExtResource("9_sgl2t")]
+[node name="Cell23" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=374681585 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell24" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1395991755 instance=ExtResource("9_sgl2t")]
+[node name="Cell24" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1395991755 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell25" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=999265520 instance=ExtResource("9_sgl2t")]
+[node name="Cell25" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=999265520 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell26" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1465784105 instance=ExtResource("9_sgl2t")]
+[node name="Cell26" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1465784105 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell27" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1700655649 instance=ExtResource("9_sgl2t")]
+[node name="Cell27" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1700655649 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell28" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=855347037 instance=ExtResource("9_sgl2t")]
+[node name="Cell28" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=855347037 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell29" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1841838320 instance=ExtResource("9_sgl2t")]
+[node name="Cell29" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1841838320 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell30" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=516864331 instance=ExtResource("9_sgl2t")]
+[node name="Cell30" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=516864331 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell31" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=81859644 instance=ExtResource("9_sgl2t")]
+[node name="Cell31" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=81859644 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell32" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1073964420 instance=ExtResource("9_sgl2t")]
+[node name="Cell32" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1073964420 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell33" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1852129823 instance=ExtResource("9_sgl2t")]
+[node name="Cell33" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1852129823 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell34" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1125381546 instance=ExtResource("9_sgl2t")]
+[node name="Cell34" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1125381546 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell35" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1727429323 instance=ExtResource("9_sgl2t")]
+[node name="Cell35" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1727429323 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell36" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1854637031 instance=ExtResource("9_sgl2t")]
+[node name="Cell36" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1854637031 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell37" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1165555967 instance=ExtResource("9_sgl2t")]
+[node name="Cell37" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1165555967 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell38" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1516271883 instance=ExtResource("9_sgl2t")]
+[node name="Cell38" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1516271883 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell39" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=338623935 instance=ExtResource("9_sgl2t")]
+[node name="Cell39" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=338623935 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell40" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=276100819 instance=ExtResource("9_sgl2t")]
+[node name="Cell40" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=276100819 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell41" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1271090811 instance=ExtResource("9_sgl2t")]
+[node name="Cell41" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1271090811 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell42" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1302179732 instance=ExtResource("9_sgl2t")]
+[node name="Cell42" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1302179732 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell43" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=703195699 instance=ExtResource("9_sgl2t")]
+[node name="Cell43" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=703195699 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell44" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1172082430 instance=ExtResource("9_sgl2t")]
+[node name="Cell44" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1172082430 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell45" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=433142165 instance=ExtResource("9_sgl2t")]
+[node name="Cell45" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=433142165 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell46" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1222725492 instance=ExtResource("9_sgl2t")]
+[node name="Cell46" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1222725492 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell47" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1107460161 instance=ExtResource("9_sgl2t")]
+[node name="Cell47" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1107460161 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell48" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=851965929 instance=ExtResource("9_sgl2t")]
+[node name="Cell48" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=851965929 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell49" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=911366903 instance=ExtResource("9_sgl2t")]
+[node name="Cell49" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=911366903 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell50" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1538763351 instance=ExtResource("9_sgl2t")]
+[node name="Cell50" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1538763351 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell51" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1384537827 instance=ExtResource("9_sgl2t")]
+[node name="Cell51" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1384537827 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell52" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=738197364 instance=ExtResource("9_sgl2t")]
+[node name="Cell52" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=738197364 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell53" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=562378004 instance=ExtResource("9_sgl2t")]
+[node name="Cell53" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=562378004 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell54" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1033443057 instance=ExtResource("9_sgl2t")]
+[node name="Cell54" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1033443057 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell55" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1239837196 instance=ExtResource("9_sgl2t")]
+[node name="Cell55" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1239837196 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell56" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1850915746 instance=ExtResource("9_sgl2t")]
+[node name="Cell56" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1850915746 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell57" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=192200079 instance=ExtResource("9_sgl2t")]
+[node name="Cell57" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=192200079 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell58" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1828313275 instance=ExtResource("9_sgl2t")]
+[node name="Cell58" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1828313275 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell59" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1960045853 instance=ExtResource("9_sgl2t")]
+[node name="Cell59" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1960045853 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell60" parent="UI/HUD/VBoxContainer/topSection/middlePanel/Grid" unique_id=1914323797 instance=ExtResource("9_sgl2t")]
+[node name="Cell60" parent="UI/HUD/VBoxContainer/topSection/middleSection/Grid" unique_id=1914323797 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="rightPanel" type="NinePatchRect" parent="UI/HUD/VBoxContainer/topSection" unique_id=648445351]
+[node name="rightPanel" parent="UI/HUD/VBoxContainer/topSection" unique_id=1549321152 instance=ExtResource("3_pl11u")]
 custom_minimum_size = Vector2(176, 0)
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_e1j6l")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+size_flags_vertical = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/topSection/rightPanel" unique_id=157664574]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 404.0
+layout_mode = 1
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 169.0
+offset_bottom = 405.0
+
+[node name="bg" type="Control" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer" unique_id=404028148]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer/bg" unique_id=1480512382]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer/bg" unique_id=1441987672]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+flip_v = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/HUD/VBoxContainer/topSection/rightPanel/MarginContainer" unique_id=1722980761]
 layout_mode = 2
@@ -396,141 +451,150 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("10_qouja")
 scroll_following = true
 
-[node name="bottomSection" type="NinePatchRect" parent="UI/HUD/VBoxContainer" unique_id=1553987889]
+[node name="bottomPanel" parent="UI/HUD/VBoxContainer" unique_id=731046746 instance=ExtResource("3_pl11u")]
 custom_minimum_size = Vector2(0, 224)
 layout_mode = 2
-texture = ExtResource("3_e1j6l")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+size_flags_horizontal = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/bottomSection" unique_id=1059305581]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/VBoxContainer/bottomPanel" unique_id=1059305581]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 1136.0
-offset_bottom = 216.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 1137.0
+offset_bottom = 217.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer" unique_id=1898771845]
+[node name="bg" type="Control" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer" unique_id=756133034]
+modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 
-[node name="leftSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=1000972598]
+[node name="top" type="TextureRect" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/bg" unique_id=1611720683]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/bg" unique_id=105033022]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("4_bt5mj")
+stretch_mode = 1
+flip_v = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer" unique_id=1898771845]
+layout_mode = 2
+
+[node name="leftSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer" unique_id=1000972598]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="activeName" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection" unique_id=670328998]
+[node name="activeName" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection" unique_id=670328998]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
-text = "<name>"
 label_settings = ExtResource("11_wljb1")
 vertical_alignment = 1
 
-[node name="activeDisplay" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection" unique_id=2096952043]
+[node name="activeDisplay" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection" unique_id=2096952043]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="activePortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1947193516]
+[node name="activePortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1947193516]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Portrait" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activePortrait" unique_id=1354569600 instance=ExtResource("6_qnb83")]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="activeStats" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1073991633]
+[node name="activeStats" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1073991633]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=818843854]
+[node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=818843854]
 layout_mode = 2
-text = "<hp>"
 label_settings = ExtResource("4_pl11u")
 vertical_alignment = 1
 
-[node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=1734573955]
+[node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=1734573955]
 layout_mode = 2
-text = "<ap>"
 label_settings = ExtResource("4_pl11u")
 vertical_alignment = 1
 
-[node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=486208411]
+[node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=486208411]
 layout_mode = 2
-text = "<pwr>"
 label_settings = ExtResource("4_pl11u")
 vertical_alignment = 1
 
-[node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=1453796575]
+[node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=1453796575]
 layout_mode = 2
-text = "<dex>"
 label_settings = ExtResource("4_pl11u")
 vertical_alignment = 1
 
-[node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=590285868]
+[node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=590285868]
 layout_mode = 2
-text = "<spd>"
 label_settings = ExtResource("4_pl11u")
 vertical_alignment = 1
 
-[node name="middleLeftSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=294698689]
+[node name="middleLeftSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer" unique_id=294698689]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Move" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=821943797 instance=ExtResource("12_v2yb1")]
+[node name="Move" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleLeftSection" unique_id=821943797 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Move"
 
-[node name="Attack" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1011096639 instance=ExtResource("12_v2yb1")]
+[node name="Attack" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1011096639 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Attack"
 
-[node name="Abilities" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=879182414 instance=ExtResource("12_v2yb1")]
+[node name="Abilities" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleLeftSection" unique_id=879182414 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Abilities"
 
-[node name="Delay" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1954658905 instance=ExtResource("12_v2yb1")]
+[node name="Delay" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1954658905 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("13_js0lu")
 text = "Delay"
 
-[node name="End" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1658786374 instance=ExtResource("12_v2yb1")]
+[node name="End" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleLeftSection" unique_id=1658786374 instance=ExtResource("12_v2yb1")]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("13_js0lu")
 text = "End"
 
-[node name="middleRightSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=1305442756]
+[node name="middleRightSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer" unique_id=1305442756]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1551327842]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleRightSection" unique_id=1551327842]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="chanceLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=478189682]
+[node name="chanceLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=478189682]
 layout_mode = 2
 size_flags_horizontal = 3
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="modifierLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=918148387]
+[node name="modifierLabel" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleRightSection/HBoxContainer" unique_id=918148387]
 layout_mode = 2
 size_flags_horizontal = 3
 label_settings = ExtResource("4_pl11u")
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1547769270]
+[node name="Button" type="Button" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleRightSection" unique_id=1547769270]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -539,17 +603,17 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_j0lup")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5457u")
 theme_override_styles/hover = SubResource("StyleBoxTexture_nfpb1")
 
-[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/middleRightSection" unique_id=1238045785]
+[node name="Label" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/middleRightSection" unique_id=1238045785]
 layout_mode = 2
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="rightSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer" unique_id=1867544890]
+[node name="rightSection" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer" unique_id=1867544890]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="targetName" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection" unique_id=1359772786]
+[node name="targetName" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection" unique_id=1359772786]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
@@ -557,47 +621,47 @@ label_settings = ExtResource("11_wljb1")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="targetDisplay" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection" unique_id=2104701170]
+[node name="targetDisplay" type="HBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection" unique_id=2104701170]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="targetStats" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=754730375]
+[node name="targetStats" type="VBoxContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=754730375]
 custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=605729976]
+[node name="hp" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=605729976]
 layout_mode = 2
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=653033952]
+[node name="ap" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=653033952]
 layout_mode = 2
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=2016660454]
+[node name="pwr" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=2016660454]
 layout_mode = 2
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=171487284]
+[node name="dex" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=171487284]
 layout_mode = 2
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=1489998966]
+[node name="spd" type="Label" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=1489998966]
 layout_mode = 2
 label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="targetPortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomSection/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=581459546]
+[node name="targetPortrait" type="AspectRatioContainer" parent="UI/HUD/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=581459546]
 layout_mode = 2
 size_flags_horizontal = 3
 

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c7sigd3hg27xu"]
 
+[ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="1_i7y4x"]
 [ext_resource type="Texture2D" uid="uid://br0cd8yw8txyf" path="res://assets/ui/Purple/button_9slice_up.png" id="1_mi6dp"]
 [ext_resource type="Texture2D" uid="uid://xirwwhdrfsso" path="res://assets/ui/Purple/button_9slice_down.png" id="2_rhj8v"]
 [ext_resource type="Script" uid="uid://cix1afqv3gjid" path="res://scripts/ent_Button.gd" id="3_3q610"]
@@ -27,8 +28,19 @@ texture_margin_right = 3.0
 texture_margin_bottom = 3.0
 
 [node name="Button" type="Button" unique_id=821943797]
-offset_right = 8.0
-offset_bottom = 8.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_i7y4x")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxTexture_rhj8v")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3q610")
 theme_override_styles/hover = SubResource("StyleBoxTexture_i7y4x")
