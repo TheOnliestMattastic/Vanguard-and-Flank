@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_k5osm"]
 [ext_resource type="Texture2D" uid="uid://dle5e3cjtgtr5" path="res://assets/Character/Lulu-the-Guardian-from-Besaid/Faceset.png" id="2_ns24n"]
+[ext_resource type="Resource" uid="uid://cldmcy45f23m5" path="res://resources/abils/abil_HealingWord.tres" id="2_t4h0w"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_t4h0w"]
 [ext_resource type="Texture2D" uid="uid://ddkcwqagnr04k" path="res://assets/Character/Lulu-the-Guardian-from-Besaid/SpriteSheet.png" id="4_e6y7f"]
 
@@ -18,4 +19,5 @@ dex = 4
 spd = 2
 rng = 5
 damage_type = "Space"
+abilities = Array[ExtResource("1_k5osm")]([ExtResource("2_t4h0w")])
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"
