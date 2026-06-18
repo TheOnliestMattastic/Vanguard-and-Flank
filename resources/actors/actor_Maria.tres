@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://yjunkakapy71"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_2uml6"]
+[ext_resource type="Texture2D" uid="uid://yx34h8uy4638" path="res://assets/Character/Maria-the-Whitemage/Faceset.png" id="2_1c6eg"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_6upmw"]
+[ext_resource type="Texture2D" uid="uid://cq7ui10ye7fgi" path="res://assets/Character/Maria-the-Whitemage/SpriteSheet.png" id="4_os8n3"]
+
+[resource]
+script = ExtResource("2_6upmw")
+name = "Maria the Whitemage"
+spritesheet = ExtResource("4_os8n3")
+faceset = ExtResource("2_1c6eg")
+role = "Healer"
+pwr = 4
+dex = 4
+spd = 2
+rng = 4
+damage_type = "Life"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

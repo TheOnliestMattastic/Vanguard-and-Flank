@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://bdta2bgt8ikuk"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_ppbo7"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_5nqdv"]
+[ext_resource type="Texture2D" uid="uid://c3dwyy6xl8xil" path="res://assets/Character/Jeff-the-Child-Eater/Faceset.png" id="2_suawg"]
+[ext_resource type="Texture2D" uid="uid://bess0wm8locdi" path="res://assets/Character/Jeff-the-Child-Eater/SpriteSheet.png" id="4_8gtsc"]
+
+[resource]
+script = ExtResource("2_5nqdv")
+name = "Jeff, the Child Gobbler"
+spritesheet = ExtResource("4_8gtsc")
+faceset = ExtResource("2_suawg")
+role = "Defender"
+spd = 2
+rng = 2
+damage_type = "Bash"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://djh16k76m6hyc"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_q580b"]
+[ext_resource type="Texture2D" uid="uid://bvn0brnjyrncu" path="res://assets/Character/Gerry-the-Toll-Master/Faceset.png" id="2_jomvo"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_qlyqk"]
+[ext_resource type="Texture2D" uid="uid://dunglugjkh27w" path="res://assets/Character/Gerry-the-Toll-Master/SpriteSheet.png" id="4_qbu77"]
+
+[resource]
+script = ExtResource("2_qlyqk")
+name = "Gerry the Toll Master"
+spritesheet = ExtResource("4_qbu77")
+faceset = ExtResource("2_jomvo")
+role = "Defender"
+pwr = 4
+dex = 7
+spd = 2
+damage_type = "Earth"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

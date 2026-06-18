@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://ci6bwuystvs8b"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_srhyn"]
+[ext_resource type="Texture2D" uid="uid://cm3fmupwablg6" path="res://assets/Character/Ethel-Hag-of-the-Wetlands/Faceset.png" id="2_7jw2a"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_vuvw4"]
+[ext_resource type="Texture2D" uid="uid://ddjin1lox7bb3" path="res://assets/Character/Ethel-Hag-of-the-Wetlands/SpriteSheet.png" id="4_ingcn"]
+
+[resource]
+script = ExtResource("2_vuvw4")
+name = "Ethel, Hag of the Wetlands"
+spritesheet = ExtResource("4_ingcn")
+faceset = ExtResource("2_7jw2a")
+role = "Saboteur"
+pwr = 4
+dex = 4
+rng = 3
+damage_type = "Water"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

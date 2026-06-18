@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkusvylx82f1s"
-path="res://.godot/imported/Special1.png-c6613e233c3cbc460f1ac76e090dd189.ctex"
+uid="uid://ci1dhngjhqwrd"
+path="res://.godot/imported/Special1.png-fa70e0908c4ee83ccb01dbb9d08032a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Villager6/SeparateAnim/Special1.png"
-dest_files=["res://.godot/imported/Special1.png-c6613e233c3cbc460f1ac76e090dd189.ctex"]
+source_file="res://assets/Character/Village6/SeparateAnim/Special1.png"
+dest_files=["res://.godot/imported/Special1.png-fa70e0908c4ee83ccb01dbb9d08032a1.ctex"]
 
 [params]
 

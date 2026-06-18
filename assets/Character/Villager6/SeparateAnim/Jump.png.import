@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8lxukd87d2cn"
-path="res://.godot/imported/Jump.png-d0419611b4aad4050c9a3de53c80b776.ctex"
+uid="uid://dj1jwvpoh76v8"
+path="res://.godot/imported/Jump.png-0101106aa9e7cbb38cf9522110eb4ceb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Villager6/SeparateAnim/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-d0419611b4aad4050c9a3de53c80b776.ctex"]
+source_file="res://assets/Character/Village6/SeparateAnim/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-0101106aa9e7cbb38cf9522110eb4ceb.ctex"]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dgainllm0y5a4"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_txxbs"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_dokwk"]
+[ext_resource type="Texture2D" uid="uid://cwkyxahi67wxi" path="res://assets/Character/Tidus-of-the-Zanarkand-Abes/Faceset.png" id="2_v3pau"]
+[ext_resource type="Texture2D" uid="uid://d35kg82n3rnlw" path="res://assets/Character/Tidus-of-the-Zanarkand-Abes/SpriteSheet.png" id="4_8au4g"]
+
+[resource]
+script = ExtResource("2_dokwk")
+name = "Tidus of the Zanarkand"
+spritesheet = ExtResource("4_8au4g")
+faceset = ExtResource("2_v3pau")
+role = "Damage Dealer"
+pwr = 6
+dex = 3
+rng = 2
+damage_type = "Water"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://du4c4n3hthmm2"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_4g5ry"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_1w5al"]
+[ext_resource type="Texture2D" uid="uid://cuhtme5ulhk3h" path="res://assets/Character/Yuna-the-Summoner/Faceset.png" id="2_gjq7r"]
+[ext_resource type="Texture2D" uid="uid://c2icwu1aqcjlk" path="res://assets/Character/Yuna-the-Summoner/SpriteSheet.png" id="4_40ovh"]
+
+[resource]
+script = ExtResource("2_1w5al")
+name = "Yuna the Summoner"
+spritesheet = ExtResource("4_40ovh")
+faceset = ExtResource("2_gjq7r")
+role = "Healer"
+max_hp = 2
+pwr = 4
+dex = 4
+rng = 3
+damage_type = "Water"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

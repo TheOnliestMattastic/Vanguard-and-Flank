@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://bqgj40m02ject"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_2cjc5"]
+[ext_resource type="Texture2D" uid="uid://qif5sbnffens" path="res://assets/Character/Yuffie-Wutais-Greatest-Warrior/Faceset.png" id="2_eiy7f"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_mi58x"]
+[ext_resource type="Texture2D" uid="uid://kkx5r2vu2dc6" path="res://assets/Character/Yuffie-Wutais-Greatest-Warrior/SpriteSheet.png" id="4_vetbs"]
+
+[resource]
+script = ExtResource("2_mi58x")
+name = "Yuffie, Wutai's Greatest Warrior"
+spritesheet = ExtResource("4_vetbs")
+faceset = ExtResource("2_eiy7f")
+role = "Damage Dealer"
+dex = 4
+spd = 4
+damage_type = "Earth"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

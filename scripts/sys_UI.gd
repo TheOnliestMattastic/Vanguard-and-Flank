@@ -86,9 +86,9 @@ func _on_game_over(loser: String) -> void:
 	else: winner = "Vanguard"
 	
 	var popup = popup_scene.instantiate()
-	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/Title").text = "Game Over"
-	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/Body").text = winner + " won!"
-	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Main Menu").text = "Main Menu"
-	popup.get_node("NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Reset").text = "Reset"
+	popup.get_node("Panel/MarginContainer/VBoxContainer/Title").text = "Game Over"
+	popup.get_node("Panel/MarginContainer/VBoxContainer/Body").text = winner + " won!"
+	popup.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/Main Menu").text = "Main Menu"
+	popup.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/Reset").text = "Reset"
 	
 	add_child(popup)

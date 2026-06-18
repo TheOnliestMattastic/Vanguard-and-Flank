@@ -1,31 +1,10 @@
 [gd_scene format=3 uid="uid://c7sigd3hg27xu"]
 
 [ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="1_i7y4x"]
-[ext_resource type="Texture2D" uid="uid://br0cd8yw8txyf" path="res://assets/ui/Purple/button_9slice_up.png" id="1_mi6dp"]
-[ext_resource type="Texture2D" uid="uid://xirwwhdrfsso" path="res://assets/ui/Purple/button_9slice_down.png" id="2_rhj8v"]
+[ext_resource type="StyleBox" uid="uid://00cbrpqinq41" path="res://resources/res_button-norm.tres" id="2_1bdt2"]
 [ext_resource type="Script" uid="uid://cix1afqv3gjid" path="res://scripts/ent_Button.gd" id="3_3q610"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhj8v"]
-texture = ExtResource("1_mi6dp")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-modulate_color = Color(0.85430586, 0.85430586, 0.85430586, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q610"]
-texture = ExtResource("2_rhj8v")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i7y4x"]
-texture = ExtResource("1_mi6dp")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
+[ext_resource type="StyleBox" uid="uid://bjp2lbxpdg1xm" path="res://resources/res_button-pressed.tres" id="3_8m7bo"]
+[ext_resource type="StyleBox" uid="uid://f6i1kbeekspo" path="res://resources/res_button-hover.tres" id="4_t81cg"]
 
 [node name="Button" type="Button" unique_id=821943797]
 anchors_preset = 8
@@ -41,9 +20,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_i7y4x")
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxTexture_rhj8v")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_3q610")
-theme_override_styles/hover = SubResource("StyleBoxTexture_i7y4x")
+theme_override_styles/normal = ExtResource("2_1bdt2")
+theme_override_styles/pressed = ExtResource("3_8m7bo")
+theme_override_styles/hover = ExtResource("4_t81cg")
 script = ExtResource("3_3q610")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

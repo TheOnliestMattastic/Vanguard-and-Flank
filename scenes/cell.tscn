@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d03qfaa3kgoxx"]
 
 [ext_resource type="Script" uid="uid://ciydc5jpt3bej" path="res://scripts/ent_Cell.gd" id="1_0s7o3"]
-[ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="2_0s7o3"]
+[ext_resource type="Texture2D" uid="uid://v3u2up4ahpjy" path="res://resources/res_tilemap.tres" id="2_0s7o3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7o3"]
 
@@ -18,10 +18,6 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nm02e"]
-atlas = ExtResource("2_0s7o3")
-region = Rect2(0, 224, 32, 32)
 
 [node name="Cell" type="Button" unique_id=1838274227]
 custom_minimum_size = Vector2(64, 64)
@@ -41,7 +37,7 @@ show_behind_parent = true
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-texture = SubResource("AtlasTexture_nm02e")
+texture = ExtResource("2_0s7o3")
 expand_mode = 1
 stretch_mode = 5
 

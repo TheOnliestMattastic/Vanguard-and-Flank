@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://b2wposnnysl16"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_2568h"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_810b0"]
+[ext_resource type="Texture2D" uid="uid://bgduh6bvf4bev" path="res://assets/Character/Chain-the-Hero-of-Space/Faceset1.png" id="2_bkk53"]
+[ext_resource type="Texture2D" uid="uid://bodywwdd4225l" path="res://assets/Character/Chain-the-Hero-of-Space/SpriteSheet.png" id="4_e2bvt"]
+
+[resource]
+script = ExtResource("2_810b0")
+name = "Chain, Hero of Space"
+spritesheet = ExtResource("4_e2bvt")
+faceset = ExtResource("2_bkk53")
+role = "Saboteur"
+pwr = 4
+rng = 2
+damage_type = "Space"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

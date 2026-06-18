@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://cec33augca57c"]
 
-[ext_resource type="Texture2D" uid="uid://dehf8da5wj32j" path="res://assets/ui/Indigo/textbox_9slice.png" id="1_4ebxx"]
+[ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="1_ap2cg"]
 [ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/toppattermpanel0233x15.png" id="2_hjcnf"]
 [ext_resource type="LabelSettings" uid="uid://b2punxkqhrtht" path="res://resources/res_font-xlarge.tres" id="2_ofmyw"]
 [ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/res_font-large.tres" id="3_ap2cg"]
 [ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="4_hjcnf"]
-[ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="5_ap2cg"]
 
 [node name="Popup" type="Control" unique_id=398292309]
 z_index = 10
@@ -18,7 +17,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=824690681]
+[node name="screen" type="ColorRect" parent="." unique_id=824690681]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,38 +26,31 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.1)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=922216548]
+[node name="Panel" parent="." unique_id=1506169935 instance=ExtResource("1_ap2cg")]
 custom_minimum_size = Vector2(576, 324)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -288.0
 offset_top = -162.0
 offset_right = 288.0
 offset_bottom = 162.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_4ebxx")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1437593243]
-layout_mode = 0
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1437593243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 7.0
 offset_top = 7.0
-offset_right = 569.0
-offset_bottom = 317.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="bg" type="Control" parent="NinePatchRect/MarginContainer" unique_id=1044372609]
+[node name="bg" type="Control" parent="Panel/MarginContainer" unique_id=1044372609]
 modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 
-[node name="top" type="TextureRect" parent="NinePatchRect/MarginContainer/bg" unique_id=804104884]
+[node name="top" type="TextureRect" parent="Panel/MarginContainer/bg" unique_id=804104884]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -68,7 +60,7 @@ size_flags_vertical = 0
 texture = ExtResource("2_hjcnf")
 stretch_mode = 1
 
-[node name="bottom" type="TextureRect" parent="NinePatchRect/MarginContainer/bg" unique_id=2142938732]
+[node name="bottom" type="TextureRect" parent="Panel/MarginContainer/bg" unique_id=2142938732]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -82,11 +74,11 @@ texture = ExtResource("2_hjcnf")
 stretch_mode = 1
 flip_v = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer" unique_id=29133803]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=29133803]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1375376702]
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1375376702]
 layout_mode = 2
 size_flags_vertical = 10
 text = "Game Over"
@@ -94,7 +86,7 @@ label_settings = ExtResource("2_ofmyw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Body" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1883901602]
+[node name="Body" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1883901602]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Victor!"
@@ -102,24 +94,20 @@ label_settings = ExtResource("3_ap2cg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer" unique_id=1382167356]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1382167356]
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="Main Menu" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("4_hjcnf")]
+[node name="Main Menu" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("4_hjcnf")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("5_ap2cg")
-toggle_mode = false
 text = "Main Menu"
 
-[node name="Reset" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
+[node name="Reset" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("5_ap2cg")
-toggle_mode = false
 text = "Reset"

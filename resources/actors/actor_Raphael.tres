@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dcmvq412s415v"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_0xrkl"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_8k4k0"]
+[ext_resource type="Texture2D" uid="uid://doarwevguvtwn" path="res://assets/Character/Raphael-the-Devil-of-the-House-of-Hope/Faceset.png" id="2_wmhn7"]
+[ext_resource type="Texture2D" uid="uid://kg6xrx7gxpoa" path="res://assets/Character/Raphael-the-Devil-of-the-House-of-Hope/SpriteSheet.png" id="4_u3fjr"]
+
+[resource]
+script = ExtResource("2_8k4k0")
+name = "Raphael, the Devil"
+spritesheet = ExtResource("4_u3fjr")
+faceset = ExtResource("2_wmhn7")
+role = "Damage Dealer"
+dex = 4
+rng = 2
+damage_type = "Fire"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

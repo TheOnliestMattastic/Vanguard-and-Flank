@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dlhk7wdfq2iam"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_47dtu"]
+[ext_resource type="Texture2D" uid="uid://l6kfq3dog7e6" path="res://assets/Character/Bobomber-Man-the-Boomer/Faceset.png" id="2_h6nef"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_yn4hc"]
+[ext_resource type="Texture2D" uid="uid://c42ox4hoqswnp" path="res://assets/Character/Bobomber-Man-the-Boomer/SpriteSheet.png" id="4_0wsu8"]
+
+[resource]
+script = ExtResource("3_yn4hc")
+name = "Boomer Man, the Bob-omber"
+spritesheet = ExtResource("4_0wsu8")
+faceset = ExtResource("2_h6nef")
+alignment = "Vanguard"
+role = "Damage Dealer"
+pwr = 7
+dex = 4
+spd = 2
+damage_type = "Bash"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

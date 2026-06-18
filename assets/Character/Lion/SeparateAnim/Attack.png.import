@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmy3fdi6xyn2"
-path="res://.godot/imported/Attack.png-d20c91467691f447ffeaa92ead1a6036.ctex"
+uid="uid://f6erwitsngy1"
+path="res://.godot/imported/Attack.png-9093a0d3f1378b3874e0c542ef8310dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Lion/SeparateAnim/Attack.png"
-dest_files=["res://.godot/imported/Attack.png-d20c91467691f447ffeaa92ead1a6036.ctex"]
+source_file="res://assets/Character/LionYellow/SeparateAnim/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-9093a0d3f1378b3874e0c542ef8310dc.ctex"]
 
 [params]
 

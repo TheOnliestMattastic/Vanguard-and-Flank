@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2gl7groy0at6"
-path="res://.godot/imported/Faceset.png-6359eb3eb9918a95eb0de6e1896c704c.ctex"
+uid="uid://br1hp5y3v0l2i"
+path="res://.godot/imported/Faceset.png-df8126d5623b0c2c13c0774e96ac9311.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Villager6/Faceset.png"
-dest_files=["res://.godot/imported/Faceset.png-6359eb3eb9918a95eb0de6e1896c704c.ctex"]
+source_file="res://assets/Character/Village6/Faceset.png"
+dest_files=["res://.godot/imported/Faceset.png-df8126d5623b0c2c13c0774e96ac9311.ctex"]
 
 [params]
 

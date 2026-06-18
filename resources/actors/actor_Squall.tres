@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://pm364f80cdfe"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_5ki6e"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_5hdga"]
+[ext_resource type="Texture2D" uid="uid://ckluj6qukhgh2" path="res://assets/Character/Squall-Leon-Lockheart/Faceset.png" id="2_8lmi2"]
+[ext_resource type="Texture2D" uid="uid://w3p3hac5t2ad" path="res://assets/Character/Squall-Leon-Lockheart/SpriteSheet.png" id="4_dmrxn"]
+
+[resource]
+script = ExtResource("2_5hdga")
+name = "Squall, Leon Lockheart"
+spritesheet = ExtResource("4_dmrxn")
+faceset = ExtResource("2_8lmi2")
+role = "Defender"
+max_hp = 4
+pwr = 4
+damage_type = "Slash"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

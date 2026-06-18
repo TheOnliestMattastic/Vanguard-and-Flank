@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://beqcmshwpp71w"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_uh3np"]
+[ext_resource type="Texture2D" uid="uid://bwv8k0yso407x" path="res://assets/Character/Firion-Blade-of-the-Wild-Rose/Faceset.png" id="2_r3haa"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_crshs"]
+[ext_resource type="Texture2D" uid="uid://cnfhsrwh7x3aw" path="res://assets/Character/Firion-Blade-of-the-Wild-Rose/SpriteSheet.png" id="4_kq4cc"]
+
+[resource]
+script = ExtResource("3_crshs")
+name = "Firion, the Wild Rose Blade"
+spritesheet = ExtResource("4_kq4cc")
+faceset = ExtResource("2_r3haa")
+alignment = "Flank"
+role = "Damage Dealer"
+damage_type = "Slash"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

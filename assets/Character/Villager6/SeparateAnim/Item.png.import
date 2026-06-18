@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3bf3yaca37yn"
-path="res://.godot/imported/Item.png-df6ccc4cdb1c5066d7f29d9d5e8c2d48.ctex"
+uid="uid://8goq6vtqab3p"
+path="res://.godot/imported/Item.png-c520cfa76b59ec11ec79368eec42ca56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Villager6/SeparateAnim/Item.png"
-dest_files=["res://.godot/imported/Item.png-df6ccc4cdb1c5066d7f29d9d5e8c2d48.ctex"]
+source_file="res://assets/Character/Village6/SeparateAnim/Item.png"
+dest_files=["res://.godot/imported/Item.png-c520cfa76b59ec11ec79368eec42ca56.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdas0g1nbpdqu"]
 
-[ext_resource type="Texture2D" uid="uid://dehf8da5wj32j" path="res://assets/ui/Indigo/textbox_9slice.png" id="1_8e8e8"]
+[ext_resource type="Texture2D" uid="uid://dgvptc5mh3dma" path="res://resources/res_textbox.tres" id="1_8e8e8"]
 
 [node name="Panel" type="NinePatchRect" unique_id=1506169935]
 anchors_preset = 8

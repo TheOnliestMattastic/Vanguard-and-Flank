@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs2sogwtks8lh"
-path="res://.godot/imported/Special2.png-75e3b7975cb12bc2109d61f449a2c3bd.ctex"
+uid="uid://ycipyosfk5ef"
+path="res://.godot/imported/Special2.png-a405d791e462536ce229c6969e9489a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Character/Lion/SeparateAnim/Special2.png"
-dest_files=["res://.godot/imported/Special2.png-75e3b7975cb12bc2109d61f449a2c3bd.ctex"]
+source_file="res://assets/Character/LionYellow/SeparateAnim/Special2.png"
+dest_files=["res://.godot/imported/Special2.png-a405d791e462536ce229c6969e9489a4.ctex"]
 
 [params]
 

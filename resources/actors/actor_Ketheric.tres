@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dqf8aka6cbetg"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_37v3d"]
+[ext_resource type="Texture2D" uid="uid://dqcfe431gj8or" path="res://assets/Character/Ketheric-the-Chosen-of-Myrkul/Faceset.png" id="2_vgfs2"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_vr0b8"]
+[ext_resource type="Texture2D" uid="uid://dsfhhxnww8o4o" path="res://assets/Character/Ketheric-the-Chosen-of-Myrkul/SpriteSheet.png" id="4_dorie"]
+
+[resource]
+script = ExtResource("2_vr0b8")
+name = "Ketheric, Myrkul's Chosen"
+spritesheet = ExtResource("4_dorie")
+faceset = ExtResource("2_vgfs2")
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"

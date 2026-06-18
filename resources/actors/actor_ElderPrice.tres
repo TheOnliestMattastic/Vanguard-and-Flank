@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://cfkpcao1h2hae"]
+
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_snx82"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_883s7"]
+[ext_resource type="Texture2D" uid="uid://0jidbe5g3or" path="res://assets/Character/Elder-Price-the-Super-Mormon/Faceset.png" id="2_sehv0"]
+[ext_resource type="Texture2D" uid="uid://bat11lxrnh0ot" path="res://assets/Character/Elder-Price-the-Super-Mormon/SpriteSheet.png" id="4_boeio"]
+
+[resource]
+script = ExtResource("2_883s7")
+name = "Elder Price, the Super Mormon"
+spritesheet = ExtResource("4_boeio")
+faceset = ExtResource("2_sehv0")
+role = "Healer"
+max_hp = 2
+pwr = 4
+rng = 3
+damage_type = "Space"
+metadata/_custom_type_script = "uid://by16wo7oqnnl8"
