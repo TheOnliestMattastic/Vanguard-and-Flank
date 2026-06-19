@@ -1,10 +1,11 @@
 extends Node
 
-# HUD
+# Input
 signal cell_pressed(coords: Vector2i)
 signal button_pressed(name: String)
 
 # Combat
+signal init_rolled()
 signal actor_attacked(attacker: Actor, defender: Actor, result: int, dc: int)
 signal actor_damaged(actor: Actor, ammount: int)
 signal actor_healed(caster: Actor, target: Actor, ammount: int)

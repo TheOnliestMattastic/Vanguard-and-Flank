@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bmq4ge2wigg22" path="res://scripts/sys_UI.gd" id="2_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="3_pl11u"]
 [ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/toppattermpanel0233x15.png" id="4_bt5mj"]
-[ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/res_font.tres" id="4_pl11u"]
+[ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/editor/res_font.tres" id="4_pl11u"]
 [ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/utl_scrollbox.gd" id="5_bhx41"]
 [ext_resource type="Script" uid="uid://8j4oyr7evetl" path="res://scripts/ent_Grid.gd" id="7_sww3w"]
 [ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="8_suyxu"]

@@ -17,6 +17,7 @@ func _ready() -> void:
 	Event.game_over.connect(_on_game_over)
 	Event.actor_attacked.connect(log_hit_results)
 	Event.actor_healed.connect(log_heal_results)
+	Event.init_rolled.connect(log_init)
 
 # === HUD Functions ===
 func display_queue(queue: Array[Actor]) -> void:

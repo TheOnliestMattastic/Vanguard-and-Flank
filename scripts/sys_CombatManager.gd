@@ -13,6 +13,7 @@ static func roll_for_init(queue: Array[Actor]) -> void:
 		Manifest.combatants[actor]["AP"] = min((Manifest.combatants[actor]["AP"] + 3), 5)
 		actor.acted = false
 	queue.sort_custom(func(a, b): return Manifest.combatants[a]["init"] > Manifest.combatants[b]["init"])
+	Event.init_rolled.emit()
 
 static func has_ap(actor: Actor, ammount: int = 1) -> bool:
 	return Manifest.combatants[actor]["AP"] >= ammount

@@ -5,7 +5,6 @@ class_name ActorData
 @export var name: String = "Hero"
 @export var spritesheet: Texture2D
 @export var faceset: Texture2D
-@export_enum("Vanguard", "Flank") var alignment: String
 @export_enum("Damage Dealer", "Defender", "Healer", "Saboteur") var role: String
 
 @export_group("Stats")

@@ -55,7 +55,7 @@ static func highlight_range(actor: Actor, limit: int, color: String = "green", i
 static func get_targets_in_range(actor: Actor, limit: int, is_friendly: bool = false) -> Array:
 	var origin = actor.position / Manifest.CELL_SIZE
 	var targets: Array[Vector2i] = []
-	var alignment = actor.data.alignment
+	var alignment = actor.get_parent()
 	
 	for x in range(-limit, limit + 1):
 		for y in range(-limit, limit + 1):
@@ -66,8 +66,8 @@ static func get_targets_in_range(actor: Actor, limit: int, is_friendly: bool = f
 			if not Manifest.astar.is_point_solid(target_pos): continue
 			var target = Manifest.gridmap.get(target_pos).occupant
 			if target:
-				var same_alignment = (alignment == target.data.alignment)
-				if is_friendly == same_alignment: targets.append(target_pos)
+				var same_team = (alignment == target.get_parent())
+				if is_friendly == same_team: targets.append(target_pos)
 	return targets
 
 static func get_cells_in_range(actor: Actor, limit: int, astar: AStarGrid2D = Manifest.astar) -> Array:

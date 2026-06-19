@@ -28,7 +28,6 @@ func _ready() -> void:
 		Grid.toggle_obstacle(combatant.position / Manifest.CELL_SIZE, true)
 	
 	CombatManager.roll_for_init(Manifest.queue)
-	ui.log_init()
 	ui.display_queue(Manifest.queue)
 	toggle_state(State.IDLE)
 
@@ -37,6 +36,9 @@ func _process(delta: float) -> void:
 	for combatant in Manifest.combatants:
 		if combatant.target: ui.display_target(combatant)
 
+#func switch_to_main_menu() -> void:
+	#get_tree().change_scene_to_packed(MENU)
+
 func  _on_button_pressed(btn_name: String):
 	match btn_name:
 		"Move": toggle_state(State.MOVE)
@@ -44,8 +46,8 @@ func  _on_button_pressed(btn_name: String):
 		"Abilities": toggle_state(State.ABILITY)
 		"Delay": delay_turn()
 		"End": end_turn()
-		"Main Menu": print("[I AM ERROR] Button not yet configured.")
-		"Reset": print("[I AM ERROR] Button not yet configured.")
+		#"Main Menu": switch_to_main_menu()
+		#"Reset": print("[I AM ERROR] Button not yet configured.")
 
 func _on_cell_pressed(coords: Vector2i):
 	var active_actor = Manifest.queue[0]
@@ -96,7 +98,7 @@ func _on_cell_pressed(coords: Vector2i):
 				return 
 			
 			# exit if friendly target
-			if active_actor.data.alignment == target.data.alignment:
+			if active_actor.get_parent() == target.get_parent():
 				ui.log_to_banner("Will not attack a friendly...")
 				return
 			
@@ -190,7 +192,7 @@ func get_combatants() -> Array:
 
 func _on_actor_defeated(actor: Actor) -> void:
 	var coords := Vector2i(actor.position / Manifest.CELL_SIZE)
-	var alignment := actor.data.alignment
+	var alignment := actor.get_parent()
 	Manifest.remove_from_queue(actor)
 	actor.queue_free()
 	Grid.toggle_obstacle(coords, false)
@@ -200,9 +202,9 @@ func _on_actor_defeated(actor: Actor) -> void:
 	# checking w/-1 because actor is queued for deletion but not yet deleted
 	var team
 	match alignment:
-		vanguard.name: team = vanguard.get_child_count()
-		flank.name: team = flank.get_child_count()
-	if team - 1 == 0: Event.game_over.emit(alignment)
+		vanguard: team = vanguard.get_child_count()
+		flank: team = flank.get_child_count()
+	if team - 1 == 0: Event.game_over.emit(alignment.name)
 
 func end_turn() -> void:
 	Manifest.queue[0].active = false
