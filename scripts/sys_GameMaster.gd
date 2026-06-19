@@ -58,11 +58,10 @@ func _on_cell_pressed(coords: Vector2i):
 		State.MOVE: 
 			var path = Grid.find_path(pos, coords)
 			var rate = round(active_actor.data.spd * SPD_MOD)
-			var limit = rate * Manifest.combatants[active_actor]["AP"]
 			var dist = path.size() - 1
 			
 			# exit if not within range
-			if dist > limit: 
+			if dist > int(rate * Manifest.combatants[active_actor]["AP"]): 
 				ui.log_to_banner("Not fast enough for that...")
 				return
 			
@@ -85,11 +84,9 @@ func _on_cell_pressed(coords: Vector2i):
 		
 		State.ATTACK:
 			var target: Actor = Manifest.gridmap.get(coords).occupant
-			var atk_range: int = 2
-			var distance: int = int(pos.distance_to(coords))
 			
 			# exit if not within range
-			if distance > atk_range:
+			if int(pos.distance_to(coords)) > active_actor.data.rng:
 				ui.log_to_banner("Too far...")
 				return
 			
@@ -97,7 +94,7 @@ func _on_cell_pressed(coords: Vector2i):
 			if not target: 
 				ui.log_to_banner("Not a valid target...")
 				return 
-
+			
 			# exit if friendly target
 			if active_actor.data.alignment == target.data.alignment:
 				ui.log_to_banner("Will not attack a friendly...")
@@ -108,13 +105,10 @@ func _on_cell_pressed(coords: Vector2i):
 				ui.log_to_banner("Not enough AP...")
 				return
 			
-			var results = CombatManager.roll_for_attack(active_actor, target)
+			if CombatManager.roll_for_attack(active_actor, target): 
+				CombatManager.apply_damage(target)
 			CombatManager.spend_ap(active_actor)
 			active_actor.acted = true
-			ui.log_hit_results(results)
-			
-			# apply damage only if successfull
-			if results["success"]: CombatManager.apply_damage(target)
 			toggle_state(State.IDLE)
 		
 		State.ABILITY:
@@ -136,22 +130,19 @@ func _on_cell_pressed(coords: Vector2i):
 				return
 			
 			var same_team = target.get_parent() == active_actor.get_parent()
-			var results: Dictionary
 			match ability.type:
 				"Heal":
 					if not same_team:
 						ui.log_to_banner("Will only target friendlies...")
 						return
-					results = ability.execute(active_actor, coords)
-					ui.log_heal_results(results)
-					if results["success"]: CombatManager.apply_heal(target, results.get("ammount"))
+					
+					ability.execute(active_actor, coords)
 				
 				"Attack": 
 					if same_team:
 						ui.log_to_banner("Will not target friendlies...")
 						return
-					results = ability.execute(active_actor, coords)
-					ui.log_hit_results(results)
+					ability.execute(active_actor, coords)
 					
 			CombatManager.spend_ap(active_actor, ability.ap_cost)
 			active_actor.acted = true
@@ -178,9 +169,8 @@ func toggle_state(target_state: State) -> void:
 			ui.log_to_banner("Moving...")
 		
 		State.ATTACK:
-			var atk_range = 2 # FOR TESTING: Need to refactor
 			Grid.clear_highlights()
-			Grid.highlight_range(Manifest.queue[0], atk_range, "red", true)
+			Grid.highlight_range(Manifest.queue[0], active_actor.data.rng, "red", true)
 			ui.log_to_banner("Attacking...")
 		
 		State.ABILITY:

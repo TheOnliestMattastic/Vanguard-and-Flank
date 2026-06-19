@@ -15,6 +15,8 @@ class_name UI
 
 func _ready() -> void:
 	Event.game_over.connect(_on_game_over)
+	Event.actor_attacked.connect(log_hit_results)
+	Event.actor_healed.connect(log_heal_results)
 
 # === HUD Functions ===
 func display_queue(queue: Array[Actor]) -> void:
@@ -59,22 +61,13 @@ func log_init() -> void:
 func log_to_banner(message: String) -> void:
 	banner.text = message
 
-func log_hit_results(results: Dictionary) -> void:
-	var attacker = results.get("attacker")
-	var successful = results.get("success")
-	combat_log.append_text("[[color=red]ATTACK[/color]] [color=blue]" + attacker.name + "[/color] must roll higher than DC: [color=cyan]" + str(results.get("dc")) + "[/color] to succeed.[br]" )
-	combat_log.append_text("[color=blue]" + attacker.name + "[/color] rolled a [color=cyan]" + str(results.get("hit")) + "[/color]![br]")
-	if successful: combat_log.append_text("The [color=green]attack succeeded[/color].[br]")
-	else: combat_log.append_text("The [color=red]attack failed[/color].[br]")
+func log_hit_results(attacker: Actor, roll: int, dc: int) -> void:
+	combat_log.append_text("[[color=red]ATTACK[/color]] [color=blue]" + attacker.name + "[/color] must roll higher than DC: [color=cyan]" + str(dc) + "[/color] to succeed.[br]" )
+	combat_log.append_text("[color=blue]" + attacker.name + "[/color] rolled a [color=cyan]" + str(roll) + "[/color]![br]")
+	if dc > roll : combat_log.append_text("The [color=red]attack failed[/color].[br]")
+	else: combat_log.append_text("The [color=green]attack succeeded[/color].[br]")
 
-func log_heal_results(results: Dictionary) -> void:
-	var caster = results.get("caster")
-	if not results["success"]:
-		combat_log.append_text("[[color=green]HEAL[/color]] [color=blue]" + caster.name + "[/color] [color=red]failed[/color] to cast ability.[br]")
-		return
-	
-	var target = results.get("target")
-	var ammount = results.get("ammount")
+func log_heal_results(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	combat_log.append_text("[[color=green]HEAL[/color]] [color=blue]" + caster.name + "[/color] healed [color=blue]" + target.name + "[/color] for [color=cyan]" + str(ammount) + "[/color] pts![br]")
 
 func append_log(message: String) -> void:

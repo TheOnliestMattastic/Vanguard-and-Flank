@@ -1,10 +1,11 @@
 extends Node2D
 class_name CombatManager
 
-const EVASION: int = 10
+const EVASION_BASE: int = 10
 
 func _ready() -> void:
 	Event.actor_damaged.connect(apply_damage)
+	Event.actor_healed.connect(apply_heal)
 
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
@@ -20,16 +21,11 @@ static func spend_ap(actor: Actor, ammount: int = 1) -> void:
 	if has_ap(actor, ammount): Manifest.combatants[actor]["AP"] = Manifest.combatants[actor]["AP"] - ammount
 	else: print("[I AM ERROR] spend_ap edge case was activated!")
 
-static func roll_for_attack(attacker: Actor, defender: Actor) -> Dictionary:
-	var results: Dictionary
-	var hit_result = Dice.roll_d20() + attacker.data.pwr
-	var dc = EVASION + defender.data.dex
-	results["success"] = hit_result >= dc
-	results["attacker"] = attacker
-	results["defender"] = defender
-	results["hit"] = hit_result
-	results["dc"] = dc
-	return results
+static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
+	var result = Dice.roll_d20() + attacker.data.pwr
+	var dc = EVASION_BASE + defender.data.dex
+	Event.actor_attacked.emit(attacker, result, dc)
+	return result >= dc
 
 static func apply_damage(actor: Actor, ammount: int = 1) -> void:
 	var hp = Manifest.combatants[actor]["HP"]
@@ -37,8 +33,8 @@ static func apply_damage(actor: Actor, ammount: int = 1) -> void:
 	if result > 0: Manifest.combatants[actor]["HP"] = result
 	else: Event.actor_defeated.emit(actor)
 
-static func apply_heal(actor: Actor, ammount: int = 1) -> void:
-	var hp = Manifest.combatants[actor]["HP"]
+static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
+	var hp = Manifest.combatants[target]["HP"]
 	var result = hp + ammount
-	if result > actor.data.max_hp: Manifest.combatants[actor]["HP"] = actor.data.max_hp
-	else: Manifest.combatants[actor]["HP"] = result
+	if result > target.data.max_hp: Manifest.combatants[target]["HP"] = target.data.max_hp
+	else: Manifest.combatants[target]["HP"] = result

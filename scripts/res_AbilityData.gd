@@ -11,8 +11,6 @@ class_name AbilityData
 func stage(caster: Actor) -> void: 
 	return print("[I AM ERROR] Stage method not overridden for " + name + "!")
 
-func execute(caster: Actor, coords: Vector2i) -> Dictionary:
-	var results: Dictionary
-	results["success"] = false
-	results["message"] = "[I AM ERROR] Execute method not overridden for " + name + "!"
-	return results
+func execute(caster: Actor, coords: Vector2i) -> bool:
+	print("[I AM ERROR] Execute method not overridden for " + name + "!")
+	return false
