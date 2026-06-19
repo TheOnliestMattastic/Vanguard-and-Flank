@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_8ugbv"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_pnq4j"]
-[ext_resource type="Texture2D" uid="uid://dyx011rn5imlo" path="res://assets/Character/Vivi-the-Blackmage/Faceset.png" id="2_ygey2"]
-[ext_resource type="Texture2D" uid="uid://coqenabnmixdp" path="res://assets/Character/Vivi-the-Blackmage/SpriteSheet.png" id="4_33486"]
+[ext_resource type="Texture2D" uid="uid://dyx011rn5imlo" path="res://assets/chars/Vivi-the-Blackmage/Faceset.png" id="2_ygey2"]
+[ext_resource type="Texture2D" uid="uid://coqenabnmixdp" path="res://assets/chars/Vivi-the-Blackmage/SpriteSheet.png" id="4_33486"]
 
 [resource]
 script = ExtResource("2_pnq4j")

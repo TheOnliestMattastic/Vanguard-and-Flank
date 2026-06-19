@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dxk17j0irmlyh"]
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_laroj"]
-[ext_resource type="Texture2D" uid="uid://cbwy8e11ae6ng" path="res://assets/Character/Elder-Naked-Arnold's-Apostle/Faceset.png" id="2_bdi8m"]
+[ext_resource type="Texture2D" uid="uid://cbwy8e11ae6ng" path="res://assets/chars/Elder-Naked-Arnold's-Apostle/Faceset.png" id="2_bdi8m"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_dp6ak"]
-[ext_resource type="Texture2D" uid="uid://c6xs0ggekh6s4" path="res://assets/Character/Elder-Naked-Arnold's-Apostle/SpriteSheet.png" id="4_im0nk"]
+[ext_resource type="Texture2D" uid="uid://c6xs0ggekh6s4" path="res://assets/chars/Elder-Naked-Arnold's-Apostle/SpriteSheet.png" id="4_im0nk"]
 
 [resource]
 script = ExtResource("2_dp6ak")

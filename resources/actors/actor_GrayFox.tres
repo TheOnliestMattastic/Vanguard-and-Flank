@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://k2ldsyx4m06y"]
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_6c8rv"]
-[ext_resource type="Texture2D" uid="uid://cmjmr3jrxh5ml" path="res://assets/Character/Gray-Fox-the-Cyborg-Ninja/Faceset.png" id="2_74vyi"]
+[ext_resource type="Texture2D" uid="uid://cmjmr3jrxh5ml" path="res://assets/chars/Gray-Fox-the-Cyborg-Ninja/Faceset.png" id="2_74vyi"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_f5y62"]
-[ext_resource type="Texture2D" uid="uid://bpryn3siwnyg8" path="res://assets/Character/Gray-Fox-the-Cyborg-Ninja/SpriteSheet.png" id="4_moueb"]
+[ext_resource type="Texture2D" uid="uid://bpryn3siwnyg8" path="res://assets/chars/Gray-Fox-the-Cyborg-Ninja/SpriteSheet.png" id="4_moueb"]
 
 [resource]
 script = ExtResource("2_f5y62")

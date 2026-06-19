@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://d14h86kno38e3"]
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_xvj64"]
-[ext_resource type="Texture2D" uid="uid://doc4a54kovq16" path="res://assets/Character/M'aiq-Liar-from-Tamriel/Faceset.png" id="2_5s0f1"]
+[ext_resource type="Texture2D" uid="uid://doc4a54kovq16" path="res://assets/chars/M'aiq-Liar-from-Tamriel/Faceset.png" id="2_5s0f1"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_xi4te"]
-[ext_resource type="Texture2D" uid="uid://tj68qertj2v0" path="res://assets/Character/M'aiq-Liar-from-Tamriel/SpriteSheet.png" id="4_imumr"]
+[ext_resource type="Texture2D" uid="uid://tj68qertj2v0" path="res://assets/chars/M'aiq-Liar-from-Tamriel/SpriteSheet.png" id="4_imumr"]
 
 [resource]
 script = ExtResource("2_xi4te")

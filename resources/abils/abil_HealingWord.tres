@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="HealingWord" format=3 uid="uid://cldmcy45f23m5"]
+[gd_resource type="Resource" script_class="Heal" format=3 uid="uid://cldmcy45f23m5"]
 
-[ext_resource type="Script" uid="uid://c1leywxf23e5p" path="res://scripts/abil_Heal.gd" id="1_j0hpq"]
+[ext_resource type="Script" uid="uid://c1leywxf23e5p" path="res://scripts/components/cmp_Heal.gd" id="1_j0hpq"]
 
 [resource]
 script = ExtResource("1_j0hpq")
@@ -8,4 +8,5 @@ name = "HealingWord"
 ap_cost = 2
 cast_range = 5
 type = "Heal"
+damage_type = "Life"
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

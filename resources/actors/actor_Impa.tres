@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_aaaqb"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_733mg"]
-[ext_resource type="Texture2D" uid="uid://bcdmd3tvhw1ai" path="res://assets/Character/Impa-the-Wise/Faceset.png" id="2_nn87d"]
-[ext_resource type="Texture2D" uid="uid://ctq2pl8r0weih" path="res://assets/Character/Impa-the-Wise/redsamurai.png" id="4_gibue"]
+[ext_resource type="Texture2D" uid="uid://bcdmd3tvhw1ai" path="res://assets/chars/Impa-the-Wise/Faceset.png" id="2_nn87d"]
+[ext_resource type="Texture2D" uid="uid://ctq2pl8r0weih" path="res://assets/chars/Impa-the-Wise/redsamurai.png" id="4_gibue"]
 
 [resource]
 script = ExtResource("2_733mg")

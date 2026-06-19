@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Heal" format=3 uid="uid://b04ngvavgv3cq"]
 
-[ext_resource type="Script" uid="uid://c1leywxf23e5p" path="res://scripts/abil_Heal.gd" id="1_53wli"]
+[ext_resource type="Script" uid="uid://c1leywxf23e5p" path="res://scripts/components/cmp_Heal.gd" id="1_53wli"]
 
 [resource]
 script = ExtResource("1_53wli")
@@ -8,4 +8,5 @@ name = "HealingHands"
 ap_cost = 2
 pwr_mod = 3.0
 type = "Heal"
+damage_type = "Life"
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

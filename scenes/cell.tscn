@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d03qfaa3kgoxx"]
 
-[ext_resource type="Script" uid="uid://ciydc5jpt3bej" path="res://scripts/ent_Cell.gd" id="1_0s7o3"]
-[ext_resource type="Texture2D" uid="uid://v3u2up4ahpjy" path="res://resources/res_tilemap.tres" id="2_0s7o3"]
+[ext_resource type="Script" uid="uid://ciydc5jpt3bej" path="res://scripts/entities/ent_Cell.gd" id="1_0s7o3"]
+[ext_resource type="Texture2D" uid="uid://v3u2up4ahpjy" path="res://resources/textures/tx_tilemap.tres" id="2_0s7o3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7o3"]
 

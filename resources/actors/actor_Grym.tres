@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_813lq"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_54k5g"]
-[ext_resource type="Texture2D" uid="uid://csl1etk83okm3" path="res://assets/Character/Grym-Sentinel-of-the-Grymforge/Faceset.png" id="2_s62bi"]
-[ext_resource type="Texture2D" uid="uid://dqq4mmen0vqya" path="res://assets/Character/Grym-Sentinel-of-the-Grymforge/SpriteSheet.png" id="4_q3s6v"]
+[ext_resource type="Texture2D" uid="uid://csl1etk83okm3" path="res://assets/chars/Grym-Sentinel-of-the-Grymforge/Faceset.png" id="2_s62bi"]
+[ext_resource type="Texture2D" uid="uid://dqq4mmen0vqya" path="res://assets/chars/Grym-Sentinel-of-the-Grymforge/SpriteSheet.png" id="4_q3s6v"]
 
 [resource]
 script = ExtResource("2_54k5g")

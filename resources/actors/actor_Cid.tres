@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://cv6vagotgf3w"]
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_c1yj5"]
-[ext_resource type="Texture2D" uid="uid://5cm3bdm1tjsa" path="res://assets/Character/Cid-of-the-Highwind/Faceset.png" id="2_pi3ib"]
+[ext_resource type="Texture2D" uid="uid://5cm3bdm1tjsa" path="res://assets/chars/Cid-of-the-Highwind/Faceset.png" id="2_pi3ib"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_w8vdd"]
-[ext_resource type="Texture2D" uid="uid://d2csp1hkvdlm5" path="res://assets/Character/Cid-of-the-Highwind/SpriteSheet.png" id="4_jqlr2"]
+[ext_resource type="Texture2D" uid="uid://d2csp1hkvdlm5" path="res://assets/chars/Cid-of-the-Highwind/SpriteSheet.png" id="4_jqlr2"]
 
 [resource]
 script = ExtResource("2_w8vdd")

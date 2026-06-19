@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_lexly"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_10qdj"]
-[ext_resource type="Texture2D" uid="uid://cgx4uopw5d00j" path="res://assets/Character/Barret-Leader-of-Avalanche/Faceset.png" id="2_e2n08"]
-[ext_resource type="Texture2D" uid="uid://58uw8fkm3vq1" path="res://assets/Character/Barret-Leader-of-Avalanche/SpriteSheet.png" id="4_qvgyg"]
+[ext_resource type="Texture2D" uid="uid://cgx4uopw5d00j" path="res://assets/chars/Barret-Leader-of-Avalanche/Faceset.png" id="2_e2n08"]
+[ext_resource type="Texture2D" uid="uid://58uw8fkm3vq1" path="res://assets/chars/Barret-Leader-of-Avalanche/SpriteSheet.png" id="4_qvgyg"]
 
 [resource]
 script = ExtResource("2_10qdj")

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dll8gqfd4csv0" path="res://assets/fonts/alagard.ttf" id="1_i7y4x"]
 [ext_resource type="StyleBox" uid="uid://00cbrpqinq41" path="res://resources/editor/res_button-norm.tres" id="2_1bdt2"]
-[ext_resource type="Script" uid="uid://cix1afqv3gjid" path="res://scripts/ent_Button.gd" id="3_3q610"]
+[ext_resource type="Script" uid="uid://cix1afqv3gjid" path="res://scripts/entities/ent_Button.gd" id="3_3q610"]
 [ext_resource type="StyleBox" uid="uid://bjp2lbxpdg1xm" path="res://resources/editor/res_button-pressed.tres" id="3_8m7bo"]
 [ext_resource type="StyleBox" uid="uid://f6i1kbeekspo" path="res://resources/editor/res_button-hover.tres" id="4_t81cg"]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvrkaa82bgy2o"]
 
-[ext_resource type="Script" uid="uid://ceyylallio2tu" path="res://scripts/ent_Actor.gd" id="1_0qi0m"]
-[ext_resource type="Texture2D" uid="uid://e7maq3afvwju" path="res://assets/Character/Boy/SpriteSheet.png" id="1_x4c43"]
+[ext_resource type="Script" uid="uid://ceyylallio2tu" path="res://scripts/entities/ent_Actor.gd" id="1_0qi0m"]
+[ext_resource type="Texture2D" uid="uid://e7maq3afvwju" path="res://assets/chars/Boy/SpriteSheet.png" id="1_x4c43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qi0m"]
 size = Vector2(56, 56)

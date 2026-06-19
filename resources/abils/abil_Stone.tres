@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageSpike" format=3 uid="uid://c4w02v36vs6vv"]
+
+[ext_resource type="Script" uid="uid://co2vuat70kwks" path="res://scripts/components/cmp_DamageSpike.gd" id="1_w0gwa"]
+
+[resource]
+script = ExtResource("1_w0gwa")
+name = "Stone"
+ap_cost = 4
+cast_range = 5
+pwr_mod = 2.0
+type = "Attack"
+damage_type = "Earth"
+metadata/_custom_type_script = "uid://dx5ypgl5h0r84"
