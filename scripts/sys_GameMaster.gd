@@ -123,33 +123,40 @@ func _on_cell_pressed(coords: Vector2i):
 				ui.log_to_banner("Not enough ap...")
 				return 
 			
+			# exit if not in range
+			var distance = pos.distance_to(coords)
+			if distance > ability.cast_range:
+				ui.log_to_banner("Too far...")
+				return
+			
+			# exit if invalid target
+			var target: Actor = Manifest.gridmap.get(coords).occupant
+			if not target:
+				ui.log_to_banner("Not a valid target...")
+				return
+			
+			var same_team = target.get_parent() == active_actor.get_parent()
 			var results: Dictionary
 			match ability.type:
 				"Heal":
-					# exit if not in range
-					var distance = pos.distance_to(coords)
-					if distance > ability.cast_range:
-						ui.log_to_banner("Too far...")
-						return
-					
-					# exit if invalid target
-					var target: Actor = Manifest.gridmap.get(coords).occupant
-					if not target:
-						ui.log_to_banner("Not a valid target...")
-						return
-					
-					if target.data.alignment != active_actor.data.alignment:
+					if not same_team:
 						ui.log_to_banner("Will only target friendlies...")
 						return
-					
-					# execute ability
 					results = ability.execute(active_actor, coords)
-					CombatManager.spend_ap(active_actor, ability.ap_cost)
-					active_actor.acted = true
 					ui.log_heal_results(results)
-					
 					if results["success"]: CombatManager.apply_heal(target, results.get("ammount"))
-					toggle_state(State.IDLE)
+				
+				"Attack": 
+					if same_team:
+						ui.log_to_banner("Will not target friendlies...")
+						return
+					results = ability.execute(active_actor, coords)
+					ui.log_hit_results(results)
+					
+			CombatManager.spend_ap(active_actor, ability.ap_cost)
+			active_actor.acted = true
+			toggle_state(State.IDLE)
+		
 		
 		_: ui.log_to_banner("[I AM ERROR] Input configuration not yet configured!")
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_wgtev"]
 [ext_resource type="Texture2D" uid="uid://cc034scgkcntm" path="res://assets/Character/Auron-the-Legendary-Guardian/Faceset.png" id="2_5rnrw"]
+[ext_resource type="Resource" uid="uid://dyrjhq56f32j3" path="res://resources/abils/abil_Fireball.tres" id="2_15xne"]
 [ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_15xne"]
 [ext_resource type="Texture2D" uid="uid://ynyv1cjchtr0" path="res://assets/Character/Auron-the-Legendary-Guardian/SpriteSheet.png" id="4_im8lt"]
 
@@ -15,4 +16,5 @@ role = "Defender"
 dex = 6
 spd = 2
 damage_type = "Pierce"
+abilities = Array[ExtResource("1_wgtev")]([ExtResource("2_15xne")])
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

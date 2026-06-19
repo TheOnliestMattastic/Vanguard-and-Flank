@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DamageSpike" format=3 uid="uid://dyrjhq56f32j3"]
+
+[ext_resource type="Script" uid="uid://co2vuat70kwks" path="res://scripts/abil_DamageSpike.gd" id="1_kmluv"]
+
+[resource]
+script = ExtResource("1_kmluv")
+name = "Fireball"
+ap_cost = 4
+cast_range = 5
+pwr_mod = 2.0
+type = "Attack"
+metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

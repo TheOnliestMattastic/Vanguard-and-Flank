@@ -3,6 +3,9 @@ class_name CombatManager
 
 const EVASION: int = 10
 
+func _ready() -> void:
+	Event.actor_damaged.connect(apply_damage)
+
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
 		Manifest.combatants[actor]["init"] = Dice.roll_d20() + actor.data.spd
@@ -19,17 +22,13 @@ static func spend_ap(actor: Actor, ammount: int = 1) -> void:
 
 static func roll_for_attack(attacker: Actor, defender: Actor) -> Dictionary:
 	var results: Dictionary
-	var hit_modifier = attacker.data.pwr
-	var evasion_modifier = defender.data.dex
-	var hit_roll = Dice.roll_d20() + hit_modifier
-	var dc = EVASION + evasion_modifier
-	
-	results["success"] = hit_roll >= dc
+	var hit_result = Dice.roll_d20() + attacker.data.pwr
+	var dc = EVASION + defender.data.dex
+	results["success"] = hit_result >= dc
 	results["attacker"] = attacker
 	results["defender"] = defender
-	results["hit"] = hit_roll
+	results["hit"] = hit_result
 	results["dc"] = dc
-	
 	return results
 
 static func apply_damage(actor: Actor, ammount: int = 1) -> void:
