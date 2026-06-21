@@ -2,12 +2,16 @@ extends Node2D
 class_name CombatManager
 
 const EVASION_BASE: int = 10
+enum DoT {
+	Poison,
+}
 
 func _ready() -> void:
 	Event.actor_damaged.connect(apply_damage)
 	Event.actor_healed.connect(apply_heal)
 	Event.actor_doted.connect(apply_dot)
 	Event.new_round.connect(_on_new_round)
+	Event.new_turn.connect(_on_new_turn)
 
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
@@ -43,8 +47,17 @@ static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	else: Manifest.combatants[target]["HP"] = result
 
 static func apply_dot(actor: Actor, dot_name: String, turns: int, ammount: int = 1) -> void: 
-	var value: Dictionary = { "turns": turns, "ammount": ammount }
-	Manifest.add_component(actor, dot_name, value)
+	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount }
+
+static func _on_new_turn() -> void:
+	var active_actor: Actor = Manifest.queue[0]
+	
+	for type in DoT:
+		if Manifest.has_component(active_actor, type):
+			match type:
+				"Poison": Manifest.combatants[active_actor]["HP"] -= 1
+	
+	if Manifest.combatants[active_actor]["HP"] <= 0: Event.actor_defeated.emit(active_actor)
 
 static func _on_new_round() -> void:
 	roll_for_init(Manifest.queue)

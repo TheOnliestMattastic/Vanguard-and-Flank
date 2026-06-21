@@ -169,7 +169,7 @@ func toggle_state(target_state: State) -> void:
 			# FOR TESTING: need to refactor
 			if not active_actor.data.abilities: return
 			active_actor.data.abilities[0].stage(active_actor)
-			ui.log_to_banactive_actorner("Choosing ability...")
+			ui.log_to_banner("Choosing ability...")
 
 func get_combatants() -> Array:
 	var combatants: Array
