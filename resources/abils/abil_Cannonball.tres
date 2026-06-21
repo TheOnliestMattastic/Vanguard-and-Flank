@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageSpike" format=3 uid="uid://b62mu2ocjtga7"]
+
+[ext_resource type="Script" uid="uid://co2vuat70kwks" path="res://scripts/components/cmp_DamageSpike.gd" id="1_w4al6"]
+
+[resource]
+script = ExtResource("1_w4al6")
+name = "Cannonball"
+ap_cost = 4
+cast_range = 4
+pwr_mod = 2.0
+type = "Attack"
+damage_type = "Bash"
+metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

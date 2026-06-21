@@ -83,7 +83,6 @@ alignment = 1
 [node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1375376702]
 layout_mode = 2
 size_flags_vertical = 10
-text = "Game Over"
 label_settings = ExtResource("2_ofmyw")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -91,7 +90,6 @@ vertical_alignment = 1
 [node name="Body" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1883901602]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Victor!"
 label_settings = ExtResource("3_ap2cg")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -100,16 +98,14 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="Main Menu" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("4_hjcnf")]
+[node name="LeftButton" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("4_hjcnf")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-text = "Main Menu"
 
-[node name="Quit" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
+[node name="RightButton" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=119958175 instance=ExtResource("4_hjcnf")]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-text = "Quit"

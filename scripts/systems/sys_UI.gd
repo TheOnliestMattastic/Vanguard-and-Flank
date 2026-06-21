@@ -18,6 +18,7 @@ func _ready() -> void:
 	Event.actor_attacked.connect(log_hit_results)
 	Event.actor_healed.connect(log_heal_results)
 	Event.init_rolled.connect(log_init)
+	Event.new_turn.connect(_on_new_turn)
 
 # === HUD Functions ===
 func display_queue(queue: Array[Actor]) -> void:
@@ -82,7 +83,10 @@ func _on_game_over(loser: String) -> void:
 	var popup = popup_scene.instantiate()
 	popup.get_node("Panel/MarginContainer/VBoxContainer/Title").text = "Game Over"
 	popup.get_node("Panel/MarginContainer/VBoxContainer/Body").text = winner + " won!"
-	popup.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/Main Menu").text = "Main Menu"
-	popup.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/Reset").text = "Reset"
-	
+	popup.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/LeftButton").text = "Main Menu"
+	popup.get_node("Panel/MarginContainer/VBoxContainer/HBoxContainer/RightButton").text = "Quit"	
 	add_child(popup)
+
+func _on_new_turn() -> void:
+	Manifest.queue[0].active = true
+	display_queue(Manifest.queue)

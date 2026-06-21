@@ -6,6 +6,7 @@ const EVASION_BASE: int = 10
 func _ready() -> void:
 	Event.actor_damaged.connect(apply_damage)
 	Event.actor_healed.connect(apply_heal)
+	Event.actor_doted.connect(apply_dot)
 
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
@@ -39,3 +40,12 @@ static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	var result = hp + ammount
 	if result > target.data.max_hp: Manifest.combatants[target]["HP"] = target.data.max_hp
 	else: Manifest.combatants[target]["HP"] = result
+
+static func apply_dot(actor: Actor, turns: int, ammount: int = 1) -> void: 
+	
+	
+	
+	
+	
+	
+	return print("apply_dot")

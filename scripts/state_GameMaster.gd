@@ -150,7 +150,6 @@ func toggle_state(target_state: State) -> void:
 	if current_state == target_state: current_state = State.IDLE
 	else: current_state = target_state
 	var active_actor = Manifest.queue[0]
-	active_actor.active = true
 	Grid.clear_highlights()
 	
 	match current_state:
@@ -170,7 +169,7 @@ func toggle_state(target_state: State) -> void:
 			# FOR TESTING: need to refactor
 			if not active_actor.data.abilities: return
 			active_actor.data.abilities[0].stage(active_actor)
-			ui.log_to_banner("Choosing ability...")
+			ui.log_to_banactive_actorner("Choosing ability...")
 
 func get_combatants() -> Array:
 	var combatants: Array
@@ -199,12 +198,8 @@ func _on_actor_defeated(actor: Actor) -> void:
 func end_turn() -> void:
 	Manifest.queue[0].active = false
 	Manifest.queue.pop_front()
-	if Manifest.queue.size() == 0:
-		var combatants = get_combatants()
-		Manifest.queue.append_array(combatants)
-		CombatManager.roll_for_init(Manifest.queue)
-		ui.log_init()
-	ui.display_queue(Manifest.queue)
+	if Manifest.queue.size() == 0: new_round()
+	Event.new_turn.emit()
 	toggle_state(State.IDLE)
 
 func delay_turn() -> void:
@@ -214,5 +209,10 @@ func delay_turn() -> void:
 		Manifest.queue[0].acted = true
 		Manifest.queue[0].active = false
 		Manifest.queue.push_back(Manifest.queue.pop_front())
-		ui.display_queue(Manifest.queue)
+		Event.new_turn.emit()
 		toggle_state(State.IDLE)
+
+func new_round() -> void:
+	var combatants = get_combatants()
+	Manifest.queue.append_array(combatants)
+	CombatManager.roll_for_init(Manifest.queue)

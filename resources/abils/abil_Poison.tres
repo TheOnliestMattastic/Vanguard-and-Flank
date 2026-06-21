@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageOverTime" format=3 uid="uid://crw32cs407525"]
+
+[ext_resource type="Script" uid="uid://bsojc6iwpbtnp" path="res://scripts/components/cmp_DamageOverTime.gd" id="1_kss8c"]
+
+[resource]
+script = ExtResource("1_kss8c")
+name = "Poison"
+ap_cost = 4
+cast_range = 2
+pwr_mod = 2.0
+type = "Attack"
+damage_type = "Life"
+metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

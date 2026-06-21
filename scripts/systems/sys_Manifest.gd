@@ -36,3 +36,12 @@ func remove_from_queue(actor: Actor) -> void:
 		if queue[i] == actor: 
 			queue.pop_at(i)
 			break
+
+func add_component(actor: Actor, component: String) -> void:
+	combatants[actor][component] = {}
+	
+	return print("add_component")
+
+func has_component(actor: Actor, component: String) -> bool:
+	if combatants[actor][component]: return true
+	else: return false
