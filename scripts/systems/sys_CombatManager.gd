@@ -51,12 +51,11 @@ static func apply_dot(actor: Actor, dot_name: String, turns: int, ammount: int =
 
 static func _on_new_turn() -> void:
 	var active_actor: Actor = Manifest.queue[0]
-	
 	for type in DoT:
 		if Manifest.has_component(active_actor, type):
-			match type:
-				"Poison": Manifest.combatants[active_actor]["HP"] -= 1
-	
+			Manifest.combatants[active_actor]["HP"] -= Manifest.combatants[active_actor][type]["ammount"]
+			if Manifest.combatants[active_actor][type]["turns"] > 1: Manifest.combatants[active_actor][type]["turns"] -= 1
+			else: Manifest.combatants[active_actor].erase(type)
 	if Manifest.combatants[active_actor]["HP"] <= 0: Event.actor_defeated.emit(active_actor)
 
 static func _on_new_round() -> void:
