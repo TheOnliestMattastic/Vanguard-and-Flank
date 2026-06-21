@@ -215,4 +215,4 @@ func delay_turn() -> void:
 func new_round() -> void:
 	var combatants = get_combatants()
 	Manifest.queue.append_array(combatants)
-	CombatManager.roll_for_init(Manifest.queue)
+	Event.new_round.emit()

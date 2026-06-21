@@ -7,6 +7,7 @@ func _ready() -> void:
 	Event.actor_damaged.connect(apply_damage)
 	Event.actor_healed.connect(apply_heal)
 	Event.actor_doted.connect(apply_dot)
+	Event.new_round.connect(_on_new_round)
 
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
@@ -41,11 +42,9 @@ static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	if result > target.data.max_hp: Manifest.combatants[target]["HP"] = target.data.max_hp
 	else: Manifest.combatants[target]["HP"] = result
 
-static func apply_dot(actor: Actor, turns: int, ammount: int = 1) -> void: 
-	
-	
-	
-	
-	
-	
-	return print("apply_dot")
+static func apply_dot(actor: Actor, dot_name: String, turns: int, ammount: int = 1) -> void: 
+	var value: Dictionary = { "turns": turns, "ammount": ammount }
+	Manifest.add_component(actor, dot_name, value)
+
+static func _on_new_round() -> void:
+	roll_for_init(Manifest.queue)
