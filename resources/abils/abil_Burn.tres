@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageOverTime" format=3 uid="uid://bd3ybthjtbjxq"]
+
+[ext_resource type="Script" uid="uid://bsojc6iwpbtnp" path="res://scripts/components/cmp_DamageOverTime.gd" id="1_aki5h"]
+
+[resource]
+script = ExtResource("1_aki5h")
+name = "Burn"
+ap_cost = 5
+cast_range = 5
+pwr_mod = 2.0
+type = "Attack"
+damage_type = "Fire"
+metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

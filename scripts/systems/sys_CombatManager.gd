@@ -4,6 +4,8 @@ class_name CombatManager
 const EVASION_BASE: int = 10
 enum DoT {
 	Poison,
+	Frostbite,
+	Burn
 }
 
 func _ready() -> void:

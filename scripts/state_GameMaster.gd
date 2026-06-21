@@ -131,18 +131,14 @@ func _on_cell_pressed(coords: Vector2i):
 					if not same_team:
 						ui.log_to_banner("Will only target friendlies...")
 						return 
-					ability.execute(active_actor, coords)
-				
 				"Attack": 
 					if same_team:
 						ui.log_to_banner("Will not target friendlies...")
 						return
-					ability.execute(active_actor, coords)
-			
+			ability.execute(active_actor, coords)
 			CombatManager.spend_ap(active_actor, ability.ap_cost)
 			active_actor.acted = true
 			toggle_state(State.IDLE)
-		
 		
 		_: ui.log_to_banner("[I AM ERROR] Input configuration not yet configured!")
 
@@ -183,17 +179,17 @@ func _on_actor_defeated(actor: Actor) -> void:
 	var coords := Vector2i(actor.position / Manifest.CELL_SIZE)
 	var alignment := actor.get_parent()
 	Manifest.remove_from_queue(actor)
-	actor.queue_free()
+	actor.free()
 	Grid.toggle_obstacle(coords, false)
 	ui.display_queue(Manifest.queue)
-	
-	# check for win condition
-	# checking w/-1 because actor is queued for deletion but not yet deleted
+	if team_defeated(alignment): Event.game_over.emit(alignment.name)
+
+func team_defeated(alignment: Node2D) -> bool:
 	var team
 	match alignment:
 		vanguard: team = vanguard.get_child_count()
 		flank: team = flank.get_child_count()
-	if team - 1 == 0: Event.game_over.emit(alignment.name)
+	return team == 0
 
 func end_turn() -> void:
 	Manifest.queue[0].active = false
@@ -203,8 +199,7 @@ func end_turn() -> void:
 	toggle_state(State.IDLE)
 
 func delay_turn() -> void:
-	if Manifest.queue[0].acted: 
-		ui.log_to_banner("Already acted this round.")
+	if Manifest.queue[0].acted: ui.log_to_banner("Already acted this round.")
 	else:
 		Manifest.queue[0].acted = true
 		Manifest.queue[0].active = false
