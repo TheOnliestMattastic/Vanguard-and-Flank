@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dahbbyftluwts"]
+
+[ext_resource type="Texture2D" uid="uid://8bjgmjln2gd3" path="res://assets/ui/status/Heart.png" id="1_srcrn"]
+[ext_resource type="Script" uid="uid://helini0n3p0g" path="res://scripts/entities/ent_Heart.gd" id="2_qsesa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qffwa"]
+atlas = ExtResource("1_srcrn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk1se"]
+atlas = ExtResource("1_srcrn")
+region = Rect2(64, 0, 16, 16)
+
+[node name="HeartContainer" type="TextureProgressBar" unique_id=1152060763]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 5
+texture_under = SubResource("AtlasTexture_qffwa")
+texture_progress = SubResource("AtlasTexture_kk1se")
+script = ExtResource("2_qsesa")

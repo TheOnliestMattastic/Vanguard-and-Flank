@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="2_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="2_oa1go"]
 [ext_resource type="LabelSettings" uid="uid://drnuyrw28nu54" path="res://resources/editor/res_font-xxlarge.tres" id="2_wu84c"]
-[ext_resource type="Texture2D" uid="uid://daneur28btdes" path="res://assets/ui/toppatternbg116x67.png" id="3_oa1go"]
-[ext_resource type="Texture2D" uid="uid://bg3o2dgat41qj" path="res://assets/ui/bottompatternbg128x112.png" id="4_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://bjvessp1rygtu" path="res://assets/ui/patternmiddlebottombg199x48.png" id="6_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://daneur28btdes" path="res://assets/ui/bg/toppatternbg116x67.png" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://bg3o2dgat41qj" path="res://assets/ui/bg/bottompatternbg128x112.png" id="4_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://bjvessp1rygtu" path="res://assets/ui/bg/patternmiddlebottombg199x48.png" id="6_tbmy8"]
 
 [node name="MainMenu" type="Control" unique_id=601452906]
 layout_mode = 3
