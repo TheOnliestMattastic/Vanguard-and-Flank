@@ -2,12 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0dnx4upv15hj" path="res://scripts/entities/ent_Portrait.gd" id="1_31ep3"]
 [ext_resource type="Texture2D" uid="uid://ccjk7ekitegto" path="res://assets/chars/Boy/Faceset.png" id="1_k07cr"]
-[ext_resource type="PackedScene" uid="uid://bexjftmwpo0cb" path="res://scenes/heart.tscn" id="3_efsuh"]
-[ext_resource type="Texture2D" uid="uid://8bjgmjln2gd3" path="res://assets/ui/status/Heart.png" id="4_qffwa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]
-atlas = ExtResource("4_qffwa")
-region = Rect2(64, 0, 16, 16)
+[ext_resource type="Script" uid="uid://ck2f3opp0nvn7" path="res://scripts/entities/ent_Health.gd" id="3_efsuh"]
 
 [node name="Portrait" type="TextureRect" unique_id=1648320498]
 offset_right = 114.0
@@ -40,7 +35,4 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/separation = 1
-
-[node name="Heart" parent="VBoxContainer/Health" unique_id=2143163180 instance=ExtResource("3_efsuh")]
-layout_mode = 2
-texture = SubResource("AtlasTexture_ycbwg")
+script = ExtResource("3_efsuh")

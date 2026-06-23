@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://bexjftmwpo0cb"]
 
-[ext_resource type="Texture2D" uid="uid://8bjgmjln2gd3" path="res://assets/ui/status/Heart.png" id="1_srcrn"]
 [ext_resource type="Script" uid="uid://c26ui733lv0w2" path="res://scripts/entities/ent_Heart.gd" id="2_qsesa"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v30as"]
+load_path = "res://.godot/imported/Heart.png-2253db885b69db48aeb43e11398ef204.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]
-atlas = ExtResource("1_srcrn")
-region = Rect2(64, 0, 16, 16)
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_v30as")
+region = Rect2(16, 0, 16, 16)
 
 [node name="Heart" type="TextureRect" unique_id=2143163180]
 custom_minimum_size = Vector2(6, 6)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = SubResource("AtlasTexture_ycbwg")
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("2_qsesa")
-spritesheet = SubResource("AtlasTexture_ycbwg")
