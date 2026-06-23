@@ -1,13 +1,15 @@
-extends Control
+@tool
+extends TextureRect
 class_name Heart
 
-const SPRITESHEET = preload("uid://8bjgmjln2gd3")
+@export var spritesheet: AtlasTexture
 const SIZE := Vector2i(16,16)
-const STEP: int = 64
-@onready var texture_rect: TextureRect = $TextureRect
+const MAX_HP: float = 1.0
+
+func _ready() -> void:
+	texture = spritesheet
+	fill()
 
 func fill(ammount: float = 1.0) -> void:
-	var atlas = AtlasTexture.new()
-	atlas.atlas = SPRITESHEET
-	atlas.region = Rect2(ammount * STEP, 0, SIZE.x, SIZE.y)
-	texture_rect.texture = atlas
+	var step: int = 64
+	texture.region = Rect2(ammount * step, 0, SIZE.x, SIZE.y)

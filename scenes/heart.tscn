@@ -1,33 +1,17 @@
-[gd_scene format=3 uid="uid://dahbbyftluwts"]
+[gd_scene format=3 uid="uid://bexjftmwpo0cb"]
 
 [ext_resource type="Texture2D" uid="uid://8bjgmjln2gd3" path="res://assets/ui/status/Heart.png" id="1_srcrn"]
-[ext_resource type="Script" uid="uid://helini0n3p0g" path="res://scripts/entities/ent_Heart.gd" id="2_qsesa"]
+[ext_resource type="Script" uid="uid://c26ui733lv0w2" path="res://scripts/entities/ent_Heart.gd" id="2_qsesa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]
 atlas = ExtResource("1_srcrn")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_krgnv"]
-atlas = ExtResource("1_srcrn")
 region = Rect2(64, 0, 16, 16)
 
-[node name="Heart" type="AspectRatioContainer" unique_id=146093941]
-custom_minimum_size = Vector2(16, 16)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Heart" type="TextureRect" unique_id=2143163180]
+custom_minimum_size = Vector2(6, 6)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+expand_mode = 3
+stretch_mode = 5
 script = ExtResource("2_qsesa")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=564774134]
-layout_mode = 2
-max_value = 1.0
-step = 0.25
-value = 1.0
-fill_mode = 5
-nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_ycbwg")
-texture_progress = SubResource("AtlasTexture_krgnv")
+spritesheet = SubResource("AtlasTexture_ycbwg")
