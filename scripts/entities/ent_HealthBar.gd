@@ -3,7 +3,7 @@ class_name HealthBar
 
 var heart_scene: PackedScene = preload("uid://dahbbyftluwts")
 var hp_per_heart: float = 1.0
-var current_hp: float = 3
+var current_hp: float = 3.0
 var max_hp: float = 3.0
 
 func _ready() -> void:
@@ -28,7 +28,7 @@ func set_max(maximum: float) -> void:
 func rebuild_hearts() -> void:
 	var hearts: int = int(ceil(max_hp / hp_per_heart))
 	while get_child_count() < hearts:
-		var h: Heart = heart_scene.instantiate()
+		var h := heart_scene.instantiate()
 		h.hp_per_heart = hp_per_heart
 		add_child(h)
 	
@@ -40,7 +40,7 @@ func rebuild_hearts() -> void:
 func refresh() -> void:
 	var current: float = current_hp
 	for i in get_child_count():
-		var heart: Heart = get_child(i)
+		var heart := get_child(i)
 		var fill = clamp(current, 0.0, hp_per_heart)
 		heart.fill(fill)
 		current -= hp_per_heart

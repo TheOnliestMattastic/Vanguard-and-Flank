@@ -1,25 +1,31 @@
 [gd_scene format=3 uid="uid://d4mwir6knxacb"]
 
-[ext_resource type="Script" uid="uid://qtrhvxmqt230" path="res://scripts/state_GameMaster.gd" id="1_37s47"]
+[ext_resource type="Script" uid="uid://qtrhvxmqt230" path="res://scripts/systems/sys_GameMaster.gd" id="1_37s47"]
 [ext_resource type="Script" uid="uid://bmq4ge2wigg22" path="res://scripts/systems/sys_UI.gd" id="2_bt5mj"]
 [ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="3_pl11u"]
 [ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/bg/toppattermpanel0233x15.png" id="4_bt5mj"]
 [ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/editor/res_font.tres" id="4_pl11u"]
 [ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/utl_scrollbox.gd" id="5_bhx41"]
-[ext_resource type="Script" uid="uid://8j4oyr7evetl" path="res://scripts/entities/ent_Grid.gd" id="7_sww3w"]
-[ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="8_suyxu"]
+[ext_resource type="PackedScene" uid="uid://dj5n66q8cooig" path="res://scenes/portrait.tscn" id="7_37s47"]
+[ext_resource type="PackedScene" uid="uid://ckeq0uacdldhp" path="res://scenes/grid.tscn" id="7_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://d03qfaa3kgoxx" path="res://scenes/cell.tscn" id="9_sgl2t"]
 [ext_resource type="FontFile" uid="uid://dc7twm3b5vkht" path="res://assets/fonts/monogram.ttf" id="10_qouja"]
 [ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="12_v2yb1"]
-[ext_resource type="Texture2D" uid="uid://bwhcvbpbxpddj" path="res://assets/ui/dice (546)/D20/d20_purple_20.png" id="14_gxtfn"]
+[ext_resource type="Texture2D" uid="uid://bwhcvbpbxpddj" path="res://assets/ui/dice/D20/d20_purple_20.png" id="14_gxtfn"]
 [ext_resource type="Script" uid="uid://dgck5cdoe7mp2" path="res://scripts/systems/sys_CombatManager.gd" id="15_twgab"]
 [ext_resource type="PackedScene" uid="uid://dvrkaa82bgy2o" path="res://scenes/actor.tscn" id="16_02fa5"]
+[ext_resource type="Resource" uid="uid://cv6vagotgf3w" path="res://resources/actors/actor_Cid.tres" id="16_5newe"]
+[ext_resource type="Resource" uid="uid://bx10ldcf1krl1" path="res://resources/actors/actor_Impa.tres" id="16_e1j6l"]
 [ext_resource type="Resource" uid="uid://dqa1p0t3ht2iy" path="res://resources/actors/actor_Aeris.tres" id="17_nepv3"]
 [ext_resource type="Resource" uid="uid://3o8rigo5kynr" path="res://resources/actors/actor_Auron.tres" id="18_7025r"]
 [ext_resource type="Resource" uid="uid://dlhk7wdfq2iam" path="res://resources/actors/actor_BoomerMan.tres" id="19_m4url"]
 [ext_resource type="Resource" uid="uid://bcw8ntha304sk" path="res://resources/actors/actor_Ganon.tres" id="20_8ool0"]
+[ext_resource type="Resource" uid="uid://dqf8aka6cbetg" path="res://resources/actors/actor_Ketheric.tres" id="21_37s47"]
 [ext_resource type="Resource" uid="uid://duu6c33elcm72" path="res://resources/actors/actor_Lulu.tres" id="21_pr1ej"]
 [ext_resource type="Resource" uid="uid://beqcmshwpp71w" path="res://resources/actors/actor_Firion.tres" id="22_05nbr"]
+[ext_resource type="Resource" uid="uid://b13gsoyp1udbt" path="res://resources/actors/actor_Tobias.tres" id="22_pl11u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1j6l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0lup"]
 texture = ExtResource("14_gxtfn")
@@ -33,6 +39,8 @@ modulate_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 texture = ExtResource("14_gxtfn")
 
 [node name="Game" type="Node2D" unique_id=1755678686]
+
+[node name="GameMaster" type="Node" parent="." unique_id=265177383]
 script = ExtResource("1_37s47")
 
 [node name="UI" type="Control" parent="." unique_id=1773338855]
@@ -78,10 +86,10 @@ size_flags_vertical = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel" unique_id=1974653328]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 169.0
-offset_bottom = 405.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 404.0
 
 [node name="bg" type="Control" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer" unique_id=496481110]
 modulate = Color(0, 0, 0, 0.2509804)
@@ -126,17 +134,33 @@ vertical_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer" unique_id=1495090525]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer" unique_id=2016326561]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer" unique_id=367165063]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer" unique_id=2016326561]
 layout_mode = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 3
 script = ExtResource("5_bhx41")
 
-[node name="QueueDisplay" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=2078126097]
+[node name="QueueDisplay" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=2078126097]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Portrait" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/QueueDisplay" unique_id=89818184 instance=ExtResource("7_37s47")]
+layout_mode = 2
+
+[node name="Portrait2" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/QueueDisplay" unique_id=475329708 instance=ExtResource("7_37s47")]
+layout_mode = 2
+
+[node name="Portrait3" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/QueueDisplay" unique_id=1495566546 instance=ExtResource("7_37s47")]
+layout_mode = 2
 
 [node name="middleSection" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/topSection" unique_id=49312008]
 layout_mode = 2
@@ -190,197 +214,188 @@ label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Grid" type="GridContainer" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection" unique_id=1893987427]
+[node name="Grid" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection" unique_id=1214756804 instance=ExtResource("7_ssvqc")]
 unique_name_in_owner = true
-z_index = 1
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 12
-script = ExtResource("7_sww3w")
-tilesheet = ExtResource("8_suyxu")
-cell_scene = ExtResource("9_sgl2t")
-
-[node name="Cell" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1360833652 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell2" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=476331339 instance=ExtResource("9_sgl2t")]
+[node name="Cell" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1838274227 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell3" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=806541814 instance=ExtResource("9_sgl2t")]
+[node name="Cell2" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1551421716 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell4" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1870637506 instance=ExtResource("9_sgl2t")]
+[node name="Cell3" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1873369967 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell5" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2136240887 instance=ExtResource("9_sgl2t")]
+[node name="Cell4" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=203751935 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell6" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2052421458 instance=ExtResource("9_sgl2t")]
+[node name="Cell5" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=564803093 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell7" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1351099775 instance=ExtResource("9_sgl2t")]
+[node name="Cell6" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=376911887 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell8" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1530066430 instance=ExtResource("9_sgl2t")]
+[node name="Cell7" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1380777220 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell9" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=506287800 instance=ExtResource("9_sgl2t")]
+[node name="Cell8" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=254789986 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell10" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=287530633 instance=ExtResource("9_sgl2t")]
+[node name="Cell9" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=419223936 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell11" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=42877835 instance=ExtResource("9_sgl2t")]
+[node name="Cell10" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=238847044 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell12" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1233166103 instance=ExtResource("9_sgl2t")]
+[node name="Cell11" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=287169518 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell13" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=662089853 instance=ExtResource("9_sgl2t")]
+[node name="Cell12" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=269051695 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell14" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=488203093 instance=ExtResource("9_sgl2t")]
+[node name="Cell13" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1923181974 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell15" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=174228030 instance=ExtResource("9_sgl2t")]
+[node name="Cell14" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=259598068 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell16" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=839753918 instance=ExtResource("9_sgl2t")]
+[node name="Cell15" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1866902059 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell17" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2012097397 instance=ExtResource("9_sgl2t")]
+[node name="Cell16" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=967713668 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell18" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1751567176 instance=ExtResource("9_sgl2t")]
+[node name="Cell17" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2000197208 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell19" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=500335515 instance=ExtResource("9_sgl2t")]
+[node name="Cell18" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1926784044 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell20" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=376562428 instance=ExtResource("9_sgl2t")]
+[node name="Cell19" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1522998373 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell21" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1035605556 instance=ExtResource("9_sgl2t")]
+[node name="Cell20" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=107812695 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell22" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=440640060 instance=ExtResource("9_sgl2t")]
+[node name="Cell21" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=649126308 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell23" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=374681585 instance=ExtResource("9_sgl2t")]
+[node name="Cell22" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1635687903 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell24" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1395991755 instance=ExtResource("9_sgl2t")]
+[node name="Cell23" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=192468783 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell25" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=999265520 instance=ExtResource("9_sgl2t")]
+[node name="Cell24" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=957521480 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell26" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1465784105 instance=ExtResource("9_sgl2t")]
+[node name="Cell25" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1956589612 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell27" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1700655649 instance=ExtResource("9_sgl2t")]
+[node name="Cell26" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=507581430 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell28" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=855347037 instance=ExtResource("9_sgl2t")]
+[node name="Cell27" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1244538424 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell29" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1841838320 instance=ExtResource("9_sgl2t")]
+[node name="Cell28" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=807814657 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell30" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=516864331 instance=ExtResource("9_sgl2t")]
+[node name="Cell29" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=386014855 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell31" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=81859644 instance=ExtResource("9_sgl2t")]
+[node name="Cell30" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2101495739 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell32" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1073964420 instance=ExtResource("9_sgl2t")]
+[node name="Cell31" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1677024730 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell33" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1852129823 instance=ExtResource("9_sgl2t")]
+[node name="Cell32" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1061352764 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell34" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1125381546 instance=ExtResource("9_sgl2t")]
+[node name="Cell33" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1472467337 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell35" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1727429323 instance=ExtResource("9_sgl2t")]
+[node name="Cell34" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1958771324 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell36" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1854637031 instance=ExtResource("9_sgl2t")]
+[node name="Cell35" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=31976569 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell37" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1165555967 instance=ExtResource("9_sgl2t")]
+[node name="Cell36" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=79067770 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell38" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1516271883 instance=ExtResource("9_sgl2t")]
+[node name="Cell37" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1298356496 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell39" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=338623935 instance=ExtResource("9_sgl2t")]
+[node name="Cell38" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1900114890 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell40" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=276100819 instance=ExtResource("9_sgl2t")]
+[node name="Cell39" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1046844004 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell41" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1271090811 instance=ExtResource("9_sgl2t")]
+[node name="Cell40" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1731303265 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell42" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1302179732 instance=ExtResource("9_sgl2t")]
+[node name="Cell41" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=707251179 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell43" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=703195699 instance=ExtResource("9_sgl2t")]
+[node name="Cell42" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1183079799 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell44" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1172082430 instance=ExtResource("9_sgl2t")]
+[node name="Cell43" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=958053021 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell45" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=433142165 instance=ExtResource("9_sgl2t")]
+[node name="Cell44" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=79224072 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell46" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1222725492 instance=ExtResource("9_sgl2t")]
+[node name="Cell45" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=58097545 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell47" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1107460161 instance=ExtResource("9_sgl2t")]
+[node name="Cell46" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1710517187 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell48" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=851965929 instance=ExtResource("9_sgl2t")]
+[node name="Cell47" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=734880179 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell49" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=911366903 instance=ExtResource("9_sgl2t")]
+[node name="Cell48" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1028843750 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell50" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1538763351 instance=ExtResource("9_sgl2t")]
+[node name="Cell49" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=443941466 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell51" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1384537827 instance=ExtResource("9_sgl2t")]
+[node name="Cell50" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=313791447 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell52" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=738197364 instance=ExtResource("9_sgl2t")]
+[node name="Cell51" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2093389209 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell53" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=562378004 instance=ExtResource("9_sgl2t")]
+[node name="Cell52" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1600732018 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell54" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1033443057 instance=ExtResource("9_sgl2t")]
+[node name="Cell53" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=257423555 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell55" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1239837196 instance=ExtResource("9_sgl2t")]
+[node name="Cell54" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=90593220 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell56" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1850915746 instance=ExtResource("9_sgl2t")]
+[node name="Cell55" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=642398841 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell57" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=192200079 instance=ExtResource("9_sgl2t")]
+[node name="Cell56" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=2115030890 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell58" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1828313275 instance=ExtResource("9_sgl2t")]
+[node name="Cell57" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=52594064 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell59" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1960045853 instance=ExtResource("9_sgl2t")]
+[node name="Cell58" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=668389543 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
-[node name="Cell60" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1914323797 instance=ExtResource("9_sgl2t")]
+[node name="Cell59" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1053668511 instance=ExtResource("9_sgl2t")]
+layout_mode = 2
+
+[node name="Cell60" parent="UI/MarginContainer/VBoxContainer/topSection/middleSection/Grid" unique_id=1931219401 instance=ExtResource("9_sgl2t")]
 layout_mode = 2
 
 [node name="rightPanel" parent="UI/MarginContainer/VBoxContainer/topSection" unique_id=1549321152 instance=ExtResource("3_pl11u")]
@@ -438,12 +453,20 @@ vertical_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="UI/MarginContainer/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer" unique_id=541423603]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/MarginContainer/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer" unique_id=146697564]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer" unique_id=1890683549]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/MarginContainer/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer/MarginContainer" unique_id=146697564]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("5_bhx41")
 
-[node name="CombatLog" type="RichTextLabel" parent="UI/MarginContainer/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1345048524]
+[node name="CombatLog" type="RichTextLabel" parent="UI/MarginContainer/VBoxContainer/topSection/rightPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1345048524]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -456,18 +479,15 @@ custom_minimum_size = Vector2(0, 224)
 layout_mode = 2
 size_flags_horizontal = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel" unique_id=1059305581]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 1137.0
-offset_bottom = 217.0
-
-[node name="bg" type="Control" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer" unique_id=756133034]
+[node name="bg" type="Control" parent="UI/MarginContainer/VBoxContainer/bottomPanel" unique_id=756133034]
 modulate = Color(0, 0, 0, 0.2509804)
-layout_mode = 2
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 1138.0
+offset_bottom = 218.0
 
-[node name="top" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/bg" unique_id=1611720683]
+[node name="top" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/bottomPanel/bg" unique_id=1611720683]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -477,7 +497,7 @@ size_flags_vertical = 0
 texture = ExtResource("4_bt5mj")
 stretch_mode = 1
 
-[node name="bottom" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/bg" unique_id=105033022]
+[node name="bottom" type="TextureRect" parent="UI/MarginContainer/VBoxContainer/bottomPanel/bg" unique_id=105033022]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -490,6 +510,13 @@ size_flags_vertical = 0
 texture = ExtResource("4_bt5mj")
 stretch_mode = 1
 flip_v = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel" unique_id=1059305581]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 1136.0
+offset_bottom = 210.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer" unique_id=1898771845]
 layout_mode = 2
@@ -510,13 +537,18 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="activePortrait" type="AspectRatioContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1947193516]
+[node name="activePortrait" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1557768015]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e1j6l")
+
+[node name="Portrait2" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activePortrait" unique_id=972220889 instance=ExtResource("7_37s47")]
+layout_mode = 2
 
 [node name="activeStats" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1073991633]
-custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
 [node name="hp" type="Label" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activeStats" unique_id=818843854]
@@ -627,8 +659,8 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="targetStats" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=754730375]
-custom_minimum_size = Vector2(112, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
 [node name="hp" type="Label" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetStats" unique_id=605729976]
@@ -661,9 +693,14 @@ label_settings = ExtResource("4_pl11u")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="targetPortrait" type="AspectRatioContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=581459546]
+[node name="targetPortrait" type="PanelContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay" unique_id=398047495]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e1j6l")
+
+[node name="Portrait2" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetPortrait" unique_id=1648320498 instance=ExtResource("7_37s47")]
+layout_mode = 2
 
 [node name="Actors" type="Node2D" parent="." unique_id=1351903536]
 unique_name_in_owner = true
@@ -678,9 +715,17 @@ unique_name_in_owner = true
 position = Vector2(128, 64)
 data = ExtResource("17_nepv3")
 
+[node name="Impa the Wise" parent="Actors/Vanguard" unique_id=49356997 instance=ExtResource("16_02fa5")]
+position = Vector2(192, 0)
+data = ExtResource("16_e1j6l")
+
 [node name="Auron the Legendary Guardian" parent="Actors/Vanguard" unique_id=1111712009 instance=ExtResource("16_02fa5")]
 position = Vector2(192, 128)
 data = ExtResource("18_7025r")
+
+[node name="Cid of the Highwind" parent="Actors/Vanguard" unique_id=1662486940 instance=ExtResource("16_02fa5")]
+position = Vector2(192, 256)
+data = ExtResource("16_5newe")
 
 [node name="Boomer Man, the Bob-omber" parent="Actors/Vanguard" unique_id=1845179385 instance=ExtResource("16_02fa5")]
 position = Vector2(128, 192)
@@ -697,6 +742,14 @@ data = ExtResource("20_8ool0")
 position = Vector2(576, 192)
 data = ExtResource("21_pr1ej")
 
+[node name="Tobias, the Analrapist" parent="Actors/Flank" unique_id=142401929 instance=ExtResource("16_02fa5")]
+position = Vector2(512, 256)
+data = ExtResource("22_pl11u")
+
 [node name="Firion, the Wild Rose Blade" parent="Actors/Flank" unique_id=1539378818 instance=ExtResource("16_02fa5")]
 position = Vector2(512, 128)
 data = ExtResource("22_05nbr")
+
+[node name="Ketheric, Myrkul\'s Chosen" parent="Actors/Flank" unique_id=1416102870 instance=ExtResource("16_02fa5")]
+position = Vector2(512, 0)
+data = ExtResource("21_37s47")

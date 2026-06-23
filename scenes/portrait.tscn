@@ -1,26 +1,66 @@
 [gd_scene format=3 uid="uid://dj5n66q8cooig"]
 
+[ext_resource type="Script" uid="uid://c0dnx4upv15hj" path="res://scripts/entities/ent_Portrait.gd" id="1_31ep3"]
 [ext_resource type="Texture2D" uid="uid://ccjk7ekitegto" path="res://assets/chars/Boy/Faceset.png" id="1_k07cr"]
-[ext_resource type="PackedScene" uid="uid://c8tdtt1urohmh" path="res://scenes/health_bar.tscn" id="2_31ep3"]
+[ext_resource type="Texture2D" uid="uid://8bjgmjln2gd3" path="res://assets/ui/status/Heart.png" id="3_efsuh"]
 
-[node name="Portrait" type="TextureRect" unique_id=1139858912]
-custom_minimum_size = Vector2(114, 114)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qffwa"]
+atlas = ExtResource("3_efsuh")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Portrait" type="TextureRect" unique_id=1648320498]
+anchors_preset = -1
+anchor_right = 0.032986112
+anchor_bottom = 0.058641974
 texture = ExtResource("1_k07cr")
+expand_mode = 5
+stretch_mode = 5
+script = ExtResource("1_31ep3")
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=706512329]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1340009397]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="StatusIcons" type="GridContainer" parent="VBoxContainer" unique_id=1623105519]
+[node name="Status" type="GridContainer" parent="VBoxContainer" unique_id=1870887155]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 columns = 5
 
-[node name="HealthBar" parent="VBoxContainer" unique_id=925747161 instance=ExtResource("2_31ep3")]
+[node name="Health" type="HBoxContainer" parent="VBoxContainer" unique_id=1570188817]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="Heart" type="TextureRect" parent="VBoxContainer/Health" unique_id=983393320]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_qffwa")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="VBoxContainer/Health" unique_id=640572724]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_qffwa")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Heart3" type="TextureRect" parent="VBoxContainer/Health" unique_id=489360280]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_qffwa")
+expand_mode = 3
+stretch_mode = 5

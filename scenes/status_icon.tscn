@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2wf8beqj1rd7"]
+
+[ext_resource type="Texture2D" uid="uid://7r8qykim6eok" path="res://assets/ui/icons/inventory icon 2.png" id="1_eop52"]
+
+[node name="StatusIcon" type="TextureRect" unique_id=246688508]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_eop52")

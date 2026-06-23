@@ -1,10 +1,11 @@
 extends Control
 class_name UI
 
+# === Scenes ===
 @onready var portrait_scene = preload("uid://dj5n66q8cooig")
 @onready var popup_scene = preload("uid://cec33augca57c")
 
-# === HUD nodes ===
+# === Child Nodes ===
 @onready var queue_display: VBoxContainer = %QueueDisplay
 @onready var banner: Label = %BannerLabel
 @onready var combat_log: RichTextLabel = %CombatLog

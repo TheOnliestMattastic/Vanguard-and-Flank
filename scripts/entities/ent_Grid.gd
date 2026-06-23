@@ -5,17 +5,25 @@ class_name Grid
 @export var cell_scene: PackedScene
 @onready var ui: UI = %UI
 
-func _ready() -> void:
+func create_map() -> void:
+	for child in self.get_children():
+		remove_child(child)
+		child.queue_free()
+	for x in Manifest.GRID_SIZE.x:
+		for y in Manifest.GRID_SIZE.y:
+			var cell := cell_scene.instantiate()
+			add_child(cell)
+
+func add_cells_to_dict() -> void:
 	var cells = self.get_children()
 	for i in range(cells.size()):
 		var cell = cells[i]
-		randomize_tile(cell)
-		
 		# calculate cell coords and add them to the dictionary
 		var x = i % int(Manifest.GRID_SIZE.x)
 		var y = i / Manifest.GRID_SIZE.x
 		var coords = Vector2i(x, y)
 		Manifest.gridmap[coords] = cell
+		randomize_tile(cell)
 
 func randomize_tile(tile):
 	var tile_size = Cell.SIZE

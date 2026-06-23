@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="DamageOverTime" format=3 uid="uid://crw32cs407525"]
 
+[ext_resource type="Texture2D" uid="uid://7r8qykim6eok" path="res://assets/ui/icons/inventory icon 2.png" id="1_3cmnj"]
 [ext_resource type="Script" uid="uid://bsojc6iwpbtnp" path="res://scripts/components/cmp_DamageOverTime.gd" id="1_kss8c"]
 
 [resource]
@@ -10,4 +11,5 @@ cast_range = 3
 pwr_mod = 2.0
 type = "Attack"
 damage_type = "Life"
+icon = ExtResource("1_3cmnj")
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ckeq0uacdldhp"]
+
+[ext_resource type="Script" uid="uid://8j4oyr7evetl" path="res://scripts/entities/ent_Grid.gd" id="1_2s7k2"]
+[ext_resource type="Texture2D" uid="uid://dedtq1b7eneon" path="res://assets/tileset_grass-and-brick.png" id="2_gnlqp"]
+[ext_resource type="PackedScene" uid="uid://d03qfaa3kgoxx" path="res://scenes/cell.tscn" id="3_jaoqn"]
+
+[node name="Grid" type="GridContainer" unique_id=1214756804]
+z_index = 1
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 12
+script = ExtResource("1_2s7k2")
+tilesheet = ExtResource("2_gnlqp")
+cell_scene = ExtResource("3_jaoqn")

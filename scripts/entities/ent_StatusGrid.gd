@@ -1,0 +1,2 @@
+extends GridContainer
+class_name StatusGrid
