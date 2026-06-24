@@ -11,6 +11,8 @@ var combatants: Dictionary
 var portraits: Dictionary
 var queue: Array[Actor]
 
+const PORTRAIT = preload("uid://dj5n66q8cooig")
+
 func _init():
 	astar.region = Rect2i(Vector2i.ZERO, GRID_SIZE)
 	astar.cell_size = CELL_SIZE
@@ -19,14 +21,17 @@ func _init():
 
 func add_combatants(actors: Array[Actor]) -> void:
 	for actor in actors:
-		var coords = Vector2i(actor.position / CELL_SIZE)
-		gridmap[coords].occupant = actor
 		combatants[actor] = {}
 		combatants[actor]["HP"] = actor.data.max_hp
 		combatants[actor]["AP"] = 0
-
-func add_portrait(actor: Actor, portrait) -> void:
-	portraits[portrait] = actor 
+		
+		var coords = Vector2i(actor.position / CELL_SIZE)
+		gridmap[coords].occupant = actor
+		
+		var portrait = PORTRAIT.instantiate()
+		portrait.texture = actor.data.faceset
+		portraits[portrait] = actor 
+		combatants[actor]["portrait"] = portrait
 
 func remove_from_queue(actor: Actor) -> void:
 	var coords = Vector2i(actor.position / CELL_SIZE)

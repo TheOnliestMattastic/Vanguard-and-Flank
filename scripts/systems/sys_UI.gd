@@ -28,15 +28,12 @@ func display_queue(queue: Array[Actor]) -> void:
 	copy_of_queue.reverse() # descending order for scrollbox
 	for child in queue_display.get_children(): child.queue_free() # clear queue display
 	for actor in copy_of_queue:
-		var portrait = portrait_scene.instantiate()
-		portrait.texture = actor.data.faceset
+		var portrait = Manifest.combatants[actor]["portrait"].duplicate()
 		queue_display.add_child(portrait)
-		Manifest.add_portrait(actor, portrait)
 
 func display_active(actor: Actor) -> void:
-	var portrait = portrait_scene.instantiate()
-	portrait.texture = actor.data.faceset # populate portrait w/texture
 	for child in active_display.get_node("activePortrait").get_children(): child.queue_free()
+	var portrait = Manifest.combatants[actor]["portrait"].duplicate()
 	active_display.get_node("activePortrait").add_child(portrait)
 	active_name.text = actor.data.name
 	active_display.get_node("activeStats/hp").text = "HP: " + str(Manifest.combatants[actor]["HP"])
@@ -46,8 +43,7 @@ func display_active(actor: Actor) -> void:
 	active_display.get_node("activeStats/spd").text = "SPD: " + str(actor.data.spd)
 
 func display_target(actor: Actor) -> void:
-	var portrait = portrait_scene.instantiate()
-	portrait.texture = actor.data.faceset # populate portrait w/texture
+	var portrait = Manifest.combatants[actor]["portrait"].duplicate()
 	for child in target_display.get_node("targetPortrait").get_children(): child.queue_free()
 	target_display.get_node("targetPortrait").add_child(portrait)
 	target_name.text = actor.data.name
