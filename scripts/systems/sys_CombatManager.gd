@@ -62,3 +62,4 @@ static func _on_new_turn() -> void:
 
 static func _on_new_round() -> void:
 	roll_for_init(Manifest.queue)
+	Event.new_turn.emit()

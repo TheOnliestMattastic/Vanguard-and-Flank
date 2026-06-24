@@ -26,14 +26,10 @@ func _ready() -> void:
 	
 	var combatants = get_combatants()
 	grid.create_map()
-	grid.add_cells_to_dict()
 	Manifest.queue.append_array(combatants)
 	Manifest.add_combatants(Manifest.queue)
-	for combatant in Manifest.combatants: 
-		Grid.toggle_obstacle(combatant.position / Manifest.CELL_SIZE, true)
-	
-	CombatManager.roll_for_init(Manifest.queue)
-	ui.display_queue(Manifest.queue)
+	Grid.obstruct_combatant_position(Manifest.combatants)
+	Event.new_round.emit()
 	toggle_state(State.IDLE)
 
 func _process(delta: float) -> void:

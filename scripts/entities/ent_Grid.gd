@@ -13,6 +13,7 @@ func create_map() -> void:
 		for y in Manifest.GRID_SIZE.y:
 			var cell := cell_scene.instantiate()
 			add_child(cell)
+	add_cells_to_dict()
 
 func add_cells_to_dict() -> void:
 	var cells = self.get_children()
@@ -37,6 +38,10 @@ func randomize_tile(tile):
 
 static func toggle_obstacle(coords: Vector2i, is_solid: bool) -> void:
 	Manifest.astar.set_point_solid(coords, is_solid)
+
+static func obstruct_combatant_position(list) -> void:
+	for combatant in list: 
+		Grid.toggle_obstacle(combatant.position / Manifest.CELL_SIZE, true)
 
 # === Highlighting ===
 static func clear_highlights() -> void:

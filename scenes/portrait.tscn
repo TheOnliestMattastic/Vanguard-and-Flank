@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dj5n66q8cooig"]
 
-[ext_resource type="Script" uid="uid://c0dnx4upv15hj" path="res://scripts/entities/ent_Portrait.gd" id="1_31ep3"]
 [ext_resource type="Texture2D" uid="uid://ccjk7ekitegto" path="res://assets/chars/Boy/Faceset.png" id="1_k07cr"]
 [ext_resource type="Script" uid="uid://ck2f3opp0nvn7" path="res://scripts/entities/ent_Health.gd" id="3_efsuh"]
 [ext_resource type="PackedScene" uid="uid://d2wf8beqj1rd7" path="res://scenes/status_icon.tscn" id="3_qffwa"]
@@ -28,7 +27,6 @@ size_flags_vertical = 3
 texture = ExtResource("1_k07cr")
 expand_mode = 5
 stretch_mode = 5
-script = ExtResource("1_31ep3")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2095130286]
