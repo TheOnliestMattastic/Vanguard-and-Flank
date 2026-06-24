@@ -25,7 +25,23 @@
 [ext_resource type="Resource" uid="uid://beqcmshwpp71w" path="res://resources/actors/actor_Firion.tres" id="22_05nbr"]
 [ext_resource type="Resource" uid="uid://b13gsoyp1udbt" path="res://resources/actors/actor_Tobias.tres" id="22_pl11u"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e1j6l"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pl11u"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bhx41"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.ctex"
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e1j6l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qnb83"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0lup"]
 texture = ExtResource("14_gxtfn")
@@ -37,6 +53,10 @@ modulate_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nfpb1"]
 texture = ExtResource("14_gxtfn")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sww3w"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.ctex"
 
 [node name="Game" type="Node2D" unique_id=1755678686]
 
@@ -152,16 +172,19 @@ script = ExtResource("5_bhx41")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 2
 
 [node name="Portrait" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/QueueDisplay" unique_id=89818184 instance=ExtResource("7_37s47")]
 layout_mode = 2
+texture = SubResource("CompressedTexture2D_e1j6l")
 
 [node name="Portrait2" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/QueueDisplay" unique_id=475329708 instance=ExtResource("7_37s47")]
 layout_mode = 2
+texture = SubResource("CompressedTexture2D_pl11u")
 
 [node name="Portrait3" parent="UI/MarginContainer/VBoxContainer/topSection/leftPanel/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer/QueueDisplay" unique_id=1495566546 instance=ExtResource("7_37s47")]
 layout_mode = 2
+texture = SubResource("CompressedTexture2D_bhx41")
 
 [node name="middleSection" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/topSection" unique_id=49312008]
 layout_mode = 2
@@ -546,6 +569,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_e1j6l")
 
 [node name="Portrait2" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay/activePortrait" unique_id=972220889 instance=ExtResource("7_37s47")]
 layout_mode = 2
+texture = SubResource("CompressedTexture2D_qnb83")
 
 [node name="activeStats" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/leftSection/activeDisplay" unique_id=1073991633]
 layout_mode = 2
@@ -702,6 +726,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_e1j6l")
 
 [node name="Portrait2" parent="UI/MarginContainer/VBoxContainer/bottomPanel/MarginContainer/HBoxContainer/rightSection/targetDisplay/targetPortrait" unique_id=1648320498 instance=ExtResource("7_37s47")]
 layout_mode = 2
+texture = SubResource("CompressedTexture2D_sww3w")
 
 [node name="Actors" type="Node2D" parent="." unique_id=1351903536]
 unique_name_in_owner = true

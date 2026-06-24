@@ -4,7 +4,7 @@
 
 [node name="StatusIcon" type="TextureRect" unique_id=2143163180]
 custom_minimum_size = Vector2(6, 6)
-size_flags_vertical = 3
+size_flags_horizontal = 3
 texture = ExtResource("1_eop52")
 expand_mode = 5
 stretch_mode = 5

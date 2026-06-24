@@ -8,7 +8,7 @@ class_name AbilityData
 @export var pwr_mod: float = 1
 @export_enum("Attack", "Buff", "Debuff", "Heal") var type: String
 @export_enum("Slash", "Pierce", "Bash", "Fire", "Water", "Earth", "Life", "Space") var damage_type: String
-@export var icon: Texture
+@export var icon: Texture2D
 
 func stage(caster: Actor) -> void: 
 	return print("[I AM ERROR] Stage method not overridden for " + name + "!")

@@ -12,8 +12,6 @@ region = Rect2(16, 0, 16, 16)
 
 [node name="Heart" type="TextureRect" unique_id=2143163180]
 custom_minimum_size = Vector2(6, 6)
-size_flags_horizontal = 3
-size_flags_vertical = 3
 texture = SubResource("AtlasTexture_ycbwg")
 expand_mode = 3
 stretch_mode = 5

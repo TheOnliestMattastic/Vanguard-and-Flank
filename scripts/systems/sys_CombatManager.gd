@@ -48,8 +48,8 @@ static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	if result > target.data.max_hp: Manifest.combatants[target]["HP"] = target.data.max_hp
 	else: Manifest.combatants[target]["HP"] = result
 
-static func apply_dot(actor: Actor, dot_name: String, turns: int, ammount: int = 1) -> void: 
-	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount }
+static func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammount: int = 1) -> void: 
+	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount, "icon": icon }
 
 static func _on_new_turn() -> void:
 	var active_actor: Actor = Manifest.queue[0]

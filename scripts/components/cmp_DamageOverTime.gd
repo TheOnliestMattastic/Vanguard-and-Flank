@@ -7,5 +7,5 @@ func stage(caster: Actor) -> void:
 func execute(caster: Actor, coords: Vector2i) -> bool:
 	var target: Actor = Manifest.gridmap[coords].occupant
 	if CombatManager.roll_for_attack(caster, target): 
-		Event.actor_doted.emit(target, name, int(pwr_mod))
+		Event.actor_doted.emit(target, name, icon, int(pwr_mod))
 	return true
