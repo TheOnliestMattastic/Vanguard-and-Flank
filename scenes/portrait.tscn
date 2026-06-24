@@ -3,36 +3,75 @@
 [ext_resource type="Script" uid="uid://c0dnx4upv15hj" path="res://scripts/entities/ent_Portrait.gd" id="1_31ep3"]
 [ext_resource type="Texture2D" uid="uid://ccjk7ekitegto" path="res://assets/chars/Boy/Faceset.png" id="1_k07cr"]
 [ext_resource type="Script" uid="uid://ck2f3opp0nvn7" path="res://scripts/entities/ent_Health.gd" id="3_efsuh"]
+[ext_resource type="PackedScene" uid="uid://d2wf8beqj1rd7" path="res://scenes/status_icon.tscn" id="3_qffwa"]
+[ext_resource type="PackedScene" uid="uid://bexjftmwpo0cb" path="res://scenes/heart.tscn" id="5_kk1se"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v30as"]
+load_path = "res://.godot/imported/Heart.png-2253db885b69db48aeb43e11398ef204.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk1se"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_v30as")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmjsd"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_v30as")
+region = Rect2(16, 0, 16, 16)
 
 [node name="Portrait" type="TextureRect" unique_id=1648320498]
-offset_right = 114.0
-offset_bottom = 114.0
+anchors_preset = -1
+anchor_right = 0.098958336
+anchor_bottom = 0.17592593
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("1_k07cr")
 expand_mode = 5
 stretch_mode = 5
 script = ExtResource("1_31ep3")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1340009397]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.022727275
-anchor_right = 1.0
-anchor_bottom = 0.9772728
-grow_horizontal = 2
-grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Status" type="GridContainer" parent="VBoxContainer" unique_id=1870887155]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2095130286]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1340009397]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Status" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1427912609]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 1
 columns = 5
 
-[node name="Health" type="HBoxContainer" parent="VBoxContainer" unique_id=1570188817]
+[node name="StatusIcon" parent="MarginContainer/VBoxContainer/Status" unique_id=2143163180 instance=ExtResource("3_qffwa")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Health" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1570188817]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_constants/separation = 1
 script = ExtResource("3_efsuh")
+
+[node name="Heart" parent="MarginContainer/VBoxContainer/Health" unique_id=1164083166 instance=ExtResource("5_kk1se")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kk1se")
+
+[node name="Heart2" parent="MarginContainer/VBoxContainer/Health" unique_id=708493648 instance=ExtResource("5_kk1se")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bmjsd")
