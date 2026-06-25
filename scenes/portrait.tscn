@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dj5n66q8cooig"]
 
+[ext_resource type="Script" uid="uid://cw23o3j680j5c" path="res://scripts/entities/ent_Portrait.gd" id="1_qffwa"]
 [ext_resource type="Script" uid="uid://cv2ma7ehxhm4q" path="res://scripts/entities/ent_StatusGrid.gd" id="2_kk1se"]
 [ext_resource type="Script" uid="uid://ck2f3opp0nvn7" path="res://scripts/entities/ent_Health.gd" id="3_efsuh"]
 [ext_resource type="PackedScene" uid="uid://bexjftmwpo0cb" path="res://scenes/heart.tscn" id="5_kk1se"]
@@ -11,17 +12,17 @@ load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v30as"]
 load_path = "res://.godot/imported/Heart.png-2253db885b69db48aeb43e11398ef204.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qffwa"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_v30as")
-region = Rect2(16, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk1se"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_v30as")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmjsd"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_v30as")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_in61o"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_v30as")
 region = Rect2(16, 0, 16, 16)
@@ -35,6 +36,7 @@ size_flags_vertical = 3
 texture = SubResource("CompressedTexture2D_efsuh")
 expand_mode = 5
 stretch_mode = 5
+script = ExtResource("1_qffwa")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2095130286]
@@ -55,6 +57,7 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="StatusGrid" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1427912609]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -64,6 +67,7 @@ columns = 5
 script = ExtResource("2_kk1se")
 
 [node name="Health" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1570188817]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -73,12 +77,12 @@ script = ExtResource("3_efsuh")
 
 [node name="Heart" parent="MarginContainer/VBoxContainer/Health" unique_id=1164083166 instance=ExtResource("5_kk1se")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_qffwa")
+texture = SubResource("AtlasTexture_kk1se")
 
 [node name="Heart2" parent="MarginContainer/VBoxContainer/Health" unique_id=708493648 instance=ExtResource("5_kk1se")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_kk1se")
+texture = SubResource("AtlasTexture_bmjsd")
 
 [node name="Heart3" parent="MarginContainer/VBoxContainer/Health" unique_id=1822731360 instance=ExtResource("5_kk1se")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_bmjsd")
+texture = SubResource("AtlasTexture_in61o")

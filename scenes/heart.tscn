@@ -8,7 +8,7 @@ load_path = "res://.godot/imported/Heart.png-2253db885b69db48aeb43e11398ef204.ct
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycbwg"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_v30as")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(64, 0, 16, 16)
 
 [node name="Heart" type="TextureRect" unique_id=2143163180]
 custom_minimum_size = Vector2(6, 6)

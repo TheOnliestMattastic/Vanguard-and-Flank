@@ -50,6 +50,7 @@ static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 
 static func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammount: int = 1) -> void: 
 	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount, "icon": icon }
+	Manifest.combatants[actor]["portrait"].add_status_icon(icon)
 
 static func _on_new_turn() -> void:
 	var active_actor: Actor = Manifest.queue[0]
