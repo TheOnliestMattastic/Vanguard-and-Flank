@@ -32,6 +32,8 @@ func add_combatants(actors: Array[Actor]) -> void:
 		portrait.texture = actor.data.faceset
 		portraits[portrait] = actor 
 		combatants[actor]["portrait"] = portrait
+		combatants[actor]["portrait"].set_actor_hp(actor.data.max_hp)
+		
 
 func remove_from_queue(actor: Actor) -> void:
 	var coords = Vector2i(actor.position / CELL_SIZE)
