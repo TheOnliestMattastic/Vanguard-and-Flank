@@ -40,12 +40,12 @@ static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
 
 static func apply_damage(actor: Actor, ammount: int = 1) -> void:
 	var hp = Manifest.combatants[actor]["HP"]
-	var result = hp - ammount
-	if result > 0: 
-		Manifest.combatants[actor]["HP"] = result
-		Manifest.combatants[actor]["portrait"].set_actor_current_hp(result)
-	else: 
+	var result = clamp(hp - ammount, 0, actor.data.max_hp)
+	if result == 0: 
 		Event.actor_defeated.emit(actor)
+		return
+	Manifest.combatants[actor]["HP"] = result
+	Manifest.combatants[actor]["portrait"].set_actor_current_hp(result)
 
 static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	var hp = Manifest.combatants[target]["HP"]
