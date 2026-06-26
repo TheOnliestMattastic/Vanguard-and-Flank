@@ -44,3 +44,8 @@ func remove_from_queue(actor: Actor) -> void:
 
 func has_component(actor: Actor, component: String) -> bool:
 	return combatants[actor].has(component)
+
+func remove_component(actor: Actor, component: String) -> void:
+	if has_component(actor, component): 
+		combatants[actor].erase(component)
+	else: print("[I AM ERROR] Cannot find the following component on actor " + actor.name + ": " + component)

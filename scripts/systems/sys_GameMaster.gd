@@ -146,8 +146,10 @@ func _on_cell_pressed(coords: Vector2i):
 func toggle_state(target_state: State) -> void:
 	if current_state == target_state: current_state = State.IDLE
 	else: current_state = target_state
-	var active_actor = Manifest.queue[0]
 	Grid.clear_highlights()
+	
+	if Manifest.queue.size() <= 0: return new_round()
+	var active_actor = Manifest.queue[0] 
 	
 	match current_state:
 		State.IDLE:

@@ -12,17 +12,17 @@ load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v30as"]
 load_path = "res://.godot/imported/Heart.png-2253db885b69db48aeb43e11398ef204.ctex"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qffwa"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_v30as")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kk1se"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_v30as")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmjsd"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_v30as")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_in61o"]
 resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_v30as")
 region = Rect2(16, 0, 16, 16)
@@ -77,12 +77,12 @@ script = ExtResource("3_efsuh")
 
 [node name="Heart" parent="MarginContainer/VBoxContainer/Health" unique_id=1164083166 instance=ExtResource("5_kk1se")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_kk1se")
+texture = SubResource("AtlasTexture_qffwa")
 
 [node name="Heart2" parent="MarginContainer/VBoxContainer/Health" unique_id=708493648 instance=ExtResource("5_kk1se")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_bmjsd")
+texture = SubResource("AtlasTexture_kk1se")
 
 [node name="Heart3" parent="MarginContainer/VBoxContainer/Health" unique_id=1822731360 instance=ExtResource("5_kk1se")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_in61o")
+texture = SubResource("AtlasTexture_bmjsd")

@@ -52,7 +52,7 @@ static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 
 func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammount: int = 1) -> void: 
 	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount, "icon": icon }
-	Manifest.combatants[actor]["portrait"].add_status_icon(icon)
+	Manifest.combatants[actor]["portrait"].add_status_icon(icon, dot_name)
 	ui.display_queue(Manifest.queue)
 
 static func _on_new_turn() -> void:
@@ -60,8 +60,11 @@ static func _on_new_turn() -> void:
 	for type in DoT:
 		if Manifest.has_component(active_actor, type):
 			Manifest.combatants[active_actor]["HP"] -= Manifest.combatants[active_actor][type]["ammount"]
-			if Manifest.combatants[active_actor][type]["turns"] > 1: Manifest.combatants[active_actor][type]["turns"] -= 1
-			else: Manifest.combatants[active_actor].erase(type)
+			if Manifest.combatants[active_actor][type]["turns"] > 1: 
+				Manifest.combatants[active_actor][type]["turns"] -= 1
+			else: 
+				Manifest.remove_component(active_actor, type)
+				Manifest.combatants[active_actor]["portrait"].remove_status_icon(type)
 	if Manifest.combatants[active_actor]["HP"] <= 0: Event.actor_defeated.emit(active_actor)
 
 static func _on_new_round() -> void:
