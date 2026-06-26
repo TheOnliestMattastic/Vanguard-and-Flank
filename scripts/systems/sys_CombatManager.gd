@@ -49,9 +49,9 @@ static func apply_damage(actor: Actor, ammount: int = 1) -> void:
 
 static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
 	var hp = Manifest.combatants[target]["HP"]
-	var result = hp + ammount
-	if result > target.data.max_hp: Manifest.combatants[target]["HP"] = target.data.max_hp
-	else: Manifest.combatants[target]["HP"] = result
+	var result = clamp(hp + ammount, 0, target.data.max_hp)
+	Manifest.combatants[target]["HP"] = result
+	Manifest.combatants[target]["portrait"].set_actor_current_hp(result)
 
 func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammount: int = 1) -> void: 
 	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount, "icon": icon }
