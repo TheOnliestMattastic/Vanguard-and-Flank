@@ -62,7 +62,7 @@ static func _on_new_turn() -> void:
 	var active_actor: Actor = Manifest.queue[0]
 	for type in DoT:
 		if Manifest.has_component(active_actor, type):
-			Manifest.combatants[active_actor]["HP"] -= Manifest.combatants[active_actor][type]["ammount"]
+			apply_damage(active_actor, Manifest.combatants[active_actor][type]["ammount"])
 			if Manifest.combatants[active_actor][type]["turns"] > 1: 
 				Manifest.combatants[active_actor][type]["turns"] -= 1
 			else: 
