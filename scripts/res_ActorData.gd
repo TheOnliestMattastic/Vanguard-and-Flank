@@ -15,5 +15,5 @@ class_name ActorData
 @export var rng: int = 1
 
 @export_group("Traits")
-@export_enum("Slash", "Pierce", "Bash", "Fire", "Water", "Earth", "Life", "Space") var damage_type: String
+@export_enum("Slash", "Pierce", "Bash", "Fire", "Water", "Earth", "Life", "Space") var type: String
 @export var abilities: Array[AbilityData]

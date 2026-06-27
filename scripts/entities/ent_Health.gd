@@ -12,8 +12,8 @@ func set_hp(maximum: int = 3) -> void:
 	set_current_hp(maximum)
 	refresh_hearts()
 
-func set_current_hp(ammount: float) -> void:
-	current_hp = clamp(ammount, 0, max_hp)
+func set_current_hp(amount: float) -> void:
+	current_hp = clamp(amount, 0, max_hp)
 	refresh_hearts()
 
 func set_max_hp(maximum: int) -> void:

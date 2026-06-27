@@ -26,11 +26,11 @@ static func roll_for_init(queue: Array[Actor]) -> void:
 	queue.sort_custom(func(a, b): return Manifest.combatants[a]["init"] > Manifest.combatants[b]["init"])
 	Event.init_rolled.emit()
 
-static func has_ap(actor: Actor, ammount: int = 1) -> bool:
-	return Manifest.combatants[actor]["AP"] >= ammount
+static func has_ap(actor: Actor, amount: int = 1) -> bool:
+	return Manifest.combatants[actor]["AP"] >= amount
 
-static func spend_ap(actor: Actor, ammount: int = 1) -> void:
-	if has_ap(actor, ammount): Manifest.combatants[actor]["AP"] = Manifest.combatants[actor]["AP"] - ammount
+static func spend_ap(actor: Actor, amount: int = 1) -> void:
+	if has_ap(actor, amount): Manifest.combatants[actor]["AP"] = Manifest.combatants[actor]["AP"] - amount
 	else: print("[I AM ERROR] spend_ap edge case was activated!")
 
 static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
@@ -39,23 +39,23 @@ static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
 	Event.actor_attacked.emit(attacker, result, dc)
 	return result >= dc
 
-static func apply_damage(actor: Actor, ammount: int = 1) -> void:
+static func apply_damage(actor: Actor, amount: int = 1) -> void:
 	var hp = Manifest.combatants[actor]["HP"]
-	var result = clamp(hp - ammount, 0, actor.data.max_hp)
+	var result = clamp(hp - amount, 0, actor.data.max_hp)
 	if result == 0: 
 		Event.actor_defeated.emit(actor)
 		return
 	Manifest.combatants[actor]["HP"] = result
 	Manifest.combatants[actor]["portrait"].set_actor_current_hp(result)
 
-static func apply_heal(caster: Actor, target: Actor, ammount: int = 1) -> void:
+static func apply_heal(caster: Actor, target: Actor, amount: int = 1) -> void:
 	var hp = Manifest.combatants[target]["HP"]
-	var result = clamp(hp + ammount, 0, target.data.max_hp)
+	var result = clamp(hp + amount, 0, target.data.max_hp)
 	Manifest.combatants[target]["HP"] = result
 	Manifest.combatants[target]["portrait"].set_actor_current_hp(result)
 
-func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammount: int = 1) -> void: 
-	Manifest.combatants[actor][dot_name] = { "turns": turns, "ammount": ammount, "icon": icon }
+func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, amount: int = 1) -> void:
+	Manifest.combatants[actor][dot_name] = { "turns": turns, "amount": amount, "icon": icon }
 	Manifest.combatants[actor]["portrait"].add_status_icon(icon, dot_name)
 	ui.display_queue(Manifest.queue)
 
@@ -68,7 +68,7 @@ func _on_new_turn() -> void:
 	active_actor.active = true
 	for type in DoT:
 		if Manifest.has_component(active_actor, type):
-			apply_damage(active_actor, Manifest.combatants[active_actor][type]["ammount"])
+			apply_damage(active_actor, Manifest.combatants[active_actor][type]["amount"])
 			if not active_actor:
 				if game_master.game_over(): 
 					Event.game_over.emit(game_master.get_defeated_team().name)

@@ -12,7 +12,7 @@ signal game_over(loser: String)
 
 # Combat
 signal actor_attacked(attacker: Actor, defender: Actor, result: int, dc: int)
-signal actor_damaged(actor: Actor, ammount: int)
-signal actor_healed(caster: Actor, target: Actor, ammount: int)
+signal actor_damaged(actor: Actor, amount: int)
+signal actor_healed(caster: Actor, target: Actor, amount: int)
 signal actor_doted(actor: Actor, dot_name: String, icon: Texture2D, turns: int)
 signal actor_defeated(actor: Actor)

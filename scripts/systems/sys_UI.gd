@@ -66,8 +66,8 @@ func log_hit_results(attacker: Actor, roll: int, dc: int) -> void:
 	if dc > roll : combat_log.append_text("The [color=red]attack failed[/color].[br]")
 	else: combat_log.append_text("The [color=green]attack succeeded[/color].[br]")
 
-func log_heal_results(caster: Actor, target: Actor, ammount: int = 1) -> void:
-	combat_log.append_text("[[color=green]HEAL[/color]] [color=blue]" + caster.name + "[/color] healed [color=blue]" + target.name + "[/color] for [color=cyan]" + str(ammount) + "[/color] pts![br]")
+func log_heal_results(caster: Actor, target: Actor, amount: int = 1) -> void:
+	combat_log.append_text("[[color=green]HEAL[/color]] [color=blue]" + caster.name + "[/color] healed [color=blue]" + target.name + "[/color] for [color=cyan]" + str(amount) + "[/color] pts![br]")
 
 func append_log(message: String) -> void:
 	combat_log.append_text(message)
