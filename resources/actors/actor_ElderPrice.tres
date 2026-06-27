@@ -14,5 +14,5 @@ role = "Healer"
 max_hp = 2
 pwr = 4
 rng = 3
-damage_type = "Space"
+type = "Space"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

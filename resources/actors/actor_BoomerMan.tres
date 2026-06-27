@@ -15,6 +15,6 @@ role = "Damage Dealer"
 pwr = 7
 dex = 4
 spd = 2
-damage_type = "Bash"
+type = "Bash"
 abilities = Array[ExtResource("1_47dtu")]([ExtResource("2_71412")])
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

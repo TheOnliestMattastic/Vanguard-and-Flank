@@ -16,6 +16,6 @@ max_hp = 4
 pwr = 4
 dex = 4
 rng = 2
-damage_type = "Bash"
+type = "Bash"
 abilities = Array[ExtResource("1_kcyrb")]([ExtResource("2_7ld0o")])
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

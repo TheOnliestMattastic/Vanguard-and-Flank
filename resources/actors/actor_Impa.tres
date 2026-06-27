@@ -15,6 +15,6 @@ role = "Healer"
 pwr = 3
 dex = 6
 rng = 2
-damage_type = "Slash"
+type = "Slash"
 abilities = Array[ExtResource("1_aaaqb")]([ExtResource("2_gibue")])
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

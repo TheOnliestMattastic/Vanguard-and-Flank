@@ -13,5 +13,5 @@ faceset = ExtResource("2_bkk53")
 role = "Saboteur"
 pwr = 4
 rng = 2
-damage_type = "Space"
+type = "Space"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

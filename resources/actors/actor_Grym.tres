@@ -14,5 +14,5 @@ role = "Defender"
 max_hp = 5
 pwr = 4
 spd = 2
-damage_type = "Fire"
+type = "Fire"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

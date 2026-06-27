@@ -13,5 +13,5 @@ faceset = ExtResource("2_xefjx")
 role = "Defender"
 pwr = 4
 dex = 6
-damage_type = "Slash"
+type = "Slash"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

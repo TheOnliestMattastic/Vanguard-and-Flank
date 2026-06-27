@@ -14,5 +14,5 @@ role = "Damage Dealer"
 pwr = 4
 spd = 2
 rng = 3
-damage_type = "Pierce"
+type = "Pierce"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

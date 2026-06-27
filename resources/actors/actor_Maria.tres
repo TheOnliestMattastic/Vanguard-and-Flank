@@ -15,5 +15,5 @@ pwr = 4
 dex = 4
 spd = 2
 rng = 4
-damage_type = "Life"
+type = "Life"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

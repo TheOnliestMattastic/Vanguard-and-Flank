@@ -13,5 +13,5 @@ faceset = ExtResource("2_mee4y")
 role = "Saboteur"
 dex = 4
 rng = 2
-damage_type = "Bash"
+type = "Bash"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

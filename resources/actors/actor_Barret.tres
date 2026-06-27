@@ -15,5 +15,5 @@ max_hp = 4
 pwr = 3
 spd = 2
 rng = 3
-damage_type = "Bash"
+type = "Bash"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

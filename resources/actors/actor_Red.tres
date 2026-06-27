@@ -14,5 +14,5 @@ role = "Saboteur"
 pwr = 4
 dex = 4
 spd = 5
-damage_type = "Fire"
+type = "Fire"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

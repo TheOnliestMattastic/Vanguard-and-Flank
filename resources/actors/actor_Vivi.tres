@@ -14,5 +14,5 @@ role = "Damage Dealer"
 pwr = 3
 dex = 4
 rng = 4
-damage_type = "Fire"
+type = "Fire"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

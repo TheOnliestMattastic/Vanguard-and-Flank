@@ -14,5 +14,5 @@ role = "Saboteur"
 pwr = 4
 dex = 4
 rng = 3
-damage_type = "Water"
+type = "Water"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

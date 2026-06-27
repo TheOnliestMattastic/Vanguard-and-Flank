@@ -13,5 +13,5 @@ faceset = ExtResource("2_eiy7f")
 role = "Damage Dealer"
 dex = 4
 spd = 4
-damage_type = "Earth"
+type = "Earth"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

@@ -14,5 +14,5 @@ role = "Saboteur"
 pwr = 6
 dex = 4
 rng = 2
-damage_type = "Pierce"
+type = "Pierce"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

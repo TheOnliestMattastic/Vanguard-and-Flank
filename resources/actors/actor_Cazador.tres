@@ -13,5 +13,5 @@ faceset = ExtResource("2_slgsn")
 role = "Damage Dealer"
 max_hp = 4
 pwr = 4
-damage_type = "Pierce"
+type = "Pierce"
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"
