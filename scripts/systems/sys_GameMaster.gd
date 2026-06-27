@@ -1,42 +1,39 @@
 extends Node
 class_name GameMaster
 
+# Nodes
 @onready var vanguard: Node2D = %Vanguard
 @onready var flank: Node2D = %Flank
 @onready var ui: UI = %UI
 @onready var grid: Grid = %Grid
 
+enum State { IDLE, MOVE, ATTACK, ABILITY }
+var current_state: State
 const SPD_MOD = 0.5
 
-enum State {
-	IDLE,
-	MOVE,
-	ATTACK,
-	ABILITY
-}
-var current_state: State
-
 func _ready() -> void:
-	# Wait one frame for scene to fully initalize
+	# wait for scene to fully initalize
 	await get_tree().process_frame
 	
-	Event.cell_pressed.connect(_on_cell_pressed)
-	Event.button_pressed.connect(_on_button_pressed)
-	Event.actor_defeated.connect(_on_actor_defeated)
-	Event.new_turn.connect(_on_new_turn)
+	# connect to signals
+	EventBus.cell_pressed.connect(_on_cell_pressed)
+	EventBus.button_pressed.connect(_on_button_pressed)
+	EventBus.actor_defeated.connect(_on_actor_defeated)
+	EventBus.new_turn.connect(_on_new_turn)
 	
 	var combatants = get_combatants()
 	grid.create_map()
 	Manifest.queue.append_array(combatants)
 	Manifest.add_combatants(Manifest.queue)
 	Grid.obstruct_combatant_position(Manifest.combatants)
-	Event.new_round.emit()
+	EventBus.new_round.emit()
 	toggle_state(State.IDLE)
 
 func _process(delta: float) -> void:
 	ui.display_active(Manifest.queue[0])
 	for combatant in Manifest.combatants:
-		if combatant.target: ui.display_target(combatant)
+		if combatant.target: 
+			ui.display_target(combatant)
 
 func  _on_button_pressed(btn_name: String):
 	match btn_name:
@@ -105,7 +102,7 @@ func _on_cell_pressed(coords: Vector2i):
 				return
 			
 			if CombatManager.roll_for_attack(active_actor, target): 
-				CombatManager.apply_damage(target)
+				EventBus.actor_damaged.emit(target)
 			CombatManager.spend_ap(active_actor)
 			active_actor.acted = true
 			toggle_state(State.IDLE)
@@ -186,7 +183,7 @@ func _on_actor_defeated(actor: Actor) -> void:
 	actor.free()
 	Grid.toggle_obstacle(coords, false)
 	if team_defeated(alignment): 
-		Event.game_over.emit(alignment.name)
+		EventBus.game_over.emit(alignment.name)
 		return
 	ui.display_queue(Manifest.queue)
 
@@ -206,29 +203,33 @@ func get_defeated_team() -> Node2D:
 	
 	var vanguard_defeated: bool = team_defeated(vanguard)
 	var flank_defeated: bool = team_defeated(flank)
-	if vanguard_defeated: return vanguard
-	if flank_defeated: return flank
+	if vanguard_defeated: 
+		return vanguard
+	if flank_defeated: 
+		return flank
+	
 	return null
 
 func end_turn() -> void:
 	Manifest.queue[0].active = false
 	Manifest.queue.pop_front()
 	if Manifest.queue.size() == 0: new_round()
-	Event.new_turn.emit()
+	EventBus.new_turn.emit()
 	toggle_state(State.IDLE)
 
 func delay_turn() -> void:
-	if Manifest.queue[0].acted: ui.log_to_banner("Already acted this round.")
+	if Manifest.queue[0].acted: 
+		ui.log_to_banner("Already acted this round.")
 	else:
 		Manifest.queue[0].acted = true
 		Manifest.queue[0].active = false
 		Manifest.queue.push_back(Manifest.queue.pop_front())
-		Event.new_turn.emit()
+		EventBus.new_turn.emit()
 
 func new_round() -> void:
 	var combatants = get_combatants()
 	Manifest.queue.append_array(combatants)
-	Event.new_round.emit()
+	EventBus.new_round.emit()
 
 func _on_new_turn() -> void:
 	toggle_state(State.IDLE)

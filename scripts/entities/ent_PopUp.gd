@@ -4,7 +4,7 @@ class_name PopUp
 const MAIN_MENU = "res://scenes/main_menu.tscn"
 
 func _ready() -> void:
-	Event.button_pressed.connect(_on_button_pressed)
+	EventBus.button_pressed.connect(_on_button_pressed)
 
 func _on_button_pressed(btn_name: String) -> void:
 	match btn_name:

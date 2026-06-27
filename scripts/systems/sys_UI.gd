@@ -15,11 +15,11 @@ class_name UI
 @onready var target_display: HBoxContainer = %targetDisplay
 
 func _ready() -> void:
-	Event.game_over.connect(_on_game_over)
-	Event.actor_attacked.connect(log_hit_results)
-	Event.actor_healed.connect(log_heal_results)
-	Event.init_rolled.connect(log_init)
-	Event.new_turn.connect(_on_new_turn)
+	EventBus.game_over.connect(_on_game_over)
+	EventBus.actor_attacked.connect(_log_hit_results)
+	EventBus.actor_healed.connect(_log_heal_results)
+	EventBus.init_rolled.connect(_log_init)
+	EventBus.new_turn.connect(_on_new_turn)
 
 # === HUD Functions ===
 func display_queue(queue: Array[Actor]) -> void:
@@ -53,20 +53,20 @@ func display_target(actor: Actor) -> void:
 	target_display.get_node("targetStats/dex").text = "DEX: " + str(actor.data.dex)
 	target_display.get_node("targetStats/spd").text = "SPD: " + str(actor.data.spd)
 
-func log_init() -> void:
+func _log_init() -> void:
 	for combatant in Manifest.combatants:
 		combat_log.append_text("[[color=yellow]INITIATIVE[/color]] " + combatant.name + " rolled a [color=cyan]" + str(Manifest.combatants[combatant]["init"]) + "[/color]![br]")
 
 func log_to_banner(message: String) -> void:
 	banner.text = message
 
-func log_hit_results(attacker: Actor, roll: int, dc: int) -> void:
+func _log_hit_results(attacker: Actor, roll: int, dc: int) -> void:
 	combat_log.append_text("[[color=red]ATTACK[/color]] [color=blue]" + attacker.name + "[/color] must roll higher than DC: [color=cyan]" + str(dc) + "[/color] to succeed.[br]" )
 	combat_log.append_text("[color=blue]" + attacker.name + "[/color] rolled a [color=cyan]" + str(roll) + "[/color]![br]")
 	if dc > roll : combat_log.append_text("The [color=red]attack failed[/color].[br]")
 	else: combat_log.append_text("The [color=green]attack succeeded[/color].[br]")
 
-func log_heal_results(caster: Actor, target: Actor, amount: int = 1) -> void:
+func _log_heal_results(caster: Actor, target: Actor, amount: int = 1) -> void:
 	combat_log.append_text("[[color=green]HEAL[/color]] [color=blue]" + caster.name + "[/color] healed [color=blue]" + target.name + "[/color] for [color=cyan]" + str(amount) + "[/color] pts![br]")
 
 func append_log(message: String) -> void:

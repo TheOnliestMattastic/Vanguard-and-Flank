@@ -13,4 +13,4 @@ func set_tile(sheet: Texture2D, tile_size: Vector2i, coords: Vector2i):
 	texture_rect.texture = atlas
 
 func _on_pressed() -> void:
-	Event.cell_pressed.emit(self.position / Manifest.CELL_SIZE)
+	EventBus.cell_pressed.emit(self.position / Manifest.CELL_SIZE)
