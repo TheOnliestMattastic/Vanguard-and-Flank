@@ -2,6 +2,7 @@ extends Node2D
 class_name CombatManager
 
 @onready var ui: UI = %UI
+@onready var game_master: GameMaster = %GameMaster
 
 const EVASION_BASE: int = 10
 enum DoT {
@@ -58,13 +59,20 @@ func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammo
 	Manifest.combatants[actor]["portrait"].add_status_icon(icon, dot_name)
 	ui.display_queue(Manifest.queue)
 
-static func _on_new_turn() -> void:
+func _on_new_turn() -> void:
+	if Manifest.queue.size() == 0:
+		game_master.new_round()
+		return
+	
 	var active_actor: Actor = Manifest.queue[0]
 	active_actor.active = true
 	for type in DoT:
 		if Manifest.has_component(active_actor, type):
 			apply_damage(active_actor, Manifest.combatants[active_actor][type]["ammount"])
-			if not active_actor: 
+			if not active_actor:
+				if game_master.game_over(): 
+					Event.game_over.emit(game_master.get_defeated_team().name)
+					return
 				Event.new_turn.emit()
 				return 
 			

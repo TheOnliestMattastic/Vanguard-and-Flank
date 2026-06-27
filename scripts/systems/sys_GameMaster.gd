@@ -185,8 +185,10 @@ func _on_actor_defeated(actor: Actor) -> void:
 	Manifest.remove_from_queue(actor)
 	actor.free()
 	Grid.toggle_obstacle(coords, false)
+	if team_defeated(alignment): 
+		Event.game_over.emit(alignment.name)
+		return
 	ui.display_queue(Manifest.queue)
-	if team_defeated(alignment): Event.game_over.emit(alignment.name)
 
 func team_defeated(alignment: Node2D) -> bool:
 	var team
@@ -194,6 +196,19 @@ func team_defeated(alignment: Node2D) -> bool:
 		vanguard: team = vanguard.get_child_count()
 		flank: team = flank.get_child_count()
 	return team == 0
+
+func game_over() -> bool:
+	return vanguard.get_child_count() == 0 or flank.get_child_count() == 0
+
+func get_defeated_team() -> Node2D:
+	assert(vanguard != null, "Vanguard team reference is null")
+	assert(flank != null, "Flank team reference is null")
+	
+	var vanguard_defeated: bool = team_defeated(vanguard)
+	var flank_defeated: bool = team_defeated(flank)
+	if vanguard_defeated: return vanguard
+	if flank_defeated: return flank
+	return null
 
 func end_turn() -> void:
 	Manifest.queue[0].active = false
