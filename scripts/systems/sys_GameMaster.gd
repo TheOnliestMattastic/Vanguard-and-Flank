@@ -23,6 +23,7 @@ func _ready() -> void:
 	Event.cell_pressed.connect(_on_cell_pressed)
 	Event.button_pressed.connect(_on_button_pressed)
 	Event.actor_defeated.connect(_on_actor_defeated)
+	Event.new_turn.connect(_on_new_turn)
 	
 	var combatants = get_combatants()
 	grid.create_map()
@@ -208,9 +209,11 @@ func delay_turn() -> void:
 		Manifest.queue[0].active = false
 		Manifest.queue.push_back(Manifest.queue.pop_front())
 		Event.new_turn.emit()
-		toggle_state(State.IDLE)
 
 func new_round() -> void:
 	var combatants = get_combatants()
 	Manifest.queue.append_array(combatants)
 	Event.new_round.emit()
+
+func _on_new_turn() -> void:
+	toggle_state(State.IDLE)

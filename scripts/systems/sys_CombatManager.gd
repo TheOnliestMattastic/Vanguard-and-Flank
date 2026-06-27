@@ -60,15 +60,19 @@ func apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, ammo
 
 static func _on_new_turn() -> void:
 	var active_actor: Actor = Manifest.queue[0]
+	active_actor.active = true
 	for type in DoT:
 		if Manifest.has_component(active_actor, type):
 			apply_damage(active_actor, Manifest.combatants[active_actor][type]["ammount"])
+			if not active_actor: 
+				Event.new_turn.emit()
+				return 
+			
 			if Manifest.combatants[active_actor][type]["turns"] > 1: 
 				Manifest.combatants[active_actor][type]["turns"] -= 1
 			else: 
 				Manifest.remove_component(active_actor, type)
 				Manifest.combatants[active_actor]["portrait"].remove_status_icon(type)
-	if Manifest.combatants[active_actor]["HP"] <= 0: Event.actor_defeated.emit(active_actor)
 
 static func _on_new_round() -> void:
 	roll_for_init(Manifest.queue)

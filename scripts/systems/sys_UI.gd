@@ -85,5 +85,4 @@ func _on_game_over(loser: String) -> void:
 	add_child(popup)
 
 func _on_new_turn() -> void:
-	Manifest.queue[0].active = true
 	display_queue(Manifest.queue)
