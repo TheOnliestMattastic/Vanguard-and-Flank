@@ -5,11 +5,7 @@ class_name CombatManager
 @onready var game_master: GameMaster = %GameMaster
 
 const EVASION_BASE: int = 10
-enum DoT {
-	Poison,
-	Frostbite,
-	Burn
-}
+enum DoT { Poison, Frostbite, Burn }
 
 func _ready() -> void:
 	EventBus.actor_damaged.connect(_apply_damage)
@@ -35,12 +31,20 @@ static func spend_ap(actor: Actor, amount: int = 1) -> void:
 
 # TODO: refactor to account for damage types for dis/advantages.
 static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
-	var attacker_type: String = attacker.data.type
-	var defender_type: String = defender.data.type
-	
-	
-	var result = Dice.roll_d20() + attacker.data.pwr
+	var roll_state = DamageManager.get_matchup(attacker.data.type, defender.data.type)
+	var roll_1: int = Dice.roll_d20() + attacker.data.pwr
+	var roll_2: int = Dice.roll_d20() + attacker.data.pwr
 	var dc = EVASION_BASE + defender.data.dex
+	
+	var result: int
+	match roll_state:
+		DamageManager.RollState.Advantage:
+			result = maxi(roll_1, roll_2)
+		DamageManager.RollState.Disadvantage:
+			result = mini(roll_1, roll_2)
+		DamageManager.RollState.Neutral:
+			result = roll_1
+	print(roll_state, roll_1, roll_2)
 	EventBus.actor_attacked.emit(attacker, result, dc)
 	return result >= dc
 
