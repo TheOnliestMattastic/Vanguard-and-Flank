@@ -8,6 +8,5 @@ name = "Kunai"
 ap_cost = 3
 cast_range = 4
 pwr_mod = 2.0
-type = "Attack"
-damage_type = "Pierce"
+type = 2
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

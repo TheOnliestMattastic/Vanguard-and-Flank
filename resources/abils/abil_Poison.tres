@@ -9,7 +9,5 @@ name = "Poison"
 ap_cost = 4
 cast_range = 3
 pwr_mod = 2.0
-type = "Attack"
-damage_type = "Life"
 icon = ExtResource("1_3cmnj")
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

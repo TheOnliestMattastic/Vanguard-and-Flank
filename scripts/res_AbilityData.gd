@@ -1,13 +1,15 @@
 extends Resource
 class_name AbilityData
 
+enum Category { ATTACK, HEAL }
+
 @export var name: String = "Unknown Ability"
 @export_multiline var description: String = ""
 @export var ap_cost: int = 1
 @export var cast_range: int = 1
 @export var pwr_mod: float = 1
-@export_enum("Attack", "Buff", "Debuff", "Heal") var type: String
-@export_enum("Slash", "Pierce", "Bash", "Fire", "Water", "Earth", "Life", "Space") var damage_type: String
+@export var category: Category
+@export var type: DamageManager.Type
 @export var icon: Texture2D
 
 func stage(caster: Actor) -> void: 

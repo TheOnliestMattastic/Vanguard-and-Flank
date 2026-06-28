@@ -8,6 +8,5 @@ name = "Waterboard"
 ap_cost = 4
 cast_range = 5
 pwr_mod = 2.0
-type = "Attack"
-damage_type = "Water"
+type = 5
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

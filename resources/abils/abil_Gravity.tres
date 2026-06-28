@@ -8,6 +8,5 @@ name = "Gravity"
 ap_cost = 4
 cast_range = 5
 pwr_mod = 2.0
-type = "Attack"
-damage_type = "Space"
+type = 7
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

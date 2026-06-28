@@ -8,6 +8,5 @@ name = "Cannonball"
 ap_cost = 4
 cast_range = 4
 pwr_mod = 2.0
-type = "Attack"
-damage_type = "Bash"
+type = 1
 metadata/_custom_type_script = "uid://dx5ypgl5h0r84"

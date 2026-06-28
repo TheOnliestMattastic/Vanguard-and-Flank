@@ -38,11 +38,11 @@ static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
 	
 	var result: int
 	match roll_state:
-		DamageManager.RollState.Advantage:
+		DamageManager.RollState.ADVANTAGE:
 			result = maxi(roll_1, roll_2)
-		DamageManager.RollState.Disadvantage:
+		DamageManager.RollState.DISADVANTAGE:
 			result = mini(roll_1, roll_2)
-		DamageManager.RollState.Neutral:
+		DamageManager.RollState.NEUTRUAL:
 			result = roll_1
 	print(roll_state, roll_1, roll_2)
 	EventBus.actor_attacked.emit(attacker, result, dc)
