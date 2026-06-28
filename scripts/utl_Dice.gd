@@ -26,7 +26,7 @@ func roll_many(count: int, sides: int) -> Array[int]:
 func sum_rolls(rolls: Array[int]) -> int:
 	var total: int = 0
 	for value in rolls:
-		total += value	
+		total += value
 	return total
 
 func roll_dice(count: int, sides: int) -> int:

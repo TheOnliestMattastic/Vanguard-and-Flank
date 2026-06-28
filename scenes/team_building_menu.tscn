@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://t2vffsswphir"]
+
+[ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="1_4qs2i"]
+[ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/bg/toppattermpanel0233x15.png" id="2_4qs2i"]
+[ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/editor/res_font-large.tres" id="3_e3500"]
+[ext_resource type="LabelSettings" uid="uid://b2punxkqhrtht" path="res://resources/editor/res_font-xlarge.tres" id="3_orcmi"]
+[ext_resource type="LabelSettings" uid="uid://d0e6jkw6emswa" path="res://resources/editor/res_font-med.tres" id="4_e3500"]
+
+[node name="TeamBuildingMenu" type="Control" unique_id=365904706]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=455751452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=910706855]
+layout_mode = 2
+
+[node name="leftPanel" parent="MarginContainer/HBoxContainer" unique_id=1506169935 instance=ExtResource("1_4qs2i")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/leftPanel" unique_id=1126864092]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030837005
+anchor_top = 0.0109375
+anchor_right = 0.969163
+anchor_bottom = 0.9890625
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer" unique_id=1391699804]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/bg" unique_id=490113439]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("2_4qs2i")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/bg" unique_id=814989426]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("2_4qs2i")
+stretch_mode = 1
+flip_v = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer" unique_id=1911521970]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/VBoxContainer" unique_id=2033639472]
+layout_mode = 2
+text = "Vanguard"
+label_settings = ExtResource("3_e3500")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="middlePanel" parent="MarginContainer/HBoxContainer" unique_id=1727964318 instance=ExtResource("1_4qs2i")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/middlePanel" unique_id=1246240971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer" unique_id=1245740745]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/bg" unique_id=286084949]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("2_4qs2i")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/bg" unique_id=135255062]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("2_4qs2i")
+stretch_mode = 1
+flip_v = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer" unique_id=1680845012]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer" unique_id=958701811]
+layout_mode = 2
+text = "Build Your Squad"
+label_settings = ExtResource("3_orcmi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer" unique_id=326470716]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=593802574]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="DamageDealers" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=49539012]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DamageDealers" unique_id=1822081368]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "Warriors"
+label_settings = ExtResource("4_e3500")
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DamageDealers" unique_id=655574369]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Defenders" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=272972013]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Defenders" unique_id=1609819400]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "Guardians"
+label_settings = ExtResource("4_e3500")
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Defenders" unique_id=1168386952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Saboteurs" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=919791436]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Saboteurs" unique_id=45738535]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "Saboteurs"
+label_settings = ExtResource("4_e3500")
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Saboteurs" unique_id=281665480]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="Supporters" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1208413755]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Supporters" unique_id=2012238003]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "Rearguards"
+label_settings = ExtResource("4_e3500")
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Supporters" unique_id=1669569819]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=951300111 instance=ExtResource("1_4qs2i")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel" unique_id=12907691]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=834928040]
+modulate = Color(0, 0, 0, 0.2509804)
+layout_mode = 2
+
+[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=263356489]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+size_flags_vertical = 0
+texture = ExtResource("2_4qs2i")
+stretch_mode = 1
+
+[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=598651763]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+texture = ExtResource("2_4qs2i")
+stretch_mode = 1
+flip_v = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=1239680701]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/VBoxContainer" unique_id=1358606817]
+layout_mode = 2
+text = "Flank"
+label_settings = ExtResource("3_e3500")
+horizontal_alignment = 1
+vertical_alignment = 1

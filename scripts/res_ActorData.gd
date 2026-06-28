@@ -1,7 +1,7 @@
 extends Resource
 class_name ActorData
 
-enum Role { DAMAGE_DEALER, DEFENDER, HEALER, SABOTEUR }
+enum Role { WARRIOR, GUARDIAN, SABOTEUR, REARGUARD }
 
 @export_group("ID")
 @export var name: String = "Hero"
