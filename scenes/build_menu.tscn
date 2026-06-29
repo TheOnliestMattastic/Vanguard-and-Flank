@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/bg/toppattermpanel0233x15.png" id="3_khv4l"]
 [ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/editor/res_font-large.tres" id="4_p4qp6"]
 [ext_resource type="LabelSettings" uid="uid://b2punxkqhrtht" path="res://resources/editor/res_font-xlarge.tres" id="5_rdb4i"]
+[ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/editor/res_font.tres" id="5_yiarh"]
 [ext_resource type="LabelSettings" uid="uid://d0e6jkw6emswa" path="res://resources/editor/res_font-med.tres" id="6_0t0m0"]
+[ext_resource type="PackedScene" uid="uid://c7sigd3hg27xu" path="res://scenes/button.tscn" id="6_p4qp6"]
+[ext_resource type="Texture2D" uid="uid://1sycmaxk3x4u" path="res://assets/ui/basic/light/button_icon_arrow_left.png" id="7_rdb4i"]
 
 [node name="BuildMenu" type="Control" unique_id=365904706]
 layout_mode = 3
@@ -93,6 +96,151 @@ label_settings = ExtResource("4_p4qp6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1507789702]
+layout_mode = 2
+
+[node name="Target" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1961217752]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Actor" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target" unique_id=1523534664]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor" unique_id=1883782804]
+layout_mode = 2
+text = "name"
+label_settings = ExtResource("5_yiarh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor" unique_id=368609265]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Portrait" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer" unique_id=249520820]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Stats" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer" unique_id=1544109252]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="type" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer/Stats" unique_id=704146268]
+layout_mode = 2
+text = "type"
+label_settings = ExtResource("5_yiarh")
+vertical_alignment = 1
+
+[node name="hp" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer/Stats" unique_id=908891143]
+layout_mode = 2
+text = "hp"
+label_settings = ExtResource("5_yiarh")
+vertical_alignment = 1
+
+[node name="pwr" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer/Stats" unique_id=1245789124]
+layout_mode = 2
+text = "pwr"
+label_settings = ExtResource("5_yiarh")
+vertical_alignment = 1
+
+[node name="dex" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer/Stats" unique_id=78133759]
+layout_mode = 2
+text = "dex"
+label_settings = ExtResource("5_yiarh")
+vertical_alignment = 1
+
+[node name="spd" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer/Stats" unique_id=101971051]
+layout_mode = 2
+text = "spd"
+label_settings = ExtResource("5_yiarh")
+vertical_alignment = 1
+
+[node name="rng" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Actor/HBoxContainer/Stats" unique_id=305801318]
+layout_mode = 2
+text = "rng"
+label_settings = ExtResource("5_yiarh")
+vertical_alignment = 1
+
+[node name="Abilities" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target" unique_id=786443005]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Ability1" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities" unique_id=642837686]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ability" type="HBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability1" unique_id=1248056910]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability1/Ability" unique_id=789371463]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability1/Ability" unique_id=534019763]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability1" unique_id=1803199145]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ability2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities" unique_id=899745316]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Ability" type="HBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability2" unique_id=1139740032]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability2/Ability" unique_id=1207984253]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability2/Ability" unique_id=108041723]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Target/Abilities/Ability2" unique_id=1433897290]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=2134471058]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1285800057]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=260108454]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Back" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("6_p4qp6")]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("7_rdb4i")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Confirm" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1866169778 instance=ExtResource("6_p4qp6")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 32
+text = "Confirm"
+
 [node name="middlePanel" parent="MarginContainer/HBoxContainer" unique_id=1727964318 instance=ExtResource("2_yiarh")]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -158,6 +306,9 @@ label_settings = ExtResource("5_rdb4i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1662255273]
+layout_mode = 2
+
 [node name="GridContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=593802574]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -168,7 +319,6 @@ size_flags_stretch_ratio = 3.0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Warriors" unique_id=1822081368]
 layout_mode = 2
@@ -186,7 +336,6 @@ columns = 8
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Guardians" unique_id=1431764420]
 layout_mode = 2
@@ -204,7 +353,6 @@ columns = 8
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Saboteurs" unique_id=1125834550]
 layout_mode = 2
@@ -221,7 +369,6 @@ columns = 8
 [node name="Rearguards" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=95686045]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Rearguards" unique_id=931173673]
 layout_mode = 2
