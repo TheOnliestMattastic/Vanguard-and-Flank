@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://0k3dyenuei2n"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_d24tx"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_2fn61"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_d24tx"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_2fn61"]
 [ext_resource type="Texture2D" uid="uid://bkvdugslwshn1" path="res://assets/chars/Red-the-Thirteenth/Faceset.png" id="2_r3bp5"]
 [ext_resource type="Texture2D" uid="uid://gojhqcq48qvr" path="res://assets/chars/Red-the-Thirteenth/SpriteSheet.png" id="4_uiseg"]
 

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dqa1p0t3ht2iy"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_b6fe6"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_b6fe6"]
 [ext_resource type="Texture2D" uid="uid://d0smn2gmy2o2y" path="res://assets/chars/Aeris-the-Flowergirl/Faceset.png" id="2_0gqeh"]
 [ext_resource type="Resource" uid="uid://b04ngvavgv3cq" path="res://resources/abils/abil_HealingHands.tres" id="2_xuh0j"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_xuh0j"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="3_xuh0j"]
 [ext_resource type="Texture2D" uid="uid://b7oks1yoqxxrc" path="res://assets/chars/Aeris-the-Flowergirl/SpriteSheet.png" id="4_jh5xb"]
 
 [resource]

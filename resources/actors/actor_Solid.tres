@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://be08vxfi708jp"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_pbo5k"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_pbo5k"]
 [ext_resource type="Texture2D" uid="uid://dkcp482mkmkrl" path="res://assets/chars/Solid-the-Old-Snake/Faceset.png" id="2_mee4y"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_mmwtt"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_mmwtt"]
 [ext_resource type="Texture2D" uid="uid://cpqu0ykkgg3ur" path="res://assets/chars/Solid-the-Old-Snake/SpriteSheet.png" id="4_oc8ip"]
 
 [resource]

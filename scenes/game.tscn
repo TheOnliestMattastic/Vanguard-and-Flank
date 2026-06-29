@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="3_pl11u"]
 [ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/bg/toppattermpanel0233x15.png" id="4_bt5mj"]
 [ext_resource type="LabelSettings" uid="uid://c1mnbgas4r7h7" path="res://resources/editor/res_font.tres" id="4_pl11u"]
-[ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/utl_scrollbox.gd" id="5_bhx41"]
+[ext_resource type="Script" uid="uid://e5wa45ffhkca" path="res://scripts/editor/utl_scrollbox.gd" id="5_bhx41"]
 [ext_resource type="PackedScene" uid="uid://dj5n66q8cooig" path="res://scenes/portrait.tscn" id="7_37s47"]
 [ext_resource type="PackedScene" uid="uid://ckeq0uacdldhp" path="res://scenes/grid.tscn" id="7_ssvqc"]
 [ext_resource type="PackedScene" uid="uid://d03qfaa3kgoxx" path="res://scenes/cell.tscn" id="9_sgl2t"]

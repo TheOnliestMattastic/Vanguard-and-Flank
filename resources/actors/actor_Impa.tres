@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://bx10ldcf1krl1"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_aaaqb"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_733mg"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_aaaqb"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_733mg"]
 [ext_resource type="Resource" uid="uid://bd3ybthjtbjxq" path="res://resources/abils/abil_Burn.tres" id="2_gibue"]
 [ext_resource type="Texture2D" uid="uid://bcdmd3tvhw1ai" path="res://assets/chars/Impa-the-Wise/Faceset.png" id="2_nn87d"]
 [ext_resource type="Texture2D" uid="uid://ctq2pl8r0weih" path="res://assets/chars/Impa-the-Wise/redsamurai.png" id="4_gibue"]

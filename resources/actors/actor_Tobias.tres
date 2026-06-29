@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://b13gsoyp1udbt"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_tkuo8"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_fqylo"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_tkuo8"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_fqylo"]
 [ext_resource type="Texture2D" uid="uid://cbtopnrk8jxqo" path="res://assets/chars/Tobias-the-Analrapist/Faceset.png" id="2_xefjx"]
 [ext_resource type="Texture2D" uid="uid://d3mcgw6yfpbq7" path="res://assets/chars/Tobias-the-Analrapist/SpriteSheet.png" id="4_1sgfy"]
 

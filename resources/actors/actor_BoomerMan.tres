@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dlhk7wdfq2iam"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_47dtu"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_47dtu"]
 [ext_resource type="Resource" uid="uid://r4cneq4r8h75" path="res://resources/abils/abil_Frostbite.tres" id="2_71412"]
 [ext_resource type="Texture2D" uid="uid://l6kfq3dog7e6" path="res://assets/chars/Bobomber-Man-the-Boomer/Faceset.png" id="2_h6nef"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_yn4hc"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="3_yn4hc"]
 [ext_resource type="Texture2D" uid="uid://c42ox4hoqswnp" path="res://assets/chars/Bobomber-Man-the-Boomer/SpriteSheet.png" id="4_0wsu8"]
 
 [resource]

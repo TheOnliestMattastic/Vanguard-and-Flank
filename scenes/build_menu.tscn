@@ -1,18 +1,20 @@
 [gd_scene format=3 uid="uid://t2vffsswphir"]
 
-[ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="1_4qs2i"]
-[ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/bg/toppattermpanel0233x15.png" id="2_4qs2i"]
-[ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/editor/res_font-large.tres" id="3_e3500"]
-[ext_resource type="LabelSettings" uid="uid://b2punxkqhrtht" path="res://resources/editor/res_font-xlarge.tres" id="3_orcmi"]
-[ext_resource type="LabelSettings" uid="uid://d0e6jkw6emswa" path="res://resources/editor/res_font-med.tres" id="4_e3500"]
+[ext_resource type="Script" uid="uid://bs6dclyhya4lg" path="res://scripts/states/state_BuildMenu.gd" id="1_s8q86"]
+[ext_resource type="PackedScene" uid="uid://cdas0g1nbpdqu" path="res://scenes/panel.tscn" id="2_yiarh"]
+[ext_resource type="Texture2D" uid="uid://c8vtsf3j785m7" path="res://assets/ui/bg/toppattermpanel0233x15.png" id="3_khv4l"]
+[ext_resource type="LabelSettings" uid="uid://da2mj8udcssw2" path="res://resources/editor/res_font-large.tres" id="4_p4qp6"]
+[ext_resource type="LabelSettings" uid="uid://b2punxkqhrtht" path="res://resources/editor/res_font-xlarge.tres" id="5_rdb4i"]
+[ext_resource type="LabelSettings" uid="uid://d0e6jkw6emswa" path="res://resources/editor/res_font-med.tres" id="6_0t0m0"]
 
-[node name="TeamBuildingMenu" type="Control" unique_id=365904706]
+[node name="BuildMenu" type="Control" unique_id=365904706]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_s8q86")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=455751452]
 layout_mode = 1
@@ -30,7 +32,7 @@ metadata/_edit_use_anchors_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=910706855]
 layout_mode = 2
 
-[node name="leftPanel" parent="MarginContainer/HBoxContainer" unique_id=1506169935 instance=ExtResource("1_4qs2i")]
+[node name="leftPanel" parent="MarginContainer/HBoxContainer" unique_id=1506169935 instance=ExtResource("2_yiarh")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -57,7 +59,7 @@ anchor_right = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
 size_flags_vertical = 0
-texture = ExtResource("2_4qs2i")
+texture = ExtResource("3_khv4l")
 stretch_mode = 1
 
 [node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/bg" unique_id=814989426]
@@ -70,7 +72,7 @@ offset_top = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
-texture = ExtResource("2_4qs2i")
+texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
@@ -80,11 +82,11 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/VBoxContainer" unique_id=2033639472]
 layout_mode = 2
 text = "Vanguard"
-label_settings = ExtResource("3_e3500")
+label_settings = ExtResource("4_p4qp6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="middlePanel" parent="MarginContainer/HBoxContainer" unique_id=1727964318 instance=ExtResource("1_4qs2i")]
+[node name="middlePanel" parent="MarginContainer/HBoxContainer" unique_id=1727964318 instance=ExtResource("2_yiarh")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -113,7 +115,7 @@ anchor_right = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
 size_flags_vertical = 0
-texture = ExtResource("2_4qs2i")
+texture = ExtResource("3_khv4l")
 stretch_mode = 1
 
 [node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/bg" unique_id=135255062]
@@ -126,7 +128,7 @@ offset_top = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
-texture = ExtResource("2_4qs2i")
+texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
@@ -137,7 +139,7 @@ alignment = 1
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer" unique_id=958701811]
 layout_mode = 2
 text = "Build Your Squad"
-label_settings = ExtResource("3_orcmi")
+label_settings = ExtResource("5_rdb4i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -162,7 +164,7 @@ anchor_right = 1.0
 offset_bottom = 19.0
 grow_horizontal = 2
 text = "Warriors"
-label_settings = ExtResource("4_e3500")
+label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DamageDealers" unique_id=655574369]
@@ -186,7 +188,7 @@ anchor_right = 1.0
 offset_bottom = 19.0
 grow_horizontal = 2
 text = "Guardians"
-label_settings = ExtResource("4_e3500")
+label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Defenders" unique_id=1168386952]
@@ -210,7 +212,7 @@ anchor_right = 1.0
 offset_bottom = 19.0
 grow_horizontal = 2
 text = "Saboteurs"
-label_settings = ExtResource("4_e3500")
+label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Saboteurs" unique_id=281665480]
@@ -234,7 +236,7 @@ anchor_right = 1.0
 offset_bottom = 19.0
 grow_horizontal = 2
 text = "Rearguards"
-label_settings = ExtResource("4_e3500")
+label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Supporters" unique_id=1669569819]
@@ -247,7 +249,7 @@ grow_vertical = 2
 size_flags_vertical = 3
 columns = 5
 
-[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=951300111 instance=ExtResource("1_4qs2i")]
+[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=951300111 instance=ExtResource("2_yiarh")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -275,7 +277,7 @@ anchor_right = 1.0
 offset_bottom = 8.0
 grow_horizontal = 2
 size_flags_vertical = 0
-texture = ExtResource("2_4qs2i")
+texture = ExtResource("3_khv4l")
 stretch_mode = 1
 
 [node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=598651763]
@@ -288,7 +290,7 @@ offset_top = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 0
-texture = ExtResource("2_4qs2i")
+texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
@@ -298,6 +300,6 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/VBoxContainer" unique_id=1358606817]
 layout_mode = 2
 text = "Flank"
-label_settings = ExtResource("3_e3500")
+label_settings = ExtResource("4_p4qp6")
 horizontal_alignment = 1
 vertical_alignment = 1

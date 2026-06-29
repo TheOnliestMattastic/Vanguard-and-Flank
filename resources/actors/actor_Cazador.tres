@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://coprt66lor0bs"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_xqi2v"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_loqdo"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_xqi2v"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_loqdo"]
 [ext_resource type="Texture2D" uid="uid://bqa7o6wwurnk0" path="res://assets/chars/Cazador-the-Vampire-Lord/Faceset.png" id="2_slgsn"]
 [ext_resource type="Texture2D" uid="uid://tdw2g448og6o" path="res://assets/chars/Cazador-the-Vampire-Lord/SpriteSheet.png" id="4_r5k3t"]
 

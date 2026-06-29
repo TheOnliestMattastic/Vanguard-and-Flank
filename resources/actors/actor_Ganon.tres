@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://bcw8ntha304sk"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_kcyrb"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_kcyrb"]
 [ext_resource type="Resource" uid="uid://crw32cs407525" path="res://resources/abils/abil_Poison.tres" id="2_7ld0o"]
 [ext_resource type="Texture2D" uid="uid://c2m3lcqhvmela" path="res://assets/chars/Ganon-the-Dark-Beast/Faceset.png" id="2_61dq1"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="3_7ld0o"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="3_7ld0o"]
 [ext_resource type="Texture2D" uid="uid://0rei6xnsaece" path="res://assets/chars/Ganon-the-Dark-Beast/SpriteSheet.png" id="4_xc1y3"]
 
 [resource]

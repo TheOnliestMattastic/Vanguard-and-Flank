@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://pm364f80cdfe"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_5ki6e"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_5hdga"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_5ki6e"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_5hdga"]
 [ext_resource type="Texture2D" uid="uid://ckluj6qukhgh2" path="res://assets/chars/Squall-Leon-Lockheart/Faceset.png" id="2_8lmi2"]
 [ext_resource type="Texture2D" uid="uid://w3p3hac5t2ad" path="res://assets/chars/Squall-Leon-Lockheart/SpriteSheet.png" id="4_dmrxn"]
 

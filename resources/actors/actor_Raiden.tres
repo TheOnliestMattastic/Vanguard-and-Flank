@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://1w84dj2g4kt5"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_6oyxa"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_537wb"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_6oyxa"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_537wb"]
 [ext_resource type="Texture2D" uid="uid://cd5mb7mobl7e2" path="res://assets/chars/Raiden-Jack-the-Ripper/Faceset.png" id="2_wg8mr"]
 [ext_resource type="Texture2D" uid="uid://cuacc7oeimu2j" path="res://assets/chars/Raiden-Jack-the-Ripper/SpriteSheet.png" id="4_ctcsc"]
 

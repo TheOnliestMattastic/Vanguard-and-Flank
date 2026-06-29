@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://blmtwlai7ivm"]
 
-[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/res_AbilityData.gd" id="1_npopx"]
-[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/res_ActorData.gd" id="2_13fgt"]
+[ext_resource type="Script" uid="uid://dx5ypgl5h0r84" path="res://scripts/editor/res_AbilityData.gd" id="1_npopx"]
+[ext_resource type="Script" uid="uid://by16wo7oqnnl8" path="res://scripts/editor/res_ActorData.gd" id="2_13fgt"]
 [ext_resource type="Texture2D" uid="uid://c1skvpwlrdl35" path="res://assets/chars/Sheik-Survivor-of-the-Sheikahs/Faceset.png" id="2_omqyd"]
 [ext_resource type="Texture2D" uid="uid://h6c2vwele4c1" path="res://assets/chars/Sheik-Survivor-of-the-Sheikahs/SpriteSheet.png" id="4_3fsn5"]
 
