@@ -9,6 +9,7 @@ resource_local_to_scene = true
 load_path = "res://.godot/imported/Faceset.png-4beed3d0acca4273a8c76737b1dcc31b.ctex"
 
 [node name="Portrait" type="TextureRect" unique_id=1648320498]
+custom_minimum_size = Vector2(64, 64)
 anchors_preset = -1
 anchor_right = 0.098958336
 anchor_bottom = 0.17592593

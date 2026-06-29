@@ -76,10 +76,17 @@ texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer" unique_id=1911521970]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer" unique_id=1942400481]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer" unique_id=1911521970]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/VBoxContainer" unique_id=2033639472]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=2033639472]
 layout_mode = 2
 text = "Vanguard"
 label_settings = ExtResource("4_p4qp6")
@@ -90,7 +97,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-size_flags_stretch_ratio = 3.0
+size_flags_stretch_ratio = 2.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/middlePanel" unique_id=1246240971]
 layout_mode = 1
@@ -132,145 +139,123 @@ texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer" unique_id=1680845012]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer" unique_id=1416982839]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer" unique_id=1680845012]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer" unique_id=958701811]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=958701811]
 layout_mode = 2
 text = "Build Your Squad"
 label_settings = ExtResource("5_rdb4i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer" unique_id=326470716]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=593802574]
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=593802574]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="DamageDealers" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=49539012]
+[node name="Warriors" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=240863976]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DamageDealers" unique_id=1822081368]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 19.0
-grow_horizontal = 2
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Warriors" unique_id=1822081368]
+layout_mode = 2
+size_flags_vertical = 1
 text = "Warriors"
 label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DamageDealers" unique_id=655574369]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-columns = 5
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Warriors" unique_id=655574369]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 8
 
-[node name="Defenders" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=272972013]
+[node name="Guardians" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=2025162605]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Defenders" unique_id=1609819400]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 19.0
-grow_horizontal = 2
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Guardians" unique_id=1431764420]
+layout_mode = 2
+size_flags_vertical = 1
 text = "Guardians"
 label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Defenders" unique_id=1168386952]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-columns = 5
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Guardians" unique_id=861070957]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 8
 
-[node name="Saboteurs" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=919791436]
+[node name="Saboteurs" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1983488087]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Saboteurs" unique_id=45738535]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 19.0
-grow_horizontal = 2
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Saboteurs" unique_id=1125834550]
+layout_mode = 2
+size_flags_vertical = 1
 text = "Saboteurs"
 label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Saboteurs" unique_id=281665480]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-columns = 5
-
-[node name="Supporters" type="Control" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1208413755]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Saboteurs" unique_id=303265679]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 0
+columns = 8
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Supporters" unique_id=2012238003]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 19.0
-grow_horizontal = 2
+[node name="Rearguards" type="VBoxContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=95686045]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Rearguards" unique_id=931173673]
+layout_mode = 2
+size_flags_vertical = 1
 text = "Rearguards"
 label_settings = ExtResource("6_0t0m0")
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/VBoxContainer/HBoxContainer/GridContainer/Supporters" unique_id=1669569819]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-columns = 5
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/middlePanel/MarginContainer/MarginContainer/VBoxContainer/GridContainer/Rearguards" unique_id=358380254]
+layout_mode = 2
+size_flags_vertical = 0
+columns = 8
 
-[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=951300111 instance=ExtResource("2_yiarh")]
+[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=1078899340 instance=ExtResource("2_yiarh")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel" unique_id=12907691]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel" unique_id=667839327]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = -7.0
-offset_bottom = -7.0
+anchors_preset = -1
+anchor_left = 0.030837005
+anchor_top = 0.0109375
+anchor_right = 0.969163
+anchor_bottom = 0.9890625
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=834928040]
+[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=1343453612]
 modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 
-[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=263356489]
+[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=663502941]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -280,7 +265,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_khv4l")
 stretch_mode = 1
 
-[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=598651763]
+[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=1506270997]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -294,10 +279,17 @@ texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=1239680701]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=1497929124]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer" unique_id=1001452357]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/VBoxContainer" unique_id=1358606817]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=417927704]
 layout_mode = 2
 text = "Flank"
 label_settings = ExtResource("4_p4qp6")
