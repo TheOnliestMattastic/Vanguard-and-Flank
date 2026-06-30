@@ -10,6 +10,8 @@ const PORTRAIT: PackedScene = preload("uid://dj5n66q8cooig")
 @onready var rearguards: VBoxContainer = %Rearguards
 
 func _ready() -> void:
+	EventBus.portrait_pressed.connect(_on_portrait_pressed)
+	
 	populate_grid()
 
 func populate_grid() -> void:
@@ -51,9 +53,6 @@ func create_portrait(data: ActorData, role: GridContainer) -> void:
 	var portrait := PORTRAIT.instantiate()
 	portrait.texture = data.faceset
 	role.add_child(portrait)
-	
-	
-	
-	
-	
-	
+
+func _on_portrait_pressed(portrait_name: String) -> void:
+	print(portrait_name)

@@ -3,6 +3,7 @@ extends Node
 # Input
 signal cell_pressed(coords: Vector2i)
 signal button_pressed(name: String)
+signal portrait_pressed(name: String)
 
 # Game
 signal init_rolled()

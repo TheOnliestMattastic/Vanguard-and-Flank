@@ -24,3 +24,9 @@ func add_status_icon(icon: Texture2D, status_name: String) -> void:
 
 func remove_status_icon(status_name: String) -> void:
 	get_status_grid().remove_icon(status_name)
+
+# === Input ===
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			EventBus.portrait_pressed.emit(self.name)

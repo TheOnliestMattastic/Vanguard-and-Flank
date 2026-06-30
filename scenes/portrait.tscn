@@ -56,3 +56,5 @@ size_flags_vertical = 3
 theme_override_constants/separation = 1
 alignment = 1
 script = ExtResource("3_efsuh")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
