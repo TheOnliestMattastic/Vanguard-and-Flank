@@ -1,6 +1,8 @@
 extends TextureRect
 class_name Portrait
 
+var actor: ActorData
+
 # === Health ===
 var health: Health
 func get_health() -> Health:
@@ -29,4 +31,4 @@ func remove_status_icon(status_name: String) -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			EventBus.portrait_pressed.emit(self.name)
+			EventBus.portrait_pressed.emit(self)
