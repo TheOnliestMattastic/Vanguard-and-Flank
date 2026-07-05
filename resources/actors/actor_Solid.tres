@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_mmwtt")
-name = "Solid, the Old Snake"
+name = "Solid, Old Snake"
 spritesheet = ExtResource("4_oc8ip")
 faceset = ExtResource("2_mee4y")
 role = 2

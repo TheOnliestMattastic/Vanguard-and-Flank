@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_10qdj")
-name = "Barret, Leader of Avalanche"
+name = "Barret of Avalanche"
 spritesheet = ExtResource("4_qvgyg")
 faceset = ExtResource("2_e2n08")
 role = 1

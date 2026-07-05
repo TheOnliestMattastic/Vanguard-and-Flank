@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_1w5al")
-name = "Yuna the Summoner"
+name = "Yuna, the Summoner"
 spritesheet = ExtResource("4_40ovh")
 faceset = ExtResource("2_gjq7r")
 role = 3

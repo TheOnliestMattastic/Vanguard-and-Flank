@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_54k5g")
-name = "Grym, Sentinel of the Grymforge"
+name = "Grym of the Grymforge"
 spritesheet = ExtResource("4_q3s6v")
 faceset = ExtResource("2_s62bi")
 role = 1

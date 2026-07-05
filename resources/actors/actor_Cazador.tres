@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_loqdo")
-name = "Cazador the Vampire Lord"
+name = "Cazador, Vampire Lord"
 spritesheet = ExtResource("4_r5k3t")
 faceset = ExtResource("2_slgsn")
 type = 2

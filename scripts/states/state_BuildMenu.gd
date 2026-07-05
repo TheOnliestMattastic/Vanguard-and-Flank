@@ -12,6 +12,7 @@ const PORTRAIT: PackedScene = preload("uid://dj5n66q8cooig")
 
 func _ready() -> void:
 	EventBus.portrait_pressed.connect(_on_portrait_pressed)
+	EventBus.button_pressed.connect(_on_button_pressed)
 	
 	populate_grid()
 
@@ -69,3 +70,6 @@ func _on_portrait_pressed(portrait: Portrait) -> void:
 	vanguard.get_node("Actor/HBoxContainer/Stats/dex").text = "DEX: " + str(portrait.actor.dex)
 	vanguard.get_node("Actor/HBoxContainer/Stats/spd").text = "SPD: " + str(portrait.actor.spd)
 	vanguard.get_node("Actor/HBoxContainer/Stats/rng").text = "RNG: " + str(portrait.actor.rng)
+
+func _on_button_pressed(name: String) -> void:
+	print(name)

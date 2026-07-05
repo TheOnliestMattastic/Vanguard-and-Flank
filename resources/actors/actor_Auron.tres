@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("3_15xne")
-name = "Auron the Legendary Guardian"
+name = "Auron, Legendary Guardian"
 spritesheet = ExtResource("4_im8lt")
 faceset = ExtResource("2_5rnrw")
 role = 1

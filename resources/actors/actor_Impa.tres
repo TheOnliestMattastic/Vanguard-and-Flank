@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("2_733mg")
-name = "Impa the Wise"
+name = "Impa, the Elder"
 spritesheet = ExtResource("4_gibue")
 faceset = ExtResource("2_nn87d")
 role = 3

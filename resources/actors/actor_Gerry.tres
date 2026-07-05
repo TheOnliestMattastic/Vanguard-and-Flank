@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_qlyqk")
-name = "Gerry the Toll Master"
+name = "Gerry, Toll Master"
 spritesheet = ExtResource("4_qbu77")
 faceset = ExtResource("2_jomvo")
 role = 1

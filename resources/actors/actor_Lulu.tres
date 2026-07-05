@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("3_t4h0w")
-name = "Lulu, Guardian from Besaid"
+name = "Lulu, the Summoner's Guardian"
 spritesheet = ExtResource("4_e6y7f")
 faceset = ExtResource("2_ns24n")
 type = 7

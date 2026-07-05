@@ -8,10 +8,8 @@
 
 [resource]
 script = ExtResource("3_crshs")
-name = "Firion, the Wild Rose Blade"
+name = "Firion of the Wild Rose"
 spritesheet = ExtResource("4_kq4cc")
 faceset = ExtResource("2_r3haa")
-role = "Damage Dealer"
-type = "Slash"
 abilities = Array[ExtResource("1_uh3np")]([ExtResource("2_crshs")])
 metadata/_custom_type_script = "uid://by16wo7oqnnl8"

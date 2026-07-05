@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_xi4te")
-name = "M'aiq, Lair from Tamriel"
+name = "M'aiq the Lair"
 spritesheet = ExtResource("4_imumr")
 faceset = ExtResource("2_5s0f1")
 role = 2

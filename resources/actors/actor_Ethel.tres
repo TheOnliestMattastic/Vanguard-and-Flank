@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_vuvw4")
-name = "Ethel, Hag of the Wetlands"
+name = "Autie Ethel, the Hag"
 spritesheet = ExtResource("4_ingcn")
 faceset = ExtResource("2_7jw2a")
 role = 2

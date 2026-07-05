@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_883s7")
-name = "Elder Price, the Super Mormon"
+name = "Elder Price"
 spritesheet = ExtResource("4_boeio")
 faceset = ExtResource("2_sehv0")
 role = 3
