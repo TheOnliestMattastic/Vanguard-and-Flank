@@ -13,7 +13,8 @@ config_version=5
 config/name="Vanguard and Flank"
 run/main_scene="uid://hl6juu8gxg2u"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://cppqhqxuby2gx"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 

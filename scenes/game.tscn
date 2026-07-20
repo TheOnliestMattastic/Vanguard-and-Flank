@@ -696,11 +696,11 @@ unique_name_in_owner = true
 position = Vector2(128, 64)
 data = ExtResource("17_nepv3")
 
-[node name="Impa the Wise" parent="Actors/Vanguard" unique_id=49356997 instance=ExtResource("16_02fa5")]
+[node name="Impa, the Elder" parent="Actors/Vanguard" unique_id=49356997 instance=ExtResource("16_02fa5")]
 position = Vector2(192, 0)
 data = ExtResource("16_e1j6l")
 
-[node name="Auron the Legendary Guardian" parent="Actors/Vanguard" unique_id=1111712009 instance=ExtResource("16_02fa5")]
+[node name="Auron, Legendary Guardian" parent="Actors/Vanguard" unique_id=1111712009 instance=ExtResource("16_02fa5")]
 position = Vector2(192, 128)
 data = ExtResource("18_7025r")
 
@@ -719,7 +719,7 @@ unique_name_in_owner = true
 position = Vector2(576, 64)
 data = ExtResource("20_8ool0")
 
-[node name="Lulu, Guardian from Besaid" parent="Actors/Flank" unique_id=1264035836 instance=ExtResource("16_02fa5")]
+[node name="Lulu, the Summoner\'s Guardian" parent="Actors/Flank" unique_id=1264035836 instance=ExtResource("16_02fa5")]
 position = Vector2(576, 192)
 data = ExtResource("21_pr1ej")
 
@@ -727,7 +727,7 @@ data = ExtResource("21_pr1ej")
 position = Vector2(512, 256)
 data = ExtResource("22_pl11u")
 
-[node name="Firion, the Wild Rose Blade" parent="Actors/Flank" unique_id=1539378818 instance=ExtResource("16_02fa5")]
+[node name="Firion of the Wild Rose" parent="Actors/Flank" unique_id=1539378818 instance=ExtResource("16_02fa5")]
 position = Vector2(512, 128)
 data = ExtResource("22_05nbr")
 
