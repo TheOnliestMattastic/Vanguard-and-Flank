@@ -36,8 +36,8 @@ func display_active(actor: Actor) -> void:
 	var portrait = Manifest.combatants[actor]["portrait"].duplicate()
 	active_display.get_node("activePortrait").add_child(portrait)
 	active_name.text = actor.data.name
-	active_display.get_node("activeStats/hp").text = "HP: " + str(Manifest.combatants[actor]["HP"])
-	active_display.get_node("activeStats/ap").text = "AP: " + str(Manifest.combatants[actor]["AP"])
+	active_display.get_node("activeStats/hp").text = "HP: " + str(Manifest.combatants[actor]["hp"])
+	active_display.get_node("activeStats/ap").text = "AP: " + str(Manifest.combatants[actor]["ap"])
 	active_display.get_node("activeStats/pwr").text = "PWR: " + str(actor.data.pwr)
 	active_display.get_node("activeStats/dex").text = "DEX: " + str(actor.data.dex)
 	active_display.get_node("activeStats/spd").text = "SPD: " + str(actor.data.spd)
@@ -47,8 +47,8 @@ func display_target(actor: Actor) -> void:
 	for child in target_display.get_node("targetPortrait").get_children(): child.queue_free()
 	target_display.get_node("targetPortrait").add_child(portrait)
 	target_name.text = actor.data.name
-	target_display.get_node("targetStats/hp").text = "HP: " + str(Manifest.combatants[actor]["HP"])
-	target_display.get_node("targetStats/ap").text = "AP: " + str(Manifest.combatants[actor]["AP"])
+	target_display.get_node("targetStats/hp").text = "HP: " + str(Manifest.combatants[actor]["hp"])
+	target_display.get_node("targetStats/ap").text = "AP: " + str(Manifest.combatants[actor]["ap"])
 	target_display.get_node("targetStats/pwr").text = "PWR: " + str(actor.data.pwr)
 	target_display.get_node("targetStats/dex").text = "DEX: " + str(actor.data.dex)
 	target_display.get_node("targetStats/spd").text = "SPD: " + str(actor.data.spd)

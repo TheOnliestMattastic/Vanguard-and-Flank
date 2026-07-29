@@ -21,7 +21,7 @@ func _ready() -> void:
 	EventBus.actor_defeated.connect(_on_actor_defeated)
 	EventBus.new_turn.connect(_on_new_turn)
 	
-	var combatants = get_combatants()
+	var combatants = _get_combatants()
 	grid.create_map()
 	Manifest.queue.append_array(combatants)
 	Manifest.add_combatants(Manifest.queue)
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		if combatant.target: 
 			ui.display_target(combatant)
 
-func  _on_button_pressed(btn_name: String):
+func _on_button_pressed(btn_name: String):
 	match btn_name:
 		"Move": toggle_state(State.MOVE)
 		"Attack": toggle_state(State.ATTACK)
@@ -57,7 +57,7 @@ func _on_cell_pressed(coords: Vector2i):
 			var dist = path.size() - 1
 			
 			# exit if not within range
-			if dist > int(rate * Manifest.combatants[active_actor]["AP"]): 
+			if dist > int(rate * Manifest.combatants[active_actor]["ap"]): 
 				ui.log_to_banner("Not fast enough for that...")
 				return
 			
@@ -110,7 +110,7 @@ func _on_cell_pressed(coords: Vector2i):
 		State.ABILITY:
 			var ability: AbilityData = active_actor.data.abilities[0]
 			if not CombatManager.has_ap(active_actor, ability.ap_cost):
-				ui.log_to_banner("Not enough ap...")
+				ui.log_to_banner("Not enough AP...")
 				return 
 			
 			# exit if not in range
@@ -154,7 +154,7 @@ func toggle_state(target_state: State) -> void:
 			ui.log_to_banner(active_actor.name + "'s turn...")
 		
 		State.MOVE:
-			var move_range = round(active_actor.data.spd * SPD_MOD) * Manifest.combatants[active_actor]["AP"]
+			var move_range = round(active_actor.data.spd * SPD_MOD) * Manifest.combatants[active_actor]["ap"]
 			Grid.highlight_range(Manifest.queue[0], move_range)
 			ui.log_to_banner("Moving...")
 		
@@ -168,7 +168,7 @@ func toggle_state(target_state: State) -> void:
 			active_actor.data.abilities[0].stage(active_actor)
 			ui.log_to_banner("Choosing ability...")
 
-func get_combatants() -> Array:
+func _get_combatants() -> Array:
 	var combatants: Array
 	var v = vanguard.get_children()
 	var f = flank.get_children()
@@ -227,7 +227,7 @@ func delay_turn() -> void:
 		EventBus.new_turn.emit()
 
 func new_round() -> void:
-	var combatants = get_combatants()
+	var combatants = _get_combatants()
 	Manifest.queue.append_array(combatants)
 	EventBus.new_round.emit()
 

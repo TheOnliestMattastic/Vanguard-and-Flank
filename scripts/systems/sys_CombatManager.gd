@@ -17,16 +17,16 @@ func _ready() -> void:
 static func roll_for_init(queue: Array[Actor]) -> void:
 	for actor in queue: 
 		Manifest.combatants[actor]["init"] = Dice.roll_d20() + actor.data.spd
-		Manifest.combatants[actor]["AP"] = min((Manifest.combatants[actor]["AP"] + 3), 5)
+		Manifest.combatants[actor]["ap"] = min((Manifest.combatants[actor]["ap"] + 3), 5)
 		actor.acted = false
 	queue.sort_custom(func(a, b): return Manifest.combatants[a]["init"] > Manifest.combatants[b]["init"])
 	EventBus.init_rolled.emit()
 
 static func has_ap(actor: Actor, amount: int = 1) -> bool:
-	return Manifest.combatants[actor]["AP"] >= amount
+	return Manifest.combatants[actor]["ap"] >= amount
 
 static func spend_ap(actor: Actor, amount: int = 1) -> void:
-	if has_ap(actor, amount): Manifest.combatants[actor]["AP"] -= amount
+	if has_ap(actor, amount): Manifest.combatants[actor]["ap"] -= amount
 	else: print("[I AM ERROR] spend_ap edge case was activated!")
 
 # TODO: refactor to account for damage types for dis/advantages.
@@ -49,17 +49,17 @@ static func roll_for_attack(attacker: Actor, defender: Actor) -> bool:
 	return result >= dc
 
 static func _apply_damage(actor: Actor, amount: int = 1) -> void:
-	var hp = Manifest.combatants[actor]["HP"]
+	var hp = Manifest.combatants[actor]["hp"]
 	var result = clamp(hp - amount, 0, actor.data.max_hp)
 	if result > 0: 
-		Manifest.combatants[actor]["HP"] = result
+		Manifest.combatants[actor]["hp"] = result
 		Manifest.combatants[actor]["portrait"].set_actor_current_hp(result)
 	else: EventBus.actor_defeated.emit(actor)
 
 static func _apply_heal(caster: Actor, target: Actor, amount: int = 1) -> void:
-	var hp = Manifest.combatants[target]["HP"]
+	var hp = Manifest.combatants[target]["hp"]
 	var result = clamp(hp + amount, 0, target.data.max_hp)
-	Manifest.combatants[target]["HP"] = result
+	Manifest.combatants[target]["hp"] = result
 	Manifest.combatants[target]["portrait"].set_actor_current_hp(result)
 
 func _apply_dot(actor: Actor, dot_name: String, icon: Texture2D, turns: int, amount: int = 1) -> void:

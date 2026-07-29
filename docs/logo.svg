@@ -10,8 +10,8 @@
    inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
    sodipodi:docname="logo.svg"
    inkscape:export-filename="logo.png"
-   inkscape:export-xdpi="768"
-   inkscape:export-ydpi="768"
+   inkscape:export-xdpi="546.13336"
+   inkscape:export-ydpi="546.13336"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="16"
-     inkscape:cx="85.21875"
-     inkscape:cy="85.375"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="60.98796"
+     inkscape:cy="90.863221"
      inkscape:window-width="1920"
      inkscape:window-height="1010"
      inkscape:window-x="0"
@@ -40,10 +40,12 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-11.500328)">
     <g
        id="g41"
-       inkscape:label="logo">
+       inkscape:label="logo"
+       transform="matrix(0.6,0,0,0.6,47.500328,36)">
       <g
          id="g144"
          inkscape:label="shield"
