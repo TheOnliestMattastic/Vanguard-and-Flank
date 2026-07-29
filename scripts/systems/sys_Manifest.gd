@@ -7,6 +7,8 @@ var gridmap: Dictionary
 var astar := AStarGrid2D.new()
 
 # === Actors config ===
+enum Alignment { VANGUARD, FLANK }
+var roster: Dictionary
 var combatants: Dictionary
 var portraits: Dictionary
 var queue: Array[Actor]
@@ -22,8 +24,8 @@ func _init():
 func add_combatants(actors: Array[Actor]) -> void:
 	for actor in actors:
 		combatants[actor] = {}
-		combatants[actor]["HP"] = actor.data.max_hp
-		combatants[actor]["AP"] = 0
+		combatants[actor]["hp"] = actor.data.max_hp
+		combatants[actor]["ap"] = 0
 		
 		var coords = Vector2i(actor.position / CELL_SIZE)
 		gridmap[coords].occupant = actor
@@ -33,7 +35,9 @@ func add_combatants(actors: Array[Actor]) -> void:
 		portraits[portrait] = actor 
 		combatants[actor]["portrait"] = portrait
 		combatants[actor]["portrait"].set_actor_hp(actor.data.max_hp)
-		
+
+func append_roster(actor: ActorData, alignment: Alignment) -> void:
+	roster[actor] = alignment
 
 func remove_from_queue(actor: Actor) -> void:
 	var coords = Vector2i(actor.position / CELL_SIZE)
