@@ -9,6 +9,7 @@ const PORTRAIT: PackedScene = preload("uid://dj5n66q8cooig")
 @onready var saboteurs: VBoxContainer = %Saboteurs
 @onready var rearguards: VBoxContainer = %Rearguards
 @onready var vanguard: VBoxContainer = %Vanguard
+@onready var vanguard_units: HBoxContainer = %Vanguard_Units
 
 func _ready() -> void:
 	EventBus.portrait_pressed.connect(_on_portrait_pressed)
@@ -61,12 +62,16 @@ func _create_portrait(data: ActorData) -> Portrait:
 
 var vanguard_select: ActorData
 func _on_portrait_pressed(portrait: Portrait) -> void:
+	# exit if player selects active portrait
+	if portrait.get_parent() == vanguard.get_node("Actor/HBoxContainer/Portrait"):
+		return
+	
 	for child in vanguard.get_node("Actor/HBoxContainer/Portrait").get_children():
 		child.queue_free()
 		
 	vanguard_select = portrait.actor
 	vanguard.get_node("Actor/HBoxContainer/Portrait").add_child(portrait.duplicate())
-	vanguard.get_node("Actor/name").text = vanguard_select.name
+	vanguard.get_node("Actor/name").text = portrait.actor.name
 	vanguard.get_node("Actor/HBoxContainer/Stats/type").text = "Type: " + DamageManager.Type.keys()[vanguard_select.type]
 	vanguard.get_node("Actor/HBoxContainer/Stats/hp").text = "HP: " + str(vanguard_select.max_hp)
 	vanguard.get_node("Actor/HBoxContainer/Stats/pwr").text = "PWR: " + str(vanguard_select.pwr)
@@ -86,6 +91,9 @@ func _on_button_pressed(button) -> void:
 		_: print(button)
 
 func _refresh_roster(aligment: Manifest.Alignment) -> void:
+	var unit = 0
 	for child in Manifest.roster:
-		if Manifest.roster[child] == aligment:
-			print(child)
+		if Manifest.roster[child] == aligment && unit <= 5:
+			var portrait = _create_portrait(child)
+			vanguard_units.get_child(unit).add_child(portrait)
+			unit += 1
