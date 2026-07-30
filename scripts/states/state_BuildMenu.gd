@@ -61,19 +61,26 @@ func _create_portrait(data: ActorData) -> Portrait:
 
 var vanguard_select: ActorData
 func _on_portrait_pressed(portrait: Portrait) -> void:
+	for child in vanguard.get_node("Actor/HBoxContainer/Portrait").get_children():
+		child.queue_free()
+		
 	vanguard_select = portrait.actor
-	vanguard.get_node("Actor/name").text = portrait.actor.name
 	vanguard.get_node("Actor/HBoxContainer/Portrait").add_child(portrait.duplicate())
-	vanguard.get_node("Actor/HBoxContainer/Stats/type").text = "Type: " + DamageManager.Type.keys()[portrait.actor.type]
-	vanguard.get_node("Actor/HBoxContainer/Stats/hp").text = "HP: " + str(portrait.actor.max_hp)
-	vanguard.get_node("Actor/HBoxContainer/Stats/pwr").text = "PWR: " + str(portrait.actor.pwr)
-	vanguard.get_node("Actor/HBoxContainer/Stats/dex").text = "DEX: " + str(portrait.actor.dex)
-	vanguard.get_node("Actor/HBoxContainer/Stats/spd").text = "SPD: " + str(portrait.actor.spd)
-	vanguard.get_node("Actor/HBoxContainer/Stats/rng").text = "RNG: " + str(portrait.actor.rng)
+	vanguard.get_node("Actor/name").text = vanguard_select.name
+	vanguard.get_node("Actor/HBoxContainer/Stats/type").text = "Type: " + DamageManager.Type.keys()[vanguard_select.type]
+	vanguard.get_node("Actor/HBoxContainer/Stats/hp").text = "HP: " + str(vanguard_select.max_hp)
+	vanguard.get_node("Actor/HBoxContainer/Stats/pwr").text = "PWR: " + str(vanguard_select.pwr)
+	vanguard.get_node("Actor/HBoxContainer/Stats/dex").text = "DEX: " + str(vanguard_select.dex)
+	vanguard.get_node("Actor/HBoxContainer/Stats/spd").text = "SPD: " + str(vanguard_select.spd)
+	vanguard.get_node("Actor/HBoxContainer/Stats/rng").text = "RNG: " + str(vanguard_select.rng)
 
-func _on_button_pressed(name: String) -> void:
-	if vanguard_select:
-		Manifest.append_roster(vanguard_select, Manifest.Alignment.VANGUARD)
-		print(Manifest.roster)
-	else:
-		print("Hero not selected!")
+func _on_button_pressed(button) -> void:
+	match button:
+		"Vanguard_Confirm":
+			if vanguard_select:
+				Manifest.append_roster(vanguard_select, Manifest.Alignment.VANGUARD)
+				print(vanguard_select.name)
+			else:
+				print(button)
+		
+		_: print(button)

@@ -180,8 +180,8 @@ size_flags_vertical = 3
 [node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability1/Ability" unique_id=789371463]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="Name" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability1/Ability" unique_id=534019763]
 layout_mode = 2
@@ -208,8 +208,8 @@ size_flags_vertical = 3
 [node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability2/Ability" unique_id=428917120]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
 [node name="Name" type="Label" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability2/Ability" unique_id=572377720]
 layout_mode = 2
@@ -227,24 +227,59 @@ size_flags_vertical = 3
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=2134471058]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1285800057]
+[node name="Squad" type="HBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1905954912]
 layout_mode = 2
-size_flags_vertical = 3
-columns = 3
+size_flags_vertical = 4
+
+[node name="Unit1" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1489159627]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit2" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=757884568]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit3" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1477824070]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit4" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1277111131]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit5" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1766530624]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit6" type="PanelContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=276630665]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=260108454]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="Back" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("6_p4qp6")]
+[node name="Vanguard_Back" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=821943797 instance=ExtResource("6_p4qp6")]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("7_rdb4i")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Confirm" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1866169778 instance=ExtResource("6_p4qp6")]
+[node name="Vanguard_Confirm" parent="MarginContainer/HBoxContainer/leftPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1866169778 instance=ExtResource("6_p4qp6")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -392,12 +427,12 @@ layout_mode = 2
 size_flags_vertical = 0
 columns = 8
 
-[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=2008768285 instance=ExtResource("2_yiarh")]
+[node name="rightPanel" parent="MarginContainer/HBoxContainer" unique_id=586588300 instance=ExtResource("2_yiarh")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel" unique_id=1655950980]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel" unique_id=1839645175]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.030837005
@@ -408,11 +443,11 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=2043338986]
+[node name="bg" type="Control" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=2101225600]
 modulate = Color(0, 0, 0, 0.2509804)
 layout_mode = 2
 
-[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=1866671006]
+[node name="top" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=649110119]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -422,7 +457,7 @@ size_flags_vertical = 0
 texture = ExtResource("3_khv4l")
 stretch_mode = 1
 
-[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=1831872654]
+[node name="bottom" type="TextureRect" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/bg" unique_id=1575360952]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -436,111 +471,110 @@ texture = ExtResource("3_khv4l")
 stretch_mode = 1
 flip_v = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=2005931672]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer" unique_id=114374896]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 6
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer" unique_id=1734147200]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer" unique_id=1025802462]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=743077802]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=866941131]
 layout_mode = 2
 text = "Flank"
 label_settings = ExtResource("4_p4qp6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=928893946]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1174241322]
 layout_mode = 2
 
-[node name="Flank" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1275441031]
-unique_name_in_owner = true
+[node name="Vanguard" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1612141527]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Actor" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank" unique_id=337147773]
+[node name="Actor" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard" unique_id=239222027]
 layout_mode = 2
 
-[node name="name" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor" unique_id=556399043]
+[node name="name" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor" unique_id=657110860]
 layout_mode = 2
 text = "name"
 label_settings = ExtResource("5_yiarh")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor" unique_id=1696028251]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor" unique_id=751812241]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Portrait" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer" unique_id=1731544031]
+[node name="Portrait" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer" unique_id=1933461844]
 custom_minimum_size = Vector2(127, 127)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Stats" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer" unique_id=610489709]
+[node name="Stats" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer" unique_id=1379842624]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="type" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer/Stats" unique_id=1201362955]
+[node name="type" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer/Stats" unique_id=1249272568]
 layout_mode = 2
 text = "Type: "
 label_settings = ExtResource("5_yiarh")
 vertical_alignment = 1
 
-[node name="hp" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer/Stats" unique_id=1463467425]
+[node name="hp" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer/Stats" unique_id=251744346]
 layout_mode = 2
 text = "HP: "
 label_settings = ExtResource("5_yiarh")
 vertical_alignment = 1
 
-[node name="pwr" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer/Stats" unique_id=1202406552]
+[node name="pwr" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer/Stats" unique_id=1341236503]
 layout_mode = 2
 text = "PWR: "
 label_settings = ExtResource("5_yiarh")
 vertical_alignment = 1
 
-[node name="dex" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer/Stats" unique_id=1804466385]
+[node name="dex" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer/Stats" unique_id=345042504]
 layout_mode = 2
 text = "DEX:"
 label_settings = ExtResource("5_yiarh")
 vertical_alignment = 1
 
-[node name="spd" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer/Stats" unique_id=1607149000]
+[node name="spd" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer/Stats" unique_id=1746029554]
 layout_mode = 2
 text = "SPD:"
 label_settings = ExtResource("5_yiarh")
 vertical_alignment = 1
 
-[node name="rng" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Actor/HBoxContainer/Stats" unique_id=1623719148]
+[node name="rng" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Actor/HBoxContainer/Stats" unique_id=220871336]
 layout_mode = 2
 text = "RNG:"
 label_settings = ExtResource("5_yiarh")
 vertical_alignment = 1
 
-[node name="Abilities" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank" unique_id=592107220]
+[node name="Abilities" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard" unique_id=654035482]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Ability1" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities" unique_id=539709309]
+[node name="Ability1" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities" unique_id=1143963873]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Ability" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability1" unique_id=2078757155]
+[node name="Ability" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability1" unique_id=591415892]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability1/Ability" unique_id=2103120711]
+[node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability1/Ability" unique_id=2019181522]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability1/Ability" unique_id=457989628]
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability1/Ability" unique_id=989497864]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -549,26 +583,26 @@ text = "Ability 1"
 label_settings = ExtResource("4_p4qp6")
 vertical_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability1" unique_id=2026379521]
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability1" unique_id=1288254315]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Ability2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities" unique_id=1549848426]
+[node name="Ability2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities" unique_id=1396867812]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Ability" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability2" unique_id=1719401322]
+[node name="Ability" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability2" unique_id=1282352219]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability2/Ability" unique_id=966607605]
+[node name="Icon" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability2/Ability" unique_id=1721384181]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 6
 
-[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability2/Ability" unique_id=810022398]
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability2/Ability" unique_id=1668702227]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -577,31 +611,66 @@ text = "Ability 2"
 label_settings = ExtResource("4_p4qp6")
 vertical_alignment = 1
 
-[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Flank/Abilities/Ability2" unique_id=1574741381]
+[node name="Description" type="RichTextLabel" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Vanguard/Abilities/Ability2" unique_id=1212662196]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1137112969]
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1692638652]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1346747836]
+[node name="Squad" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1939153645]
 layout_mode = 2
-size_flags_vertical = 3
-columns = 3
+size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1329957345]
+[node name="Unit1" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1209591690]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit2" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=13969787]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit3" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1772047896]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit4" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=610718470]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit5" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=752428855]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Unit6" type="PanelContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/Squad" unique_id=1132648979]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1804563129]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="Back" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=744752488 instance=ExtResource("6_p4qp6")]
+[node name="Flank_Back" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=628682986 instance=ExtResource("6_p4qp6")]
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("7_rdb4i")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Confirm" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1527737273 instance=ExtResource("6_p4qp6")]
+[node name="Flank_Confirm" parent="MarginContainer/HBoxContainer/rightPanel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=536498831 instance=ExtResource("6_p4qp6")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0

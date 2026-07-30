@@ -35,8 +35,8 @@ func _process(delta: float) -> void:
 		if combatant.target: 
 			ui.display_target(combatant)
 
-func _on_button_pressed(btn_name: String):
-	match btn_name:
+func _on_button_pressed(button):
+	match button:
 		"Move": toggle_state(State.MOVE)
 		"Attack": toggle_state(State.ATTACK)
 		"Abilities": toggle_state(State.ABILITY)
