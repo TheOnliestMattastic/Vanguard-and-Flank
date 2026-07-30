@@ -79,8 +79,13 @@ func _on_button_pressed(button) -> void:
 		"Vanguard_Confirm":
 			if vanguard_select:
 				Manifest.append_roster(vanguard_select, Manifest.Alignment.VANGUARD)
-				print(vanguard_select.name)
+				_refresh_roster(Manifest.Alignment.VANGUARD)
 			else:
 				print(button)
 		
 		_: print(button)
+
+func _refresh_roster(aligment: Manifest.Alignment) -> void:
+	for child in Manifest.roster:
+		if Manifest.roster[child] == aligment:
+			print(child)
