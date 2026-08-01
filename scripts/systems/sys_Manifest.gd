@@ -39,26 +39,28 @@ func add_combatants(actors: Array[Actor]) -> void:
 		combatants[actor]["portrait"].set_actor_hp(actor.data.max_hp)
 
 func append_roster(actor: Portrait, alignment: Alignment) -> void:
+	var roster: Array[Portrait]
 	match alignment:
 		Alignment.VANGUARD:
-			if roster_vanguard.size() < SQUAD_SIZE:
-				roster_vanguard.append(actor)
-		
+			roster = roster_vanguard
 		Alignment.FLANK:
-			if roster_flank.size() < SQUAD_SIZE:
-				roster_flank.append(actor)
+			roster = roster_flank
+	
+	if roster.size() < SQUAD_SIZE:
+		roster.append(actor)
 
 func pop_roster(alignment: Alignment) -> void:
+	var roster: Array[Portrait]
 	match alignment:
 		Alignment.VANGUARD:
-			if not roster_vanguard.is_empty():
-				var last_unit: Portrait = roster_vanguard.back()
-				last_unit.disabled = false
-				roster_vanguard.erase(last_unit)
-		
+			roster = roster_vanguard
 		Alignment.FLANK:
-			if not roster_flank.is_empty():
-				roster_flank.pop_back()
+			roster = roster_flank
+	
+	if not roster.is_empty():
+		var last_unit: Portrait = roster.back()
+		last_unit.disabled = false
+		roster.erase(last_unit)
 
 func remove_from_queue(actor: Actor) -> void:
 	var coords = Vector2i(actor.position / CELL_SIZE)
