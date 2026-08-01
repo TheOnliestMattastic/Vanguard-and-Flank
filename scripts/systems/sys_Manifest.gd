@@ -48,6 +48,7 @@ func append_roster(actor: Portrait, alignment: Alignment) -> void:
 	
 	if roster.size() < SQUAD_SIZE:
 		roster.append(actor)
+		actor.disabled = true
 
 func pop_roster(alignment: Alignment) -> void:
 	var roster: Array[Portrait]

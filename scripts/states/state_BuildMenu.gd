@@ -89,13 +89,10 @@ func _on_button_pressed(button) -> void:
 			if vanguard_select && not vanguard_select.disabled:
 				Manifest.append_roster(vanguard_select, Manifest.Alignment.VANGUARD)
 				_refresh_roster_display(Manifest.Alignment.VANGUARD)
-				# TODO: disable portrait
-				vanguard_select.disabled = true
 		
 		"Vanguard_Back":
 			Manifest.pop_roster(Manifest.Alignment.VANGUARD)
 			_refresh_roster_display(Manifest.Alignment.VANGUARD)
-			# TODO: re-enable portrait
 		
 		_: print(button)
 
