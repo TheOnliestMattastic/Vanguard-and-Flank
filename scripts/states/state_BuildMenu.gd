@@ -84,16 +84,25 @@ func _on_button_pressed(button) -> void:
 		"Vanguard_Confirm":
 			if vanguard_select:
 				Manifest.append_roster(vanguard_select, Manifest.Alignment.VANGUARD)
-				_refresh_roster(Manifest.Alignment.VANGUARD)
-			else:
-				print(button)
+				_refresh_roster_display(Manifest.Alignment.VANGUARD)
+		
+		"Vanguard_Back":
+			Manifest.pop_roster(Manifest.Alignment.VANGUARD)
+			_refresh_roster_display(Manifest.Alignment.VANGUARD)
 		
 		_: print(button)
 
-func _refresh_roster(aligment: Manifest.Alignment) -> void:
-	var unit = 0
-	for child in Manifest.roster:
-		if Manifest.roster[child] == aligment && unit <= 5:
-			var portrait = _create_portrait(child)
-			vanguard_units.get_child(unit).add_child(portrait)
-			unit += 1
+func _refresh_roster_display(aligment: Manifest.Alignment) -> void:
+	match aligment:
+		Manifest.Alignment.VANGUARD:
+			# clear roster display
+			for child in vanguard_units.get_children():
+				if child.get_child_count() > 0:
+					for grandchild in child.get_children():
+						grandchild.queue_free()
+			
+			var unit = 0
+			for child in Manifest.roster_vanguard:
+				var portrait = _create_portrait(child)
+				vanguard_units.get_child(unit).add_child(portrait)
+				unit += 1
