@@ -2,6 +2,7 @@ extends TextureRect
 class_name Portrait
 
 var actor: ActorData
+var disabled: bool = false
 
 # === Health ===
 var health: Health

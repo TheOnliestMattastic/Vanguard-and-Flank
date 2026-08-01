@@ -9,8 +9,8 @@ var astar := AStarGrid2D.new()
 # === Actors config ===
 enum Alignment { VANGUARD, FLANK }
 const SQUAD_SIZE: int = 6
-var roster_vanguard: Array[ActorData]
-var roster_flank: Array[ActorData]
+var roster_vanguard: Array[Portrait]
+var roster_flank: Array[Portrait]
 var combatants: Dictionary
 var portraits: Dictionary
 var queue: Array[Actor]
@@ -38,7 +38,7 @@ func add_combatants(actors: Array[Actor]) -> void:
 		combatants[actor]["portrait"] = portrait
 		combatants[actor]["portrait"].set_actor_hp(actor.data.max_hp)
 
-func append_roster(actor: ActorData, alignment: Alignment) -> void:
+func append_roster(actor: Portrait, alignment: Alignment) -> void:
 	match alignment:
 		Alignment.VANGUARD:
 			if roster_vanguard.size() < SQUAD_SIZE:
@@ -52,7 +52,9 @@ func pop_roster(alignment: Alignment) -> void:
 	match alignment:
 		Alignment.VANGUARD:
 			if not roster_vanguard.is_empty():
-				roster_vanguard.pop_back()
+				var last_unit: Portrait = roster_vanguard.back()
+				last_unit.disabled = false
+				roster_vanguard.erase(last_unit)
 		
 		Alignment.FLANK:
 			if not roster_flank.is_empty():
