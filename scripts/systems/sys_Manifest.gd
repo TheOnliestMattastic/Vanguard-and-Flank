@@ -48,7 +48,7 @@ func append_roster(actor: Portrait, alignment: Alignment) -> void:
 	
 	if roster.size() < SQUAD_SIZE:
 		roster.append(actor)
-		actor.disabled = true
+		actor.toggle_disable()
 
 func pop_roster(alignment: Alignment) -> void:
 	var roster: Array[Portrait]
@@ -60,7 +60,7 @@ func pop_roster(alignment: Alignment) -> void:
 	
 	if not roster.is_empty():
 		var last_unit: Portrait = roster.back()
-		last_unit.disabled = false
+		last_unit.toggle_disable()
 		roster.erase(last_unit)
 
 func remove_from_queue(actor: Actor) -> void:

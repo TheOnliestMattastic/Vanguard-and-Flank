@@ -66,6 +66,11 @@ func _on_portrait_pressed(portrait: Portrait) -> void:
 	if portrait.get_parent() == vanguard.get_node("Actor/HBoxContainer/Portrait"):
 		return
 	
+	# exit if player selects roster portrait
+	if portrait.get_parent().get_parent() == vanguard_units:
+		return
+	
+	# exit if combatant already selected
 	if portrait.disabled:
 		return
 	
@@ -97,16 +102,21 @@ func _on_button_pressed(button) -> void:
 		_: print(button)
 
 func _refresh_roster_display(aligment: Manifest.Alignment) -> void:
+	var roster: Node
+	var manifest: Array
 	match aligment:
 		Manifest.Alignment.VANGUARD:
-			# clear roster display
-			for child in vanguard_units.get_children():
-				if child.get_child_count() > 0:
-					for grandchild in child.get_children():
-						grandchild.queue_free()
-			
-			var unit = 0
-			for child in Manifest.roster_vanguard:
-				var portrait = _create_portrait(child.actor)
-				vanguard_units.get_child(unit).add_child(portrait)
-				unit += 1
+			roster = vanguard_units
+			manifest = Manifest.roster_vanguard
+	
+	# clear roster display
+	for child in roster.get_children():
+		if child.get_child_count() > 0:
+			for grandchild in child.get_children():
+				grandchild.queue_free()
+	
+	var unit = 0
+	for child in manifest:
+		var portrait = _create_portrait(child.actor)
+		roster.get_child(unit).add_child(portrait)
+		unit += 1

@@ -33,3 +33,11 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			EventBus.portrait_pressed.emit(self)
+
+func toggle_disable() -> void:
+	if disabled == true:
+		disabled = false
+		self.modulate = Color(1, 1, 1, 1)
+	else:
+		disabled = true
+		self.modulate = Color(.5, .5, .5, 1)
