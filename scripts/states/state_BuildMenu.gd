@@ -10,6 +10,8 @@ const PORTRAIT: PackedScene = preload("uid://dj5n66q8cooig")
 @onready var rearguards: VBoxContainer = %Rearguards
 @onready var vanguard: VBoxContainer = %Vanguard
 @onready var vanguard_units: HBoxContainer = %Vanguard_Units
+@onready var vanguard_confirm: Button = %Vanguard_Confirm
+@onready var flank_confirm: Button = %Flank_Confirm
 
 func _ready() -> void:
 	EventBus.portrait_pressed.connect(_on_portrait_pressed)
@@ -120,3 +122,17 @@ func _refresh_roster_display(aligment: Manifest.Alignment) -> void:
 		var portrait = _create_portrait(child.actor)
 		roster.get_child(unit).add_child(portrait)
 		unit += 1
+	
+	_toggle_ready_button(aligment, unit == Manifest.SQUAD_SIZE)
+
+func _toggle_ready_button(alignment: Manifest.Alignment, is_ready: bool = true) -> void:
+	var button: Button
+	match alignment:
+		Manifest.Alignment.VANGUARD:
+			button = vanguard_confirm
+		Manifest.Alignment.FLANK:
+			button = flank_confirm
+	if is_ready:
+		button.text = "Ready"
+	else:
+		button.text = "Confirm"
